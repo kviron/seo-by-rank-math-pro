@@ -1,0 +1,9 @@
+ {
+  "name": "kviron/seo-by-rank-math-pro",
+  "type": "wordpress-plugin",
+  "license" : "MIT",
+  "minimum-stability": "stable",
+  "require": {
+    "composer/installers": "~1.0"
+  }
+}
