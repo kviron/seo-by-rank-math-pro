@@ -2,8 +2,8 @@
 # This file is distributed under the same license as the rank-math-pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: RankMath Pro v2.5.0.0\n"
-"POT-Creation-Date: 2021-04-01 11:50+0200\n"
+"Project-Id-Version: RankMath Pro v2.6.0\n"
+"POT-Creation-Date: 2021-04-14 20:49+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Thorsten Wollenhöfer <thorsten.wollenhoefer@gmail.com>\n"
 "Language-Team: Thorsten Wollenhöfer <thorsten.wollenhoefer@gmail.com>\n"
@@ -3554,11 +3554,11 @@ msgstr "Automatische Bildgenerierung für das automatisch erkannte Video."
 msgid "Remove Media Data from RSS feed"
 msgstr "Mediendaten aus dem RSS-Feed entfernen"
 
-#: includes/modules/schema/class-video.php:178
+#: includes/modules/schema/class-video.php:183
 msgid "Generate Video Schema for Old Posts/Pages"
 msgstr "Videoschema für alte Beiträge/Seiten generieren"
 
-#: includes/modules/schema/class-video.php:179
+#: includes/modules/schema/class-video.php:184
 msgid ""
 "Add Video schema to posts which have YouTube or Vimeo Video in the content. "
 "Applies to only those Posts/Pages/CPTs in which Autodetect Video Option is "
@@ -3568,7 +3568,7 @@ msgstr ""
 "im Inhalt haben. Gilt nur für Beiträge/Seiten/CPTs, in denen die Option "
 "„Video automatisch erkennen“ aktiviert ist."
 
-#: includes/modules/schema/class-video.php:180
+#: includes/modules/schema/class-video.php:185
 msgid ""
 "Are you sure you want to add Video Schema to the posts/pages with the video "
 "in the content? This action is irreversible."
@@ -3576,15 +3576,15 @@ msgstr ""
 "Sind Sie sicher, dass Sie das Video-Schema zu den Beiträgen/Seiten mit dem "
 "Video im Inhalt hinzufügen möchten? Diese Aktion ist nicht umkehrbar."
 
-#: includes/modules/schema/class-video.php:181
+#: includes/modules/schema/class-video.php:186
 msgid "Generate"
 msgstr "Generieren"
 
-#: includes/modules/schema/class-video.php:200
+#: includes/modules/schema/class-video.php:205
 msgid "No posts found to convert."
 msgstr "Keine Beiträge zum Konvertieren gefunden."
 
-#: includes/modules/schema/class-video.php:205
+#: includes/modules/schema/class-video.php:210
 msgid ""
 "Conversion started. A success message will be shown here once the process "
 "completes. You can close this page."
@@ -3665,6 +3665,70 @@ msgstr "Verteilung"
 #: includes/modules/schema/shortcode/howto.php:25
 msgid "Total Time"
 msgstr "Gesamtzeit"
+
+#: includes/modules/schema/shortcode/jobposting.php:20
+msgid "Salary"
+msgstr "Gehalt"
+
+#: includes/modules/schema/shortcode/jobposting.php:27
+msgid "Salary Currency"
+msgstr "Gehaltswährung"
+
+#: includes/modules/schema/shortcode/jobposting.php:34
+msgid "Payroll"
+msgstr "Gehaltsabrechnung"
+
+#: includes/modules/schema/shortcode/jobposting.php:41
+msgid "Date Posted"
+msgstr "Datum der Veröffentlichung"
+
+#: includes/modules/schema/shortcode/jobposting.php:48
+msgid "Posting Expiry Date"
+msgstr "Ablaufdatum des Beitrags"
+
+#: includes/modules/schema/shortcode/jobposting.php:55
+msgid "Unpublish when expired"
+msgstr "Veröffentlichung aufheben, wenn sie abgelaufen ist"
+
+#: includes/modules/schema/shortcode/jobposting.php:62
+msgid "Employment Type "
+msgstr "Beschäftigungsart "
+
+#: includes/modules/schema/shortcode/jobposting.php:69
+msgid "Hiring Organization "
+msgstr "Einstellende Organisation "
+
+#: includes/modules/schema/shortcode/jobposting.php:76
+msgid "Organization URL"
+msgstr "URL der Organisation"
+
+#: includes/modules/schema/shortcode/jobposting.php:83
+msgid "Organization Logo"
+msgstr "Logo der Organisation"
+
+#: includes/modules/schema/shortcode/jobposting.php:90
+msgid "Job Type"
+msgstr "Art der Anstellung"
+
+#: includes/modules/schema/shortcode/jobposting.php:106
+msgid "Job Location"
+msgstr "Arbeitsort"
+
+#: includes/modules/schema/shortcode/jobposting.php:114
+msgid "Location"
+msgstr "Standort"
+
+#: includes/modules/schema/shortcode/jobposting.php:130
+msgid "Education Required"
+msgstr "Ausbildung erforderlich"
+
+#: includes/modules/schema/shortcode/jobposting.php:140
+msgid "Experience Required"
+msgstr "Erfahrung erforderlich"
+
+#: includes/modules/schema/shortcode/jobposting.php:141
+msgid "Months"
+msgstr "Monate"
 
 #: includes/modules/schema/shortcode/movie.php:19
 msgid "Director"
@@ -4096,9 +4160,6 @@ msgstr "https://s.rankmath.com/pro"
 
 #~ msgid "Learn more"
 #~ msgstr "Mehr erfahren"
-
-#~ msgid "Post Types:"
-#~ msgstr "Beitragsarten:"
 
 #~ msgid "Attachments"
 #~ msgstr "Dateianhänge"

@@ -123,19 +123,15 @@ class Parser {
 			return [];
 		}
 
-		$default_type = ucfirst( Helper::get_default_schema_type( $this->post->ID ) );
-		if ( ! in_array( $default_type, [ 'Article', 'NewsArticle', 'BlogPosting' ], true ) ) {
+		$default_type = Helper::get_default_schema_type( $this->post->ID, true );
+		if ( ! $default_type ) {
 			return [];
 		}
 
-		return [
-			[
-				'@type'         => $default_type,
-				'metadata'      => [
-					'title'     => 'Article',
-					'type'      => 'template',
-					'isPrimary' => true,
-				],
+		$is_article  = in_array( $default_type, [ 'Article', 'NewsArticle', 'BlogPosting' ], true );
+		$schema_data = [];
+		if ( $is_article ) {
+			$schema_data = [
 				'headline'      => Helper::get_settings( "titles.pt_{$this->post->post_type}_default_snippet_name" ),
 				'description'   => Helper::get_settings( "titles.pt_{$this->post->post_type}_default_snippet_desc" ),
 				'datePublished' => '%date(Y-m-dTH:i:sP)%',
@@ -148,8 +144,17 @@ class Parser {
 					'@type' => 'Person',
 					'name'  => '%name%',
 				],
-			],
+			];
+		}
+
+		$schema_data['@type']    = $default_type;
+		$schema_data['metadata'] = [
+			'title'     => Helper::sanitize_schema_title( $default_type ),
+			'type'      => 'template',
+			'isPrimary' => true,
 		];
+
+		return [ $schema_data ];
 	}
 
 	/**
@@ -260,7 +265,7 @@ class Parser {
 	 * Credits to m1r0 @ https://gist.github.com/m1r0/f22d5237ee93bcccb0d9
 	 */
 	private function save_video_thumbnail( $url ) {
-		if ( ! Helper::get_settings( "titles.pt_{$this->post->post_type}_autogenerate_image" ) ) {
+		if ( ! Helper::get_settings( "titles.pt_{$this->post->post_type}_autogenerate_image", 'off' ) ) {
 			return false;
 		}
 

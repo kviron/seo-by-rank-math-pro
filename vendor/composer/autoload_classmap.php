@@ -48,6 +48,7 @@ return array(
     'RankMathPro\\Analytics\\Workflow\\Workflow' => $baseDir . '/includes/modules/analytics/workflows/class-workflow.php',
     'RankMathPro\\BBPress' => $baseDir . '/includes/modules/bbPress/class-bbpress.php',
     'RankMathPro\\Common' => $baseDir . '/includes/class-common.php',
+    'RankMathPro\\Divi\\Divi' => $baseDir . '/includes/3rdparty/divi/class-divi.php',
     'RankMathPro\\Elementor\\Elementor' => $baseDir . '/includes/3rdparty/elementor/class-elementor.php',
     'RankMathPro\\Elementor\\Widget_Breadcrumbs' => $baseDir . '/includes/3rdparty/elementor/class-widget-breadcrumbs.php',
     'RankMathPro\\Google\\Adsense' => $baseDir . '/includes/modules/analytics/google/class-adsense.php',

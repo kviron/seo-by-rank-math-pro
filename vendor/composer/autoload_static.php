@@ -49,6 +49,7 @@ class ComposerStaticInit0d9f807883abadeb2577675a9c386005
         'RankMathPro\\Analytics\\Workflow\\Workflow' => __DIR__ . '/../..' . '/includes/modules/analytics/workflows/class-workflow.php',
         'RankMathPro\\BBPress' => __DIR__ . '/../..' . '/includes/modules/bbPress/class-bbpress.php',
         'RankMathPro\\Common' => __DIR__ . '/../..' . '/includes/class-common.php',
+        'RankMathPro\\Divi\\Divi' => __DIR__ . '/../..' . '/includes/3rdparty/divi/class-divi.php',
         'RankMathPro\\Elementor\\Elementor' => __DIR__ . '/../..' . '/includes/3rdparty/elementor/class-elementor.php',
         'RankMathPro\\Elementor\\Widget_Breadcrumbs' => __DIR__ . '/../..' . '/includes/3rdparty/elementor/class-widget-breadcrumbs.php',
         'RankMathPro\\Google\\Adsense' => __DIR__ . '/../..' . '/includes/modules/analytics/google/class-adsense.php',

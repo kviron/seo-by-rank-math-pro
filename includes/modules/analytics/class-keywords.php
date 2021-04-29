@@ -86,11 +86,11 @@ class Keywords {
 		global $wpdb;
 
 		// Split keywords.
-		$keywords          = \array_map( 'trim', \explode( ',', $keywords ) );
+		$keywords_to_add   = \array_map( 'trim', \explode( ',', $keywords ) );
 		$keywords_to_check = \array_map( 'mb_strtolower', \explode( ',', $keywords ) );
 
 		// Check if keywords are already exists.
-		$keywords_joined = "'" . join( "', '", \array_map( 'esc_sql', $keywords ) ) . "'";
+		$keywords_joined = "'" . join( "', '", \array_map( 'esc_sql', $keywords_to_add ) ) . "'";
 		$query           = "SELECT keyword FROM {$wpdb->prefix}rank_math_analytics_keyword_manager as km WHERE km.keyword IN ( $keywords_joined )";
 		$data            = $wpdb->get_results( $query ); // phpcs:ignore
 
@@ -98,11 +98,11 @@ class Keywords {
 		foreach ( $data as $row ) {
 			$key = \array_search( mb_strtolower( $row->keyword ), $keywords_to_check, true );
 			if ( false !== $key ) {
-				unset( $keywords[ $key ] );
+				unset( $keywords_to_add[ $key ] );
 			}
 		}
 
-		return $keywords;
+		return $keywords_to_add;
 	}
 
 	/**

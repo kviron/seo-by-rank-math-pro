@@ -17,6 +17,7 @@ use MyThemeShop\Helpers\Param;
 
 // Analytics.
 use RankMathPro\Google\Adsense;
+use RankMath\Google\Permissions;
 use RankMath\Admin\Admin_Helper;
 use RankMathPro\Analytics\Workflow\Jobs;
 use RankMathPro\Analytics\Workflow\Workflow;
@@ -46,10 +47,10 @@ class Analytics {
 		$this->filter( 'rank_math/analytics/check_all_services', 'check_all_services' );
 		$this->filter( 'rank_math/analytics/user_preference', 'change_user_preference' );
 		$this->filter( 'rank_math/admin/settings/analytics', 'add_new_settings' );
-		$this->filter( 'rank_math/analytics/ga_js_url', 'maybe_serve_local_js' );
 		$this->action( 'template_redirect', 'local_js_endpoint' );
-		$this->action( 'wp_enqueue_scripts', 'inline_scripts', 20 );
 		$this->filter( 'rank_math/analytics/gtag_config', 'gtag_config' );
+		$this->filter( 'rank_math/status/rank_math_info', 'google_permission_info' );
+		$this->filter( 'rank_math/analytics/gtag', 'gtag' );
 
 		$this->action( 'cmb2_save_options-page_fields_rank-math-options-general_options', 'sync_global_settings', 25, 2 );
 
@@ -192,7 +193,9 @@ class Analytics {
 			<label for="site-console-country"><?php esc_html_e( 'Country', 'rank-math-pro' ); ?></label>
 			<select class="cmb2_select site-console-country notrack" name="site-console-country" id="site-console-country" disabled="disabled">
 				<?php foreach ( Helper::choices_countries_3() as $code => $label ) : ?>
-					<option value="<?php echo $code; ?>"<?php selected( $profile['country'], $code ); ?>><?php echo $label; ?></option>
+					<option value="<?php echo $code; ?>"<?php selected( $profile['country'], $code ); ?>>
+						<?php echo esc_html( $label ); ?>
+					</option>
 				<?php endforeach; ?>
 			</select>
 		</div>
@@ -209,7 +212,9 @@ class Analytics {
 			<label for="site-analytics-country"><?php esc_html_e( 'Country', 'rank-math-pro' ); ?></label>
 			<select class="cmb2_select site-analytics-country notrack" name="site-analytics-country" id="site-analytics-country" disabled="disabled">
 				<?php foreach ( Helper::choices_countries() as $code => $label ) : ?>
-					<option value="<?php echo $code; ?>"<?php selected( $analytics['country'], $code ); ?>><?php echo $label; ?></option>
+					<option value="<?php echo $code; ?>"<?php selected( $analytics['country'], $code ); ?>>
+						<?php echo esc_html( $label ); ?>
+					</option>
 				<?php endforeach; ?>
 			</select>
 		</div>
@@ -317,22 +322,18 @@ class Analytics {
 	}
 
 	/**
-	 * Replace Analytics JS URL to local one if the option is turned on.
+	 * Get local Analytics JS URL if the option is turned on.
 	 *
-	 * @param string $url Original URL.
-	 * @return string     New URL.
+	 * @return mixed
 	 */
-	public function maybe_serve_local_js( $url ) {
-		$settings = $this->get_settings();
-		if ( $settings['local_ga_js'] ) {
-			$validator_key = 'rank_math_local_ga_js_validator_' . md5( $settings['property_id'] );
-			$validator     = get_transient( $validator_key );
-			if ( ! is_string( $validator ) || empty( $validator ) ) {
-				$validator = '1';
-			}
-			return add_query_arg( 'local_ga_js', $validator, trailingslashit( home_url() ) );
+	public function get_local_gtag_js_url() {
+		$settings      = $this->get_settings();
+		$validator_key = 'rank_math_local_ga_js_validator_' . md5( $settings['property_id'] );
+		$validator     = get_transient( $validator_key );
+		if ( ! is_string( $validator ) || empty( $validator ) ) {
+			$validator = '1';
 		}
-		return $url;
+		return add_query_arg( 'local_ga_js', $validator, trailingslashit( home_url() ) );
 	}
 
 	/**
@@ -380,47 +381,32 @@ class Analytics {
 	}
 
 	/**
-	 * Additional gtag config calls.
+	 * Inline script for the gtag config.
 	 *
 	 * @copyright Copyright (C) Helge Klein
 	 * The following code is a derivative work of the code from Helge Klein (https://wordpress.org/plugins/cookieless-privacy-focused-google-analytics/), which is licensed under GPL v2.
 	 *
-	 * @return void
+	 * @return string
 	 */
-	public function inline_scripts() {
-		if ( is_admin() ) {
-			return;
-		}
-
-		$settings = $this->get_settings();
-		if ( empty( $settings['install_code'] ) ) {
-			return;
-		}
-
-		if ( ! empty( $settings['cookieless_ga'] ) ) {
-			wp_add_inline_script(
-				'google_gtagjs',
-				'const cyrb53 = function(str, seed = 0) {
-	let h1 = 0xdeadbeef ^ seed,
-		h2 = 0x41c6ce57 ^ seed;
-	for (let i = 0, ch; i < str.length; i++) {
-		ch = str.charCodeAt(i);
-		h1 = Math.imul(h1 ^ ch, 2654435761);
-		h2 = Math.imul(h2 ^ ch, 1597334677);
-	}
-	h1 = Math.imul(h1 ^ h1 >>> 16, 2246822507) ^ Math.imul(h2 ^ h2 >>> 13, 3266489909);
-	h2 = Math.imul(h2 ^ h2 >>> 16, 2246822507) ^ Math.imul(h1 ^ h1 >>> 13, 3266489909);
-	return 4294967296 * (2097151 & h2) + (h1 >>> 0);
-};
-
-let clientIP = "' . esc_js( $_SERVER['REMOTE_ADDR'] ) . '";
-let validityInterval = Math.round (new Date() / 1000 / 3600 / 24 / 7);
-let clientIDSource = clientIP + ";" + window.location.host + ";" + navigator.userAgent + ";" + navigator.language + ";" + validityInterval;
-
-window.clientIDHashed = cyrb53(clientIDSource).toString(16);'
-			);
-		}
-
+	public function cookieless_gtag_inline_script() {
+		return 'const cyrb53 = function(str, seed = 0) {
+			let h1 = 0xdeadbeef ^ seed,
+				h2 = 0x41c6ce57 ^ seed;
+			for (let i = 0, ch; i < str.length; i++) {
+				ch = str.charCodeAt(i);
+				h1 = Math.imul(h1 ^ ch, 2654435761);
+				h2 = Math.imul(h2 ^ ch, 1597334677);
+			}
+			h1 = Math.imul(h1 ^ h1 >>> 16, 2246822507) ^ Math.imul(h2 ^ h2 >>> 13, 3266489909);
+			h2 = Math.imul(h2 ^ h2 >>> 16, 2246822507) ^ Math.imul(h1 ^ h1 >>> 13, 3266489909);
+			return 4294967296 * (2097151 & h2) + (h1 >>> 0);
+		};
+		
+		let clientIP = "' . esc_js( $_SERVER['REMOTE_ADDR'] ) . '";
+		let validityInterval = Math.round (new Date() / 1000 / 3600 / 24 / 7);
+		let clientIDSource = clientIP + ";" + window.location.host + ";" + navigator.userAgent + ";" + navigator.language + ";" + validityInterval;
+		
+		window.clientIDHashed = cyrb53(clientIDSource).toString(16);';
 	}
 
 	/**
@@ -441,5 +427,50 @@ window.clientIDHashed = cyrb53(clientIDSource).toString(16);'
 		}
 
 		return $config;
+	}
+
+	/**
+	 * Filter function to add Google permissions used in Pro.
+	 *
+	 * @param array $data Array of System status data.
+	 */
+	public function google_permission_info( $data ) {
+		$data['fields']['permissions']['value'] = array_merge(
+			$data['fields']['permissions']['value'],
+			[
+				esc_html__( 'AdSense', 'rank-math-pro' )   => Permissions::get_status_text( Permissions::has_adsense() ),
+				esc_html__( 'Analytics', 'rank-math-pro' ) => Permissions::get_status_text( Permissions::has_analytics() ),
+			]
+		);
+
+		ksort( $data['fields']['permissions']['value'] );
+		return $data;
+	}
+
+	/**
+	 * Filter inline JS & URL for gtag.js.
+	 *
+	 * @param array $gtag_data Array containing URL & inline code for the gtag script.
+	 * @return array
+	 */
+	public function gtag( $gtag_data ) {
+		if ( is_admin() ) {
+			return $gtag_data;
+		}
+
+		$settings = $this->get_settings();
+		if ( empty( $settings['install_code'] ) ) {
+			return $gtag_data;
+		}
+
+		if ( ! empty( $settings['cookieless_ga'] ) ) {
+			$gtag_data['inline'] = $this->cookieless_gtag_inline_script() . "\n" . $gtag_data['inline'];
+		}
+
+		if ( ! empty( $settings['local_ga_js'] ) ) {
+			$gtag_data['url'] = $this->get_local_gtag_js_url();
+		}
+
+		return $gtag_data;
 	}
 }
