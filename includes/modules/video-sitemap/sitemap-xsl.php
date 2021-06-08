@@ -170,11 +170,20 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 										<xsl:value-of select="video:player_loc"/>
 									</xsl:variable>
 
-									<a href="{$flvURL}"><img src="{$thumbURL}" width="80" height="60" /></a>
+									<a href="{$flvURL}">
+										<xsl:choose>
+											<xsl:when test="$thumbURL != ''">
+												<img src="{$thumbURL}" width="80" height="60" />
+											</xsl:when>
+											<xsl:otherwise>
+												-
+											</xsl:otherwise>
+										</xsl:choose>
+									</a>
 								</td>
 								<td>
 									<xsl:variable name="itemURL">
-										<xsl:value-of select="sitemap:loc"/>
+										<xsl:value-of select="../sitemap:loc"/>
 									</xsl:variable>
 									<a href="{$itemURL}">
 										<xsl:value-of select="video:title"/>

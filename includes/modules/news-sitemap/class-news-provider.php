@@ -248,12 +248,13 @@ class News_Provider extends Post_Type {
 		}
 
 		foreach ( $posts as $key => $post ) {
-			$exclude_terms = Helper::get_settings( "sitemap.news_sitemap_exclude_{$post->post_type}_terms", [] );
+			$exclude_terms = current( Helper::get_settings( "sitemap.news_sitemap_exclude_{$post->post_type}_terms", [] ) );
 			if ( empty( $exclude_terms ) ) {
 				continue;
 			}
 
-			$taxonomies = get_object_taxonomies( $post->post_type, 'names' );
+			$exclude_terms = array_merge( ...array_values( $exclude_terms ) );
+			$taxonomies    = get_object_taxonomies( $post->post_type, 'names' );
 			if ( empty( $taxonomies ) ) {
 				continue;
 			}

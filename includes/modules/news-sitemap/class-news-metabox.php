@@ -29,9 +29,12 @@ class News_Metabox {
 	 * The Constructor.
 	 */
 	public function __construct() {
-		Helper::add_json( 'addNewsTab', $this->can_add_tab() );
-
 		$this->action( 'save_post', 'save_post' );
+		if ( ! Helper::has_cap( 'sitemap' ) ) {
+			return;
+		}
+
+		Helper::add_json( 'addNewsTab', $this->can_add_tab() );
 		$this->action( 'rank_math/metabox/tabs', 'add_tab' );
 		$this->filter( 'rank_math/metabox/post/values', 'add_metadata', 10, 2 );
 	}
@@ -45,20 +48,18 @@ class News_Metabox {
 	 * @return array
 	 */
 	public function add_metadata( $values, $screen ) {
-		if ( Helper::has_cap( 'sitemap' ) ) {
-			$object_id   = $screen->get_object_id();
-			$object_type = $screen->get_object_type();
+		$object_id   = $screen->get_object_id();
+		$object_type = $screen->get_object_type();
 
-			$genres = $screen->get_meta( $object_type, $object_id, 'rank_math_news_sitemap_genres' );
-			$genres = ! empty( $genres ) ? array_fill_keys( $genres, true ) : array_fill_keys( Helper::get_settings( 'sitemap.news_sitemap_default_genres', [] ), true );
-			$robots = $screen->get_meta( $object_type, $object_id, 'rank_math_news_sitemap_robots' );
+		$genres = $screen->get_meta( $object_type, $object_id, 'rank_math_news_sitemap_genres' );
+		$genres = ! empty( $genres ) ? array_fill_keys( $genres, true ) : array_fill_keys( Helper::get_settings( 'sitemap.news_sitemap_default_genres', [] ), true );
+		$robots = $screen->get_meta( $object_type, $object_id, 'rank_math_news_sitemap_robots' );
 
-			$values['newsSitemap'] = [
-				'robots'       => $robots ? $robots : 'index',
-				'genres'       => $genres,
-				'stockTickers' => $screen->get_meta( $object_type, $object_id, 'rank_math_news_sitemap_stock_tickers' ),
-			];
-		}
+		$values['newsSitemap'] = [
+			'robots'       => $robots ? $robots : 'index',
+			'genres'       => $genres,
+			'stockTickers' => $screen->get_meta( $object_type, $object_id, 'rank_math_news_sitemap_stock_tickers' ),
+		];
 
 		return $values;
 	}
@@ -71,15 +72,17 @@ class News_Metabox {
 	 * @return array
 	 */
 	public function add_tab( $tabs ) {
-		if ( $this->can_add_tab() ) {
-			$tabs['news-tab'] = [
-				'icon'       => 'rm-icon rm-icon-post',
-				'title'      => esc_html__( 'News Sitemap', 'rank-math-pro' ),
-				'desc'       => esc_html__( 'This tab contains news sitemap options.', 'rank-math-pro' ),
-				'file'       => dirname( __FILE__ ) . '/metabox.php',
-				'capability' => 'sitemap',
-			];
+		if ( ! $this->can_add_tab() ) {
+			return $tabs;
 		}
+
+		$tabs['news-tab'] = [
+			'icon'       => 'rm-icon rm-icon-post',
+			'title'      => esc_html__( 'News Sitemap', 'rank-math-pro' ),
+			'desc'       => esc_html__( 'This tab contains news sitemap options.', 'rank-math-pro' ),
+			'file'       => dirname( __FILE__ ) . '/metabox.php',
+			'capability' => 'sitemap',
+		];
 
 		return $tabs;
 	}

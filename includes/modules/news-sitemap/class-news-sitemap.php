@@ -52,6 +52,28 @@ class News_Sitemap {
 		$this->filter( 'rank_math/schema/default_type', 'change_default_schema_type', 10, 2 );
 		$this->filter( 'rank_math/sitemap/include_external_image', 'add_external_images_in_sitemap' );
 		$this->filter( 'rank_math/snippet/rich_snippet_article_entity', 'add_copyrights_data' );
+
+		$this->action( 'admin_post_rank-math-options-sitemap', 'save_exclude_terms_data', 9 );
+	}
+
+	/**
+	 * Function to pass empty array to exclude terms data when term is not selected for a Post type.
+	 * This code is needed to save empty group value since CMB2 doesn't allow it.
+	 *
+	 * @since  2.8.1
+	 * @return void
+	 */
+	public function save_exclude_terms_data() {
+		$post_types = Helper::get_settings( 'sitemap.news_sitemap_post_type', [] );
+		if ( empty( $post_types ) ) {
+			return;
+		}
+
+		foreach ( $post_types as $post_type ) {
+			if ( ! isset( $_POST["news_sitemap_exclude_{$post_type}_terms"] ) ) { //phpcs:ignore
+				$_POST["news_sitemap_exclude_{$post_type}_terms"] = []; //phpcs:ignore
+			}
+		}
 	}
 
 	/**

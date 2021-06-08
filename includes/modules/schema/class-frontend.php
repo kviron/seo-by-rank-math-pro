@@ -36,7 +36,7 @@ class Frontend {
 		$this->action( 'rank_math/json_ld', 'validate_schema_data', 999 );
 		$this->action( 'rank_math/json_ld', 'add_subjectof_property', 99 );
 		$this->action( 'rank_math/schema/preview/validate', 'validate_preview_data' );
-		$this->filter( 'rank_math/snippet/rich_snippet_ItemList_entity', 'filter_item_list_schema' );
+		$this->filter( 'rank_math/snippet/rich_snippet_itemlist_entity', 'filter_item_list_schema' );
 		$this->filter( 'rank_math/schema/valid_types', 'valid_types' );
 		$this->filter( 'rank_math/snippet/rich_snippet_product_entity', 'add_manufacturer_property' );
 

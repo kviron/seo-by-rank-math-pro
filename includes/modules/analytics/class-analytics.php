@@ -51,6 +51,8 @@ class Analytics {
 		$this->filter( 'rank_math/analytics/gtag_config', 'gtag_config' );
 		$this->filter( 'rank_math/status/rank_math_info', 'google_permission_info' );
 		$this->filter( 'rank_math/analytics/gtag', 'gtag' );
+		$this->filter( 'rank_math/analytics/pre_filter_data', 'filter_winning_losing_posts', 10, 3 );
+		$this->filter( 'rank_math/analytics/pre_filter_data', 'filter_winning_keywords', 10, 3 );
 
 		$this->action( 'cmb2_save_options-page_fields_rank-math-options-general_options', 'sync_global_settings', 25, 2 );
 
@@ -65,6 +67,7 @@ class Analytics {
 		new Pageviews();
 		new Summary();
 		new Ajax();
+		new Email_Reports();
 	}
 
 	/**
@@ -131,7 +134,10 @@ class Analytics {
 	 * @param Admin_Bar_Menu $menu Menu class instance.
 	 */
 	public function admin_bar_items( $menu ) {
-		if ( is_single() ) {
+		$post_types = Helper::get_accessible_post_types();
+		unset( $post_types['attachment'] );
+
+		if ( is_singular( $post_types ) && Helper::is_post_indexable( get_the_ID() ) ) {
 			$menu->add_sub_menu(
 				'post_analytics',
 				[
@@ -193,7 +199,7 @@ class Analytics {
 			<label for="site-console-country"><?php esc_html_e( 'Country', 'rank-math-pro' ); ?></label>
 			<select class="cmb2_select site-console-country notrack" name="site-console-country" id="site-console-country" disabled="disabled">
 				<?php foreach ( Helper::choices_countries_3() as $code => $label ) : ?>
-					<option value="<?php echo $code; ?>"<?php selected( $profile['country'], $code ); ?>>
+					<option value="<?php echo esc_attr( $code ); ?>"<?php selected( $profile['country'], $code ); ?>>
 						<?php echo esc_html( $label ); ?>
 					</option>
 				<?php endforeach; ?>
@@ -212,7 +218,7 @@ class Analytics {
 			<label for="site-analytics-country"><?php esc_html_e( 'Country', 'rank-math-pro' ); ?></label>
 			<select class="cmb2_select site-analytics-country notrack" name="site-analytics-country" id="site-analytics-country" disabled="disabled">
 				<?php foreach ( Helper::choices_countries() as $code => $label ) : ?>
-					<option value="<?php echo $code; ?>"<?php selected( $analytics['country'], $code ); ?>>
+					<option value="<?php echo esc_attr( $code ); ?>"<?php selected( $analytics['country'], $code ); ?>>
 						<?php echo esc_html( $label ); ?>
 					</option>
 				<?php endforeach; ?>
@@ -289,6 +295,9 @@ class Analytics {
 			$type = 'hidden';
 		}
 
+		$field_ids       = wp_list_pluck( $cmb->prop( 'fields' ), 'id' );
+		$fields_position = array_search( 'console_caching_control', array_keys( $field_ids ), true ) + 1;
+
 		$cmb->add_field(
 			[
 				'id'      => 'sync_global_setting',
@@ -300,7 +309,8 @@ class Analytics {
 					'https://rankmath.com/kb/analytics/'
 				),
 				'default' => 'off',
-			]
+			],
+			++$fields_position
 		);
 	}
 
@@ -472,5 +482,100 @@ class Analytics {
 		}
 
 		return $gtag_data;
+	}
+
+	/**
+	 * Filter winning and losing posts if needed.
+	 *
+	 * @param null  $null Null.
+	 * @param array $data Analytics data array.
+	 * @param array $args Query arguments.
+	 *
+	 * @return mixed
+	 */
+	public function filter_winning_losing_posts( $null, $data, $args ) {
+		$order_by_field = $args['orderBy'];
+		$type           = $args['type'];
+		$objects        = $args['objects'];
+
+		if ( ! in_array( $type, [ 'win', 'lose' ], true ) ) {
+			return $null;
+		}
+
+		// Filter array by $type value.
+		$order_by_position = in_array( $order_by_field, [ 'diffPosition', 'position' ], true ) ? true : false;
+		if ( ( 'win' === $type && $order_by_position ) || ( 'lose' === $type && ! $order_by_position ) ) {
+			$data = array_filter(
+				$data,
+				function( $row ) use ( $order_by_field, $objects ) {
+					if ( $objects ) {
+						// Show Winning posts if difference is 80 or less.
+						return $row[ $order_by_field ] < 0 && $row[ $order_by_field ] > -80;
+					}
+
+					return $row[ $order_by_field ] < 0;
+				}
+			);
+		} elseif ( ( 'lose' === $type && $order_by_position ) || ( 'win' === $type && ! $order_by_position ) ) {
+			$data = array_filter(
+				$data,
+				function( $row ) use ( $order_by_field ) {
+					return $row[ $order_by_field ] > 0;
+				}
+			);
+		}
+
+		$data = $this->finalize_filtered_data( $data, $args );
+
+		return $data;
+	}
+
+	/**
+	 * Filter winning keywords if needed.
+	 *
+	 * @param null  $null Null.
+	 * @param array $data Analytics data array.
+	 * @param array $args Query arguments.
+	 *
+	 * @return mixed
+	 */
+	public function filter_winning_keywords( $null, $data, $args ) {
+		$order_by_field = $args['orderBy'];
+		$dimension      = $args['dimension'];
+
+		if ( 'query' !== $dimension || 'diffPosition' !== $order_by_field || 'ASC' !== $args['order'] ) {
+			return $null;
+		}
+
+		// Filter array by $type value.
+		$data = array_filter(
+			$data,
+			function( $row ) use ( $order_by_field ) {
+				return $row[ $order_by_field ] < 0 && $row[ $order_by_field ] > -80;
+			}
+		);
+
+		$data = $this->finalize_filtered_data( $data, $args );
+
+		return $data;
+	}
+
+	/**
+	 * Sort & limit keywords according to the args.
+	 *
+	 * @param array $data Data rows.
+	 * @param array $args Query args.
+	 *
+	 * @return array
+	 */
+	private function finalize_filtered_data( $data, $args ) {
+		if ( ! empty( $args['order'] ) ) {
+			$sort_base_arr = array_column( $data, $args['orderBy'], $args['dimension'] );
+			array_multisort( $sort_base_arr, 'ASC' === $args['order'] ? SORT_ASC : SORT_DESC, $data );
+		}
+
+		$data = array_slice( $data, $args['offset'], $args['perpage'], true );
+
+		return $data;
 	}
 }

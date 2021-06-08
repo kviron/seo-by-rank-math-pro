@@ -65,6 +65,7 @@ class Parser {
 		$allowed_types = apply_filters( 'media_embedded_in_content_allowed_types', [ 'video', 'embed', 'iframe' ] );
 		$tags          = implode( '|', $allowed_types );
 		$videos        = [];
+
 		preg_match_all( '#<(?P<tag>' . $tags . ')[^<]*?(?:>[\s\S]*?<\/(?P=tag)>|\s*\/>)#', $content, $matches );
 		if ( ! empty( $matches ) && ! empty( $matches[0] ) ) {
 			foreach ( $matches[0] as $html ) {
@@ -165,7 +166,7 @@ class Parser {
 	 * @return array
 	 */
 	private function get_metadata( $html ) {
-		preg_match_all( '@src="([^"]+)"@', $html, $matches );
+		preg_match_all( '@src=[\'"]([^"]+)[\'"]@', $html, $matches );
 		if ( empty( $matches ) || empty( $matches[1] ) ) {
 			return false;
 		}
@@ -189,6 +190,9 @@ class Parser {
 		$networks     = [
 			'Video\Youtube',
 			'Video\Vimeo',
+			'Video\DailyMotion',
+			'Video\TedVideos',
+			'Video\VideoPress',
 			'Video\WordPress',
 		];
 
@@ -273,12 +277,14 @@ class Parser {
 			include_once( ABSPATH . WPINC . '/class-http.php' );
 		}
 
+		$url      = explode( '?', $url )[0];
 		$http     = new \WP_Http();
 		$response = $http->request( $url );
 		if ( 200 !== $response['response']['code'] ) {
 			return false;
 		}
 
+		$url    = strrpos( basename( $url ), '.' ) ? $url : $url . '.jpg';
 		$upload = wp_upload_bits( basename( $url ), null, $response['body'] );
 		if ( ! empty( $upload['error'] ) ) {
 			return false;

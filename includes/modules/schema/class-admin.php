@@ -111,7 +111,6 @@ class Admin {
 	 * Elementor Scipts.
 	 */
 	public function elementor_scripts() {
-		Helper::add_json( 'schemaTemplates', $this->get_schema_templates() );
 		wp_enqueue_style( 'rank-math-schema-pro', RANK_MATH_PRO_URL . 'includes/modules/schema/assets/css/schema.css', null, rank_math_pro()->version );
 		wp_enqueue_script(
 			'rank-math-pro-schema-filters',
@@ -135,13 +134,8 @@ class Admin {
 	 * @return void
 	 */
 	public function admin_scripts() {
-		if ( ! Helper::has_cap( 'onpage_snippet' ) ) {
+		if ( ! $this->can_enqueue_scripts() ) {
 			return;
-		}
-		if ( ! Helper::is_divi_frontend_editor() ) {
-			if ( ! is_admin() || ! Admin_Helper::is_post_edit() || Admin_Helper::is_posts_page() ) {
-				return;
-			}
 		}
 
 		$post = get_post();
@@ -344,6 +338,32 @@ class Admin {
 		}
 
 		return $templates;
+	}
+
+	/**
+	 * Whether to enqueue schema scripts on the page.
+	 *
+	 * @return bool
+	 */
+	private function can_enqueue_scripts() {
+		if ( ! Helper::has_cap( 'onpage_snippet' ) ) {
+			return false;
+		}
+
+		if ( ! Helper::is_divi_frontend_editor() && ! is_admin() ) {
+			return false;
+		}
+
+		if ( Admin_Helper::is_term_edit() ) {
+			$taxonomy = Param::request( 'taxonomy' );
+			return true !== apply_filters(
+				'rank_math/snippet/remove_taxonomy_data',
+				Helper::get_settings( 'titles.remove_' . $taxonomy . '_snippet_data' ),
+				$taxonomy
+			);
+		}
+
+		return Admin_Helper::is_post_edit() && ! Admin_Helper::is_posts_page();
 	}
 
 	/**
