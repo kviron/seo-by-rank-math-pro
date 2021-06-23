@@ -43,10 +43,8 @@ class Admin {
 
 		new Taxonomy();
 
-		if ( 'elementor' === Param::get( 'action' ) ) {
-			$this->action( 'elementor/editor/before_enqueue_scripts', 'elementor_scripts', 9 );
-			$this->action( 'elementor/editor/before_enqueue_scripts', 'overwrite_wplink', 99 );
-		}
+		$this->action( 'wp_footer', 'enqueue', 11 );
+		$this->action( 'elementor/editor/before_enqueue_scripts', 'enqueue', 9 );
 	}
 
 	/**
@@ -110,7 +108,11 @@ class Admin {
 	/**
 	 * Elementor Scipts.
 	 */
-	public function elementor_scripts() {
+	public function enqueue() {
+		if ( ! Helper::is_elementor_editor() && ! Helper::is_divi_frontend_editor() ) {
+			return;
+		}
+
 		wp_enqueue_style( 'rank-math-schema-pro', RANK_MATH_PRO_URL . 'includes/modules/schema/assets/css/schema.css', null, rank_math_pro()->version );
 		wp_enqueue_script(
 			'rank-math-pro-schema-filters',

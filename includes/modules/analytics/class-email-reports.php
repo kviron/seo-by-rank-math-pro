@@ -15,6 +15,7 @@ use RankMath\Helper;
 use RankMath\Traits\Hooker;
 use RankMath\Analytics\Stats;
 use RankMath\Admin\Admin_Helper;
+use RankMath\Google\Authentication;
 use RankMath\Analytics\Email_Reports as Email_Reports_Base;
 
 use RankMathPro\Admin\Admin_Helper as ProAdminHelper;
@@ -49,7 +50,7 @@ class Email_Reports {
 		$this->assets_url = plugin_dir_url( __FILE__ ) . 'assets/';
 
 		// CMB hooks.
-		$this->action( 'cmb2_init_hookup_rank-math-options-general_options', 'add_options', 130 );
+		$this->action( 'rank_math/admin/settings/analytics', 'add_options' );
 
 		// WP hooks.
 		$this->filter( 'admin_post_rank_math_save_wizard', 'save_wizard' );
@@ -121,9 +122,14 @@ class Email_Reports {
 		$period = Email_Reports_Base::get_period_from_frequency();
 		Stats::get()->set_date_range( "-{$period} days" );
 
-		$keywords                      = Keywords::get();
-		$variables['winning_keywords'] = $keywords->get_winning_keywords();
-		$variables['losing_keywords']  = $keywords->get_losing_keywords();
+		$keywords = Keywords::get();
+		if ( Email_Reports_Base::get_setting( 'tracked_keywords', false ) ) {
+			$variables['winning_keywords'] = $keywords->get_tracked_winning_keywords();
+			$variables['losing_keywords']  = $keywords->get_tracked_losing_keywords();
+		} else {
+			$variables['winning_keywords'] = $keywords->get_winning_keywords();
+			$variables['losing_keywords']  = $keywords->get_losing_keywords();
+		}
 
 		$posts                      = Posts::get();
 		$variables['winning_posts'] = $posts->get_winning_posts();
@@ -138,22 +144,48 @@ class Email_Reports {
 	 * @param object $cmb CMB object.
 	 */
 	public function add_options( $cmb ) {
+		if ( ! Authentication::is_authorized() || Email_Reports_Base::are_fields_hidden() ) {
+			return;
+		}
+
 		$is_business = ProAdminHelper::is_business_plan();
 
 		// Add Frequency options.
-		$frequency_field                                   = $cmb->get_field( 'console_email_frequency' );
-		$frequency_field->args['options']['every_15_days'] = esc_html__( 'Every 15 Days', 'rank-math-pro' );
-		if ( $is_business ) {
-			$frequency_field->args['options']['weekly'] = esc_html__( 'Every 7 Days', 'rank-math-pro' );
-		}
+		$frequency_field = $cmb->get_field( 'console_email_frequency' );
 
-		if ( ! $is_business ) {
+		// Early bail if the console_email_frequency field does not exist.
+		if ( empty( $frequency_field ) ) {
 			return;
 		}
+
+		$frequency_field->args['options']['every_15_days'] = esc_html__( 'Every 15 Days', 'rank-math-pro' );
 
 		$field_ids       = wp_list_pluck( $cmb->prop( 'fields' ), 'id' );
 		$fields_position = array_search( 'console_email_frequency', array_keys( $field_ids ), true ) + 1;
 
+		if ( $is_business ) {
+			$frequency_field->args['options']['weekly'] = esc_html__( 'Every 7 Days', 'rank-math-pro' );
+		} else {
+			/**
+			 * This field is repeated further down, to insert it in the correct
+			 * position when the account type is Business.
+			 */
+			$cmb->add_field(
+				[
+					'id'          => 'console_email_tracked_keywords',
+					'type'        => 'toggle',
+					'name'        => __( 'Include Only Tracked Keywords', 'rank-math-pro' ),
+					'description' => __( 'When enabled, the Winning Keywords section will only show Tracked Keywords.', 'rank-math-pro' ),
+					'default'     => 'off',
+					'dep'         => [ [ 'console_email_reports', 'on' ] ],
+				],
+				++$fields_position
+			);
+
+			return;
+		}
+
+		// Business options from here on.
 		$cmb->add_field(
 			[
 				'id'          => 'console_email_send_to',
@@ -162,9 +194,6 @@ class Email_Reports {
 				'description' => __( 'Address where the reports will be sent. You can add multiple recipients separated with commas.', 'rank-math-pro' ),
 				'default'     => Admin_Helper::get_registration_data()['email'],
 				'dep'         => [ [ 'console_email_reports', 'on' ] ],
-
-				// 'dep' compatibility.
-				'after_field' => '<div class="rank-math-cmb-dependency hidden" data-relation="or"><span class="hidden" data-field="console_email_reports" data-comparison="=" data-value="on"></span></div>',
 			],
 			++$fields_position
 		);
@@ -177,9 +206,6 @@ class Email_Reports {
 				'description' => __( 'Subject of the report emails.', 'rank-math-pro' ),
 				'default'     => $this->get_subject_default(),
 				'dep'         => [ [ 'console_email_reports', 'on' ] ],
-
-				// 'dep' compatibility.
-				'after_field' => '<div class="rank-math-cmb-dependency hidden" data-relation="or"><span class="hidden" data-field="console_email_reports" data-comparison="=" data-value="on"></span></div>',
 			],
 			++$fields_position
 		);
@@ -193,9 +219,6 @@ class Email_Reports {
 				'default'     => $this->get_logo_url_default(),
 				'options'     => [ 'url' => false ],
 				'dep'         => [ [ 'console_email_reports', 'on' ] ],
-
-				// 'dep' compatibility.
-				'after_field' => '<div class="rank-math-cmb-dependency hidden" data-relation="or"><span class="hidden" data-field="console_email_reports" data-comparison="=" data-value="on"></span></div>',
 			],
 			++$fields_position
 		);
@@ -208,9 +231,6 @@ class Email_Reports {
 				'description' => __( 'URL where the logo link should point to.', 'rank-math-pro' ),
 				'default'     => KB::get( 'email-reports-logo' ),
 				'dep'         => [ [ 'console_email_reports', 'on' ] ],
-
-				// 'dep' compatibility.
-				'after_field' => '<div class="rank-math-cmb-dependency hidden" data-relation="or"><span class="hidden" data-field="console_email_reports" data-comparison="=" data-value="on"></span></div>',
 			],
 			++$fields_position
 		);
@@ -224,8 +244,8 @@ class Email_Reports {
 				'default'     => $this->get_header_bg_default(),
 				'dep'         => [ [ 'console_email_reports', 'on' ] ],
 
-				// 'dep' compatibility & instant preview.
-				'after_field' => $this->get_bg_preview() . '<div class="rank-math-cmb-dependency hidden" data-relation="or"><span class="hidden" data-field="console_email_reports" data-comparison="=" data-value="on"></span></div>',
+				// Instant preview.
+				'after_field' => $this->get_bg_preview(),
 			],
 			++$fields_position
 		);
@@ -238,9 +258,6 @@ class Email_Reports {
 				'description' => __( 'Select whether to include a link to the Full Report admin page in the email or not.', 'rank-math-pro' ),
 				'default'     => 'on',
 				'dep'         => [ [ 'console_email_reports', 'on' ] ],
-
-				// 'dep' compatibility.
-				'after_field' => '<div class="rank-math-cmb-dependency hidden" data-relation="or"><span class="hidden" data-field="console_email_reports" data-comparison="=" data-value="on"></span></div>',
 			],
 			++$fields_position
 		);
@@ -253,9 +270,6 @@ class Email_Reports {
 				'description' => __( 'Text or basic HTML to insert below the title.', 'rank-math-pro' ),
 				'default'     => '',
 				'dep'         => [ [ 'console_email_reports', 'on' ] ],
-
-				// 'dep' compatibility.
-				'after_field' => '<div class="rank-math-cmb-dependency hidden" data-relation="or"><span class="hidden" data-field="console_email_reports" data-comparison="=" data-value="on"></span></div>',
 			],
 			++$fields_position
 		);
@@ -264,7 +278,7 @@ class Email_Reports {
 			[
 				'id'                => 'console_email_sections',
 				'type'              => 'multicheck',
-				'name'              => esc_html__( 'Include Data', 'rank-math-pro' ),
+				'name'              => esc_html__( 'Include Sections', 'rank-math-pro' ),
 				'desc'              => esc_html__( 'Select which tables to show in the report.', 'rank-math-pro' ),
 				'options'           => [
 					'summary'          => __( 'Basic Summary', 'rank-math-pro' ),
@@ -277,9 +291,22 @@ class Email_Reports {
 				'default'           => [ 'summary', 'positions', 'winning_posts', 'winning_keywords', 'losing_keywords' ],
 				'select_all_button' => true,
 				'dep'               => [ [ 'console_email_reports', 'on' ] ],
+			],
+			++$fields_position
+		);
 
-				// 'dep' compatibility.
-				'after_field'       => '<div class="rank-math-cmb-dependency hidden" data-relation="or"><span class="hidden" data-field="console_email_reports" data-comparison="=" data-value="on"></span></div>',
+		/**
+		 * This field is also added for non-business accounts at the beginning
+		 * of this function.
+		 */
+		$cmb->add_field(
+			[
+				'id'          => 'console_email_tracked_keywords',
+				'type'        => 'toggle',
+				'name'        => __( 'Include Only Tracked Keywords', 'rank-math-pro' ),
+				'description' => __( 'When enabled, the Winning Keywords and Losing Keywords sections will only show Tracked Keywords.', 'rank-math-pro' ),
+				'default'     => 'off',
+				'dep'         => [ [ 'console_email_reports', 'on' ] ],
 			],
 			++$fields_position
 		);
@@ -292,9 +319,6 @@ class Email_Reports {
 				'description' => __( 'Text or basic HTML to insert in the footer area.', 'rank-math-pro' ),
 				'default'     => $this->get_default_footer_text(),
 				'dep'         => [ [ 'console_email_reports', 'on' ] ],
-
-				// 'dep' compatibility.
-				'after_field' => '<div class="rank-math-cmb-dependency hidden" data-relation="or"><span class="hidden" data-field="console_email_reports" data-comparison="=" data-value="on"></span></div>',
 			],
 			++$fields_position
 		);
@@ -307,9 +331,6 @@ class Email_Reports {
 				'description' => __( 'Additional CSS code to customize the appearance of the reports. Insert the CSS code directly, without the wrapping style tag. Please note that the CSS support is limited in email clients and the appearance may vary greatly.', 'rank-math-pro' ),
 				'default'     => '',
 				'dep'         => [ [ 'console_email_reports', 'on' ] ],
-
-				// 'dep' compatibility.
-				'after_field' => '<div class="rank-math-cmb-dependency hidden" data-relation="or"><span class="hidden" data-field="console_email_reports" data-comparison="=" data-value="on"></span></div>',
 			],
 			++$fields_position
 		);

@@ -13,8 +13,9 @@ namespace RankMathPro\Sitemap;
 use RankMath\Helper;
 use RankMath\Traits\Hooker;
 use RankMath\Admin\Admin_Helper;
-use MyThemeShop\Helpers\WordPress;
 use RankMath\Sitemap\Cache_Watcher;
+use MyThemeShop\Helpers\Param;
+use MyThemeShop\Helpers\WordPress;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -29,14 +30,47 @@ class News_Metabox {
 	 * The Constructor.
 	 */
 	public function __construct() {
-		$this->action( 'save_post', 'save_post' );
 		if ( ! Helper::has_cap( 'sitemap' ) ) {
 			return;
 		}
 
-		Helper::add_json( 'addNewsTab', $this->can_add_tab() );
+		$this->action( 'save_post', 'save_post' );
+		$hook = 'elementor' === Param::get( 'action' ) ? 'elementor/editor/before_enqueue_scripts' : ( Param::get( 'et_fb' ) ? 'wp_footer' : 'rank_math/admin/enqueue_scripts' );
+		$this->action( $hook, 'enqueue_news_sitemap', 11 );
 		$this->action( 'rank_math/metabox/tabs', 'add_tab' );
 		$this->filter( 'rank_math/metabox/post/values', 'add_metadata', 10, 2 );
+	}
+
+	/**
+	 * Enqueue scripts for the metabox.
+	 */
+	public function enqueue_news_sitemap() {
+		if ( ! $this->can_add_tab() ) {
+			return;
+		}
+
+		$is_gutenberg = Helper::is_block_editor() && \rank_math_is_gutenberg();
+		$is_elementor = Helper::is_elementor_editor();
+		$is_divi      = Helper::is_divi_frontend_editor();
+		if ( ! $is_gutenberg && ! $is_elementor && ! $is_divi ) {
+			return;
+		}
+
+		$dep = $is_elementor
+			? [ 'rank-math-pro-elementor' ]
+			: (
+				$is_divi
+				? [ 'rank-math-pro-divi' ]
+				: [ 'rank-math-pro-gutenberg' ]
+			);
+
+		wp_enqueue_script(
+			'rank-math-pro-news',
+			RANK_MATH_PRO_URL . 'includes/modules/news-sitemap/assets/js/news-sitemap.js',
+			$dep,
+			rank_math_pro()->version,
+			true
+		);
 	}
 
 	/**
@@ -50,15 +84,10 @@ class News_Metabox {
 	public function add_metadata( $values, $screen ) {
 		$object_id   = $screen->get_object_id();
 		$object_type = $screen->get_object_type();
-
-		$genres = $screen->get_meta( $object_type, $object_id, 'rank_math_news_sitemap_genres' );
-		$genres = ! empty( $genres ) ? array_fill_keys( $genres, true ) : array_fill_keys( Helper::get_settings( 'sitemap.news_sitemap_default_genres', [] ), true );
-		$robots = $screen->get_meta( $object_type, $object_id, 'rank_math_news_sitemap_robots' );
+		$robots      = $screen->get_meta( $object_type, $object_id, 'rank_math_news_sitemap_robots' );
 
 		$values['newsSitemap'] = [
-			'robots'       => $robots ? $robots : 'index',
-			'genres'       => $genres,
-			'stockTickers' => $screen->get_meta( $object_type, $object_id, 'rank_math_news_sitemap_stock_tickers' ),
+			'robots' => $robots ? $robots : 'index',
 		];
 
 		return $values;

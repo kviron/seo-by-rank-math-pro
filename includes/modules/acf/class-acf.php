@@ -25,7 +25,7 @@ class ACF {
 	 */
 	public function __construct() {
 		$this->action( 'rank_math/sitemap/urlimages', 'add_acf_images', 10, 2 );
-		$this->filter( 'rank_math/admin/settings/general', 'acf_sitemap_settings' );
+		$this->action( 'rank_math/admin/settings/general', 'acf_sitemap_settings' );
 	}
 
 	/**

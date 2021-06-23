@@ -21,23 +21,6 @@ $cmb->add_field(
 	]
 );
 
-$cmb->add_field(
-	[
-		'id'      => 'news_sitemap_default_genres',
-		'type'    => 'multicheck',
-		'options' => [
-			'blog'          => esc_html__( 'Blog', 'rank-math-pro' ),
-			'pressrelease'  => esc_html__( 'Press Release', 'rank-math-pro' ),
-			'satire'        => esc_html__( 'Satire', 'rank-math-pro' ),
-			'oped'          => esc_html__( 'Op-Ed', 'rank-math-pro' ),
-			'opinion'       => esc_html__( 'Opinion', 'rank-math-pro' ),
-			'usergenerated' => esc_html__( 'User Generated', 'rank-math-pro' ),
-		],
-		'name'    => esc_html__( 'Default Genres', 'rank-math-pro' ),
-		'desc'    => esc_html__( 'Label(s) characterizing the content of the article.', 'rank-math-pro' ),
-	]
-);
-
 $post_types = Helper::choices_post_types();
 if ( isset( $post_types['attachment'] ) && Helper::get_settings( 'general.attachment_redirect_urls', true ) ) {
 	unset( $post_types['attachment'] );

@@ -241,17 +241,12 @@ class Divi {
 	 */
 	private function add_global_json_data() {
 		$id     = get_the_ID();
-		$genres = $this->get_meta( 'post', $id, 'rank_math_news_sitemap_genres' );
-		$genres = ! empty( $genres ) ? array_fill_keys( $genres, true ) : array_fill_keys( Helper::get_settings( 'sitemap.news_sitemap_default_genres', [] ), true );
 		$robots = $this->get_meta( 'post', $id, 'rank_math_news_sitemap_robots' );
 
-		Helper::add_json( 'addNewsTab', $this->can_add_tab() );
 		Helper::add_json(
 			'newsSitemap',
 			[
-				'robots'       => $robots ? $robots : 'index',
-				'genres'       => $genres,
-				'stockTickers' => $this->get_meta( 'post', $id, 'rank_math_news_sitemap_stock_tickers' ),
+				'robots' => $robots ? $robots : 'index',
 			]
 		);
 	}

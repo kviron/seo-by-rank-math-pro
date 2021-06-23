@@ -2,8 +2,8 @@
 # This file is distributed under the same license as the rank-math-pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: RankMath Pro v2.7.0\n"
-"POT-Creation-Date: 2021-04-28 20:30+0200\n"
+"Project-Id-Version: RankMath Pro v2.10.0\n"
+"POT-Creation-Date: 2021-06-16 16:38+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Thorsten Wollenhöfer <thorsten.wollenhoefer@gmail.com>\n"
 "Language-Team: Thorsten Wollenhöfer <thorsten.wollenhoefer@gmail.com>\n"
@@ -17,30 +17,30 @@ msgstr ""
 "esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 2.4.3\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: includes/3rdparty/divi/class-divi.php:347
+#: includes/3rdparty/divi/class-divi.php:342
 msgid "Rank Math FAQ Schema"
 msgstr "Rank Math FAQ Schema"
 
-#: includes/3rdparty/divi/class-divi.php:376
+#: includes/3rdparty/divi/class-divi.php:371
 #: includes/3rdparty/elementor/class-elementor.php:53
 msgid "Add FAQ Schema Markup"
 msgstr "FAQ-Schema-Auszeichnung hinzufügen"
 
-#: includes/3rdparty/divi/class-divi.php:377
+#: includes/3rdparty/divi/class-divi.php:372
 #: includes/3rdparty/elementor/class-elementor.php:56
 msgid "Added by the Rank Math SEO Plugin."
 msgstr "Hinzugefügt durch das Rank Math SEO Plugin."
 
-#: includes/3rdparty/divi/class-divi.php:383
+#: includes/3rdparty/divi/class-divi.php:378
 #: includes/modules/local-seo/views/titles-options.php:491
 msgid "Yes"
 msgstr "Ja"
 
-#: includes/3rdparty/divi/class-divi.php:384
+#: includes/3rdparty/divi/class-divi.php:379
 #: includes/modules/local-seo/views/titles-options.php:490
 msgid "No"
 msgstr "Nein"
@@ -116,79 +116,84 @@ msgstr "Hover"
 msgid "Color"
 msgstr "Farbe"
 
-#: includes/admin/class-admin.php:81
+#: includes/admin/class-admin.php:79
 msgid "Special Sitemaps:"
 msgstr "Spezielle Sitemaps:"
 
 #: includes/admin/class-bulk-actions.php:59
-#: includes/admin/class-bulk-actions.php:85
+#: includes/admin/class-bulk-actions.php:86
+msgid "&#8595; Rank Math"
+msgstr "&#8595; Rank Math"
+
+#: includes/admin/class-bulk-actions.php:60
+#: includes/admin/class-bulk-actions.php:87
 msgid "Set to noindex"
 msgstr "Auf „noindex“ festlegen"
 
-#: includes/admin/class-bulk-actions.php:60
-#: includes/admin/class-bulk-actions.php:86
+#: includes/admin/class-bulk-actions.php:61
+#: includes/admin/class-bulk-actions.php:88
 msgid "Set to index"
 msgstr "Auf „index“ festlegen"
 
-#: includes/admin/class-bulk-actions.php:61
-#: includes/admin/class-bulk-actions.php:87
+#: includes/admin/class-bulk-actions.php:62
+#: includes/admin/class-bulk-actions.php:89
 msgid "Set to nofollow"
 msgstr "Auf „nofollow“ festlegen"
 
-#: includes/admin/class-bulk-actions.php:62
-#: includes/admin/class-bulk-actions.php:88
+#: includes/admin/class-bulk-actions.php:63
+#: includes/admin/class-bulk-actions.php:90
 msgid "Set to follow"
 msgstr "Auf „follow“ festlegen"
 
-#: includes/admin/class-bulk-actions.php:63
+#: includes/admin/class-bulk-actions.php:64
 msgid "Remove custom canonical URL"
 msgstr "Benutzerdefinierte kanonische URL entfernen"
 
-#: includes/admin/class-bulk-actions.php:65
-#: includes/admin/class-bulk-actions.php:90
+#: includes/admin/class-bulk-actions.php:66
+#: includes/admin/class-bulk-actions.php:92
 msgid "Redirect"
 msgstr "Umleiten"
 
-#: includes/admin/class-bulk-actions.php:66
-#: includes/admin/class-bulk-actions.php:91
+#: includes/admin/class-bulk-actions.php:67
+#: includes/admin/class-bulk-actions.php:93
 msgid "Remove redirection"
 msgstr "Umleitung entfernen"
 
-#: includes/admin/class-bulk-actions.php:69
+#: includes/admin/class-bulk-actions.php:70
 msgid "Set Schema: None"
 msgstr "Schema festlegen: Keines"
 
-#: includes/admin/class-bulk-actions.php:73
+#: includes/admin/class-bulk-actions.php:74
 #, php-format
 msgid "Set Schema: Default (%s)"
 msgstr "Schema festlegen: Voreinstellung (%s)"
 
-#: includes/admin/class-bulk-actions.php:161
-#: includes/admin/class-bulk-actions.php:314
+#: includes/admin/class-bulk-actions.php:163
+#: includes/admin/class-bulk-actions.php:316
 #, php-format
 msgid "Robots meta edited for %1$d %2$s."
 msgstr "Roboter-Meta bearbeitet für %1$d %2$s."
 
-#: includes/admin/class-bulk-actions.php:183
-#: includes/admin/class-bulk-actions.php:336
+#: includes/admin/class-bulk-actions.php:185
+#: includes/admin/class-bulk-actions.php:338
 #, php-format
 msgid "%d redirection moved to Trash."
 msgid_plural "%d redirections moved to Trash."
 msgstr[0] "%d Umleitung in den Papierkorb verschoben."
 msgstr[1] "%d Umleitungen in den Papierkorb verschoben."
 
-#: includes/admin/class-bulk-actions.php:197
-#: includes/admin/class-bulk-actions.php:211
+#: includes/admin/class-bulk-actions.php:199
+#: includes/admin/class-bulk-actions.php:213
 #, php-format
 msgid "Schema edited for %1$d %2$s."
 msgstr "Schema bearbeitet für %1$d %2$s."
 
-#: includes/admin/class-bulk-actions.php:226
+#: includes/admin/class-bulk-actions.php:228
 #, php-format
 msgid "Custom Canonical URL removed from %1$d %2$s."
 msgstr "Benutzerdefinierte kanonische URL von %1$d %2$s entfernt."
 
-#: includes/admin/class-bulk-actions.php:387
+#: includes/admin/class-bulk-actions.php:389
 msgid ""
 "Are you sure you want to change the Schema type for the selected posts? "
 "Doing so may irreversibly delete the existing Schema data."
@@ -216,21 +221,22 @@ msgstr ""
 msgid "Example: /get/"
 msgstr "Beispiel: /get/"
 
-#: includes/admin/class-media-filters.php:52
+#: includes/admin/class-media-filters.php:56
+#: includes/admin/class-media-filters.php:70
+msgid "Rank Math SEO Filters"
+msgstr "Rank Math SEO Filter"
+
+#: includes/admin/class-media-filters.php:181
 msgid "Missing alt tag"
 msgstr "Fehlendes alt-Tag"
 
-#: includes/admin/class-media-filters.php:53
+#: includes/admin/class-media-filters.php:182
 msgid "Missing or default title tag"
 msgstr "Fehlendes oder Standardtitel-Tag"
 
-#: includes/admin/class-media-filters.php:54
+#: includes/admin/class-media-filters.php:183
 msgid "Missing caption"
 msgstr "Fehlende Bildunterschrift"
-
-#: includes/admin/class-media-filters.php:56
-msgid "SEO Filters"
-msgstr "SEO-Filter"
 
 #: includes/admin/class-post-filters.php:47
 msgid "Custom Canonical URL"
@@ -340,7 +346,7 @@ msgid "FactCheck"
 msgstr "Fakten-Check"
 
 #: includes/admin/class-post-filters.php:311
-#: includes/admin/class-redirection.php:751
+#: includes/modules/redirections/class-redirections-pro.php:756
 msgid "Clear Filter"
 msgstr "Filter leeren"
 
@@ -412,151 +418,6 @@ msgstr "Primär %s"
 #: includes/admin/class-quick-edit.php:264
 msgid "&mdash; Not Selected &mdash;"
 msgstr "&mdash; Nicht ausgewählt &mdash;"
-
-#: includes/admin/class-redirection.php:77
-#: includes/admin/class-redirection.php:83
-msgid "Sync to .htaccess"
-msgstr "Mit .htaccess synchronisieren"
-
-#: includes/admin/class-redirection.php:79
-msgid "Copy all active redirections to the .htaccess file."
-msgstr "Kopieren Sie alle aktiven Umleitungen in die .htaccess-Datei."
-
-#: includes/admin/class-redirection.php:100
-#: includes/admin/csv-import-export/class-csv-import-export.php:116
-#: includes/admin/csv-import-export/class-csv-import-export.php:147
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:203
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:229
-msgid "Invalid nonce."
-msgstr "Ungültiges „nonce“."
-
-#: includes/admin/class-redirection.php:103
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:206
-msgid "Sorry, you are not allowed to export redirections on this site."
-msgstr ""
-"Es ist Ihnen leider nicht gestattet, Weiterleitungen auf dieser Website zu "
-"exportieren."
-
-#: includes/admin/class-redirection.php:108
-msgid ""
-"The redirections could not be synced because the .htaccess file does not "
-"exist or it is not writable."
-msgstr ""
-"Die Umleitungen konnten nicht synchronisiert werden, weil die .htaccess-"
-"Datei nicht existiert oder nicht beschreibbar ist."
-
-#: includes/admin/class-redirection.php:113
-msgid "No valid redirection found."
-msgstr "Es wurde keine gültige Umleitung gefunden."
-
-#: includes/admin/class-redirection.php:121
-msgid "Redirections successfully synced to the .htaccess file."
-msgstr "Umleitungen wurden erfolgreich mit der .htaccess-Datei synchronisiert."
-
-#: includes/admin/class-redirection.php:302
-#: includes/admin/class-redirection.php:490
-msgid "Manage Categories"
-msgstr "Kategorien verwalten"
-
-#: includes/admin/class-redirection.php:389
-msgctxt "taxonomy general name"
-msgid "Redirection Categories"
-msgstr "Umleitungskategorien"
-
-#: includes/admin/class-redirection.php:390
-msgctxt "taxonomy singular name"
-msgid "Redirection Category"
-msgstr "Umleitungskategorie"
-
-#: includes/admin/class-redirection.php:391
-msgid "Search Redirection Categories"
-msgstr "Umleitungskategorien durchsuchen"
-
-#: includes/admin/class-redirection.php:392
-msgid "All Redirection Categories"
-msgstr "Alle Umleitungskategorien"
-
-#: includes/admin/class-redirection.php:393
-#: includes/modules/local-seo/class-local-seo.php:194
-msgid "Parent Category"
-msgstr "Übergeordnete Kategorie"
-
-#: includes/admin/class-redirection.php:394
-#: includes/modules/local-seo/class-local-seo.php:195
-msgid "Parent Category:"
-msgstr "Übergeordnete Kategorie:"
-
-#: includes/admin/class-redirection.php:395
-msgid "Edit Category"
-msgstr "Bearbeite Kategorie"
-
-#: includes/admin/class-redirection.php:396
-msgid "Update Category"
-msgstr "Kategorie aktualisieren"
-
-#: includes/admin/class-redirection.php:397
-msgid "Add New Category"
-msgstr "Neue Kategorie hinzufügen"
-
-#: includes/admin/class-redirection.php:398
-msgid "New Category Name"
-msgstr "Name der neuen Kategorie"
-
-#: includes/admin/class-redirection.php:399
-msgid "Redirection Categories"
-msgstr "Umleitungskategorien"
-
-#: includes/admin/class-redirection.php:432
-msgid "Add to Category"
-msgstr "Zur Kategorie hinzufügen"
-
-#: includes/admin/class-redirection.php:459
-msgid "No valid ID provided."
-msgstr "Keine gültige ID angegeben."
-
-#: includes/admin/class-redirection.php:468
-#, php-format
-msgid "%d redirections have been assigned to the category."
-msgstr "%d Umleitungen wurden der Kategorie zugeordnet."
-
-#: includes/admin/class-redirection.php:488
-msgid "Add New"
-msgstr "Erstellen"
-
-#: includes/admin/class-redirection.php:489
-msgid "New Category"
-msgstr "Neue Kategorie"
-
-#: includes/admin/class-redirection.php:513
-msgid "Redirection Category"
-msgstr "Umleitungskategorie"
-
-#: includes/admin/class-redirection.php:514
-msgid "Organize your redirections in categories."
-msgstr "Organisieren Sie Ihre Weiterleitungen in Kategorien."
-
-#: includes/admin/class-redirection.php:588
-#: includes/modules/video-sitemap/sitemap-xsl.php:156
-msgid "Category"
-msgstr "Kategorie"
-
-#: includes/admin/class-redirection.php:618
-msgid "Uncategorized"
-msgstr "Nicht kategorisiert"
-
-#: includes/admin/class-redirection.php:733
-#: includes/modules/local-seo/shortcodes/class-map.php:86
-#: includes/modules/local-seo/shortcodes/class-store-locator.php:66
-msgid "Select Category"
-msgstr "Kategorie auswählen"
-
-#: includes/admin/class-redirection.php:745
-msgid "Filter"
-msgstr "Filtern"
-
-#: includes/admin/class-redirection.php:861
-msgid "&larr; Go Back to the Redirections"
-msgstr "&larr; Zurück zu den Umleitungen"
 
 #: includes/admin/class-setup-wizard.php:79
 msgid "Upload"
@@ -670,12 +531,12 @@ msgstr ""
 "Sind Sie sicher, dass Sie Metadaten aus dieser CSV-Datei importieren möchten?"
 
 #: includes/admin/csv-import-export/class-csv-import-export.php:83
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:525
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:525
 msgid "Are you sure you want to stop the import process?"
 msgstr "Sind Sie sicher, dass Sie den Importvorgang stoppen wollen?"
 
 #: includes/admin/csv-import-export/class-csv-import-export.php:100
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:190
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:190
 msgid "CSV import is in progress..."
 msgstr "Der CSV-Import ist in Arbeit ..."
 
@@ -684,6 +545,14 @@ msgstr "Der CSV-Import ist in Arbeit ..."
 msgid "Please select at least one object type to export."
 msgstr "Bitte wählen Sie mindestens einen Objekttyp für den Export aus."
 
+#: includes/admin/csv-import-export/class-csv-import-export.php:116
+#: includes/admin/csv-import-export/class-csv-import-export.php:147
+#: includes/modules/redirections/class-redirections-pro.php:98
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:203
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:229
+msgid "Invalid nonce."
+msgstr "Ungültiges „nonce“."
+
 #: includes/admin/csv-import-export/class-csv-import-export.php:119
 msgid "Sorry, you are not allowed to export the content of this site."
 msgstr ""
@@ -691,7 +560,7 @@ msgstr ""
 "exportieren."
 
 #: includes/admin/csv-import-export/class-csv-import-export.php:144
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:226
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:226
 msgid "Please select a file to import."
 msgstr "Bitte wählen Sie eine zu importierende Datei aus."
 
@@ -703,45 +572,45 @@ msgstr ""
 
 #: includes/admin/csv-import-export/class-csv-import-export.php:189
 #: includes/admin/csv-import-export/class-csv-import-export.php:194
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:277
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:282
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:277
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:282
 msgid "CSV could not be imported:"
 msgstr "CSV konnte nicht importiert werden:"
 
 #: includes/admin/csv-import-export/class-csv-import-export.php:199
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:287
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:287
 msgid "CSV could not be imported: Upload failed."
 msgstr "CSV konnte nicht importiert werden: Upload fehlgeschlagen."
 
 #: includes/admin/csv-import-export/class-csv-import-export.php:205
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:293
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:293
 msgid "CSV could not be imported: File type error."
 msgstr "CSV konnte nicht importiert werden: Dateityp-Fehler."
 
 #: includes/admin/csv-import-export/class-csv-import-export.php:259
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:329
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:329
 msgid "Posts"
 msgstr "Alle Beiträge angezeigen"
 
 #: includes/admin/csv-import-export/class-csv-import-export.php:260
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:330
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:330
 msgid "Terms"
 msgstr "Bedingungen"
 
 #: includes/admin/csv-import-export/class-csv-import-export.php:261
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:331
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:331
 msgid "Users"
 msgstr "Benutzer"
 
 #: includes/admin/csv-import-export/class-csv-import-export.php:280
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:350
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:350
 msgid "Import could not be canceled: invalid nonce. Please try again."
 msgstr ""
 "Import konnte nicht abgebrochen werden: ungültiges „Nonce“. Bitte versuchen "
 "Sie es erneut."
 
 #: includes/admin/csv-import-export/class-csv-import-export.php:285
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:355
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:355
 msgid ""
 "Import could not be canceled: you are not allowed to import content to this "
 "site."
@@ -750,50 +619,50 @@ msgstr ""
 "auf diese Website zu importieren."
 
 #: includes/admin/csv-import-export/class-csv-import-export.php:309
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:379
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:379
 msgid "Import could not be canceled."
 msgstr "Der Import konnte nicht abgebrochen werden."
 
 #: includes/admin/csv-import-export/class-csv-import-export.php:319
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:389
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:389
 msgid "CSV import canceled."
 msgstr "CSV-Import abgebrochen."
 
 #: includes/admin/csv-import-export/class-csv-import-export.php:357
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:427
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:427
 msgid "Import in progress..."
 msgstr "Import wird durchgeführt ..."
 
 #: includes/admin/csv-import-export/class-csv-import-export.php:360
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:430
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:430
 #, php-format
 msgid "Items processed: %1$s/%2$s"
 msgstr "Verarbeitete Elemente: %1$s/%2$s"
 
 #: includes/admin/csv-import-export/class-csv-import-export.php:393
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:463
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:463
 #, php-format
 msgid "CSV import completed. Successfully imported %d rows."
 msgstr "CSV-Import abgeschlossen. Erfolgreicher Import von %d Zeilen."
 
 #: includes/admin/csv-import-export/class-csv-import-export.php:398
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:468
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:468
 msgid "CSV import completed."
 msgstr "CSV-Import abgeschlossen."
 
 #: includes/admin/csv-import-export/class-csv-import-export.php:401
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:471
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:471
 #, php-format
 msgid "Imported %d rows."
 msgstr "%d Zeilen importiert."
 
 #: includes/admin/csv-import-export/class-csv-import-export.php:406
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:476
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:476
 msgid "One or more errors occured while importing: "
 msgstr "Beim Importieren sind ein oder mehrere Fehler aufgetreten: "
 
 #: includes/admin/csv-import-export/class-csv-import-export.php:410
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:480
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:480
 msgid "The following lines could not be imported: "
 msgstr "Die folgenden Zeilen konnten nicht importiert werden: "
 
@@ -807,166 +676,33 @@ msgstr ""
 "ihn im Fenster %1$sImport und Export%2$s abbrechen."
 
 #: includes/admin/csv-import-export/class-importer.php:186
-#: includes/admin/csv-import-redirections/class-importer.php:173
+#: includes/modules/redirections/csv-import-redirections/class-importer.php:173
 msgid "Missing import file."
 msgstr "Fehlende Importdatei."
 
 #: includes/admin/csv-import-export/class-importer.php:193
-#: includes/admin/csv-import-redirections/class-importer.php:180
+#: includes/modules/redirections/csv-import-redirections/class-importer.php:180
 msgid "Missing CSV headers."
 msgstr "Fehlende CSV-Kopfzeilen."
 
 #: includes/admin/csv-import-export/class-importer.php:199
-#: includes/admin/csv-import-redirections/class-importer.php:186
+#: includes/modules/redirections/csv-import-redirections/class-importer.php:186
 msgid "Missing one or more required columns."
 msgstr "Es fehlen eine oder mehrere erforderliche Spalten."
 
 #: includes/admin/csv-import-export/class-importer.php:209
-#: includes/admin/csv-import-redirections/class-importer.php:196
+#: includes/modules/redirections/csv-import-redirections/class-importer.php:196
 msgid "Empty column data."
 msgstr "Leere Spaltendaten."
 
 #: includes/admin/csv-import-export/class-importer.php:219
-#: includes/admin/csv-import-redirections/class-importer.php:206
+#: includes/modules/redirections/csv-import-redirections/class-importer.php:206
 msgid "Columns number mismatch."
 msgstr "Die Anzahl der Spalten stimmt nicht überein."
 
 #: includes/admin/csv-import-export/class-importer.php:226
 msgid "Unknown object type."
 msgstr "Unbekannter Objekttyp."
-
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:59
-#, php-format
-msgid ""
-"Use the following columns in the CSV file (the order does not matter): %s"
-msgstr ""
-"Verwenden Sie die folgenden Spalten in der CSV-Datei (die Reihenfolge spielt "
-"keine Rolle): %s"
-
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:62
-#, php-format
-msgid ""
-"If the numeric ID is specified in the %s column, then the redirection will "
-"be edited. If it is not set or empty, then a new redirection will be created."
-msgstr ""
-"Wenn die numerische ID in der Spalte %s angegeben ist, wird die Umleitung "
-"bearbeitet. Wenn sie nicht gesetzt oder leer ist, wird eine neue Umleitung "
-"erstellt."
-
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:65
-#, php-format
-msgid ""
-"You can specify multiple source URLs by using JSON format in the %1$s "
-"column. The value must be an array of objects with %2$s properties. The %3$s "
-"column will be ignored in this case."
-msgstr ""
-"Sie können mehrere Quell-URLs angeben, indem Sie das JSON-Format in der "
-"Spalte %1$s verwenden. Der Wert muss ein Array von Objekten mit %2$s-"
-"Eigenschaften sein. Die Spalte %3$s wird in diesem Fall ignoriert."
-
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:68
-#, php-format
-msgid ""
-"Use %1$s (case-sensitive) as the value for the %2$s column to delete a "
-"redirection."
-msgstr ""
-"Verwenden Sie %1$s (Groß-/Kleinschreibung beachten) als Wert für die Spalte "
-"%2$s, um eine Umleitung zu löschen."
-
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:74
-msgid "CSV Import"
-msgstr "CSV Import"
-
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:89
-#: includes/views/csv-import-export-panel.php:67
-#: includes/views/csv-import-redirections-panel.php:58
-msgid "Import"
-msgstr "Importieren"
-
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:111
-#: includes/views/csv-import-export-panel.php:18
-#: includes/views/csv-import-export-panel.php:41
-#: includes/views/csv-import-redirections-panel.php:38
-msgid "CSV File"
-msgstr "CSV-Datei"
-
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:114
-#: includes/views/csv-import-export-panel.php:44
-#: includes/views/csv-import-redirections-panel.php:41
-msgid "Please select a CSV file to import."
-msgstr "Bitte wählen Sie eine CSV-Datei zum Importieren aus."
-
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:117
-#, php-format
-msgid ""
-"Import a CSV file to create or update redirections. The file must include at "
-"least the following columns: %s"
-msgstr ""
-"Importieren Sie eine CSV-Datei, um Umleitungen zu erstellen oder zu "
-"aktualisieren. Die Datei muss mindestens die folgenden Spalten enthalten: %s"
-
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:118
-msgid "More details"
-msgstr "Weitere Details"
-
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:131
-#: includes/views/csv-import-export-panel.php:64
-#: includes/views/csv-import-redirections-panel.php:55
-msgid "Cancel Import"
-msgstr "Import abbrechen"
-
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:133
-#: includes/views/csv-import-export-panel.php:28
-msgid "Import CSV"
-msgstr "Import CSV"
-
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:148
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:153
-#: includes/views/csv-import-export-panel.php:32
-msgid "Export CSV"
-msgstr "Export CSV"
-
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:149
-#: includes/views/csv-import-redirections-panel.php:64
-msgid "Include deactivated redirections"
-msgstr "Deaktivierte Umleitungen einbeziehen"
-
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:167
-msgid "Import & Export"
-msgstr "Import & Export"
-
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:232
-msgid "Sorry, you are not allowed to import redirections on this site."
-msgstr ""
-"Leider ist es Ihnen nicht gestattet, Umleitungen auf dieser Website zu "
-"importieren."
-
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:501
-msgid "Created"
-msgstr "Erstellt"
-
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:502
-msgid "Updated"
-msgstr "Aktualisiert"
-
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:503
-msgid "Deleted"
-msgstr "Gelöscht"
-
-#: includes/admin/csv-import-redirections/class-csv-import-export-redirections.php:524
-msgid "Are you sure you want to import redirections from this CSV file?"
-msgstr ""
-"Sind Sie sicher, dass Sie Umleitungen aus dieser CSV-Datei importieren "
-"möchten?"
-
-#: includes/admin/csv-import-redirections/class-import-row.php:179
-#, php-format
-msgid "Could not update redirection #%d (not found)"
-msgstr "Konnte Umleitung #%d nicht aktualisieren (nicht gefunden)"
-
-#: includes/admin/csv-import-redirections/class-import-row.php:222
-msgid "Could not import redirection."
-msgstr "Die Umleitung konnte nicht importiert werden."
 
 #: includes/admin/wizard/class-sitemap.php:34
 msgid "Sitemap"
@@ -1039,8 +775,8 @@ msgstr ""
 "in die Sitemap aufzunehmen."
 
 #: includes/admin/wizard/class-sitemap.php:118 includes/class-modules.php:50
-#: includes/modules/news-sitemap/class-news-metabox.php:77
-#: includes/modules/news-sitemap/class-news-sitemap.php:108
+#: includes/modules/news-sitemap/class-news-metabox.php:104
+#: includes/modules/news-sitemap/class-news-sitemap.php:129
 msgid "News Sitemap"
 msgstr "News-Sitemap"
 
@@ -1083,12 +819,12 @@ msgstr ""
 "target=\"_blank\">Weitere Informationen unter support.google.com</a>"
 
 #: includes/admin/wizard/class-sitemap.php:149
-#: includes/modules/news-sitemap/settings-news.php:50
+#: includes/modules/news-sitemap/settings-news.php:33
 msgid "News Post Type"
 msgstr "Art des Nachrichtenbeitrags"
 
 #: includes/admin/wizard/class-sitemap.php:150
-#: includes/modules/news-sitemap/settings-news.php:51
+#: includes/modules/news-sitemap/settings-news.php:34
 msgid "Select the post type you use for News articles."
 msgstr "Wählen Sie den Beitragstyp aus, den Sie für News-Artikel verwenden."
 
@@ -1327,20 +1063,20 @@ msgstr "In den ACF-Feldern hinzugefügte Bilder einbeziehen."
 msgid "Custom"
 msgstr "Benutzerdefiniert"
 
-#: includes/modules/analytics/class-analytics.php:138
+#: includes/modules/analytics/class-analytics.php:145
 msgid "Post Analytics"
 msgstr "Beitragsanalysen"
 
-#: includes/modules/analytics/class-analytics.php:140
+#: includes/modules/analytics/class-analytics.php:147
 msgid "Analytics Report"
 msgstr "Analysenbericht"
 
-#: includes/modules/analytics/class-analytics.php:193
-#: includes/modules/analytics/class-analytics.php:212
+#: includes/modules/analytics/class-analytics.php:200
+#: includes/modules/analytics/class-analytics.php:219
 msgid "Country"
 msgstr "Land"
 
-#: includes/modules/analytics/class-analytics.php:278
+#: includes/modules/analytics/class-analytics.php:285
 msgid ""
 "Enter the number of days to keep Analytics data in your database. The "
 "maximum allowed days are 180. Though, 2x data will be stored in the DB for "
@@ -1351,12 +1087,12 @@ msgstr ""
 "180. Es werden jedoch 2x Daten in der DB gespeichert, um die Differenz "
 "korrekt berechnen zu können."
 
-#: includes/modules/analytics/class-analytics.php:296
+#: includes/modules/analytics/class-analytics.php:310
 msgid "Monitor SEO Performance"
 msgstr "SEO-Leistung überwachen"
 
 #. translators: Link to kb article
-#: includes/modules/analytics/class-analytics.php:299
+#: includes/modules/analytics/class-analytics.php:313
 #, php-format
 msgid ""
 "This option allows you to monitor the SEO performance of all of your sites "
@@ -1368,13 +1104,199 @@ msgstr ""
 "Websites auf Anhieb überprüfen können. <a href=\"%1$s\" target=\"_blank"
 "\">Mehr erfahren</a>."
 
-#: includes/modules/analytics/class-analytics.php:441
+#: includes/modules/analytics/class-analytics.php:456
 msgid "AdSense"
 msgstr "AdSense"
 
-#: includes/modules/analytics/class-analytics.php:442
+#: includes/modules/analytics/class-analytics.php:457
 msgid "Analytics"
 msgstr "Analysen"
+
+#: includes/modules/analytics/class-email-reports.php:105
+#: includes/modules/local-seo/views/titles-options.php:298
+msgid "Logo"
+msgstr "Logo"
+
+#: includes/modules/analytics/class-email-reports.php:161
+msgid "Every 15 Days"
+msgstr "Alle 15 Tage"
+
+#: includes/modules/analytics/class-email-reports.php:167
+msgid "Every 7 Days"
+msgstr "Alle 7 Tage"
+
+#: includes/modules/analytics/class-email-reports.php:177
+#: includes/modules/analytics/class-email-reports.php:306
+msgid "Include Only Tracked Keywords"
+msgstr "Nur verfolgte Schlüsselwörter einbeziehen"
+
+#: includes/modules/analytics/class-email-reports.php:178
+msgid ""
+"When enabled, the Winning Keywords section will only show Tracked Keywords."
+msgstr ""
+"Wenn diese Option aktiviert ist, werden im Bereich Erfolgreiche "
+"Schlüsselwörter nur verfolgte Schlüsselwörter angezeigt."
+
+#: includes/modules/analytics/class-email-reports.php:193
+#: includes/modules/analytics/class-email-reports.php:397
+msgid "Report Email Address"
+msgstr "E-Mail Adresse für den Bericht"
+
+#: includes/modules/analytics/class-email-reports.php:194
+#: includes/modules/analytics/class-email-reports.php:401
+msgid ""
+"Address where the reports will be sent. You can add multiple recipients "
+"separated with commas."
+msgstr ""
+"Adresse, an die die Berichte gesendet werden sollen. Sie können mehrere "
+"Empfänger mit Kommas getrennt hinzufügen."
+
+#: includes/modules/analytics/class-email-reports.php:205
+msgid "Report Email Subject"
+msgstr "E-Mail-Betreff für den Bericht"
+
+#: includes/modules/analytics/class-email-reports.php:206
+msgid "Subject of the report emails."
+msgstr "Betreff der Berichts-E-Mails."
+
+#: includes/modules/analytics/class-email-reports.php:217
+msgid "Report Logo"
+msgstr "Berichtslogo"
+
+#: includes/modules/analytics/class-email-reports.php:218
+msgid "Logo appearing in the header part of the report."
+msgstr "Logo, das im Kopfbereich des Berichts erscheint."
+
+#: includes/modules/analytics/class-email-reports.php:230
+msgid "Logo Link"
+msgstr "Logo-Link"
+
+#: includes/modules/analytics/class-email-reports.php:231
+msgid "URL where the logo link should point to."
+msgstr "URL, auf die der Logo-Link zeigen soll."
+
+#: includes/modules/analytics/class-email-reports.php:242
+msgid "Report Header Background"
+msgstr "Berichtskopf Hintergrund"
+
+#: includes/modules/analytics/class-email-reports.php:243
+msgid ""
+"Color hex code or any other valid value for the <code>background:</code> CSS "
+"property."
+msgstr ""
+"Farb-Hex-Code oder ein anderer gültiger Wert für die CSS-Eigenschaft "
+"<code>Hintergrund:</code>."
+
+#: includes/modules/analytics/class-email-reports.php:257
+msgid "Link to Full Report"
+msgstr "Link zum vollständigen Bericht"
+
+#: includes/modules/analytics/class-email-reports.php:258
+msgid ""
+"Select whether to include a link to the Full Report admin page in the email "
+"or not."
+msgstr ""
+"Wählen Sie, ob ein Link zur Verwaltungsseite des vollständigen Berichts in "
+"die E-Mail eingefügt werden soll oder nicht."
+
+#: includes/modules/analytics/class-email-reports.php:269
+msgid "Report Top Text"
+msgstr "Text oben im Bericht"
+
+#: includes/modules/analytics/class-email-reports.php:270
+msgid "Text or basic HTML to insert below the title."
+msgstr "Text oder einfaches HTML zum Einfügen unterhalb des Titels."
+
+#: includes/modules/analytics/class-email-reports.php:281
+msgid "Include Sections"
+msgstr "Abschnitte einbeziehen"
+
+#: includes/modules/analytics/class-email-reports.php:282
+msgid "Select which tables to show in the report."
+msgstr "Wählen Sie, welche Tabellen im Bericht angezeigt werden sollen."
+
+#: includes/modules/analytics/class-email-reports.php:284
+msgid "Basic Summary"
+msgstr "Grundlegende Zusammenfassung"
+
+#: includes/modules/analytics/class-email-reports.php:285
+msgid "Positions Summary"
+msgstr "Zusammenfassung der Positionen"
+
+#: includes/modules/analytics/class-email-reports.php:286
+#: includes/modules/analytics/views/email-reports/sections/winning-posts.php:19
+msgid "Top Winning Posts"
+msgstr "Erfolgreiche Beiträge"
+
+#: includes/modules/analytics/class-email-reports.php:287
+#: includes/modules/analytics/views/email-reports/sections/losing-posts.php:19
+msgid "Top Losing Posts"
+msgstr "Verlorene Spitzenpositionen"
+
+#: includes/modules/analytics/class-email-reports.php:288
+#: includes/modules/analytics/views/email-reports/sections/winning-keywords.php:19
+msgid "Top Winning Keywords"
+msgstr "Top Gewinnende Schlüsselwörter"
+
+#: includes/modules/analytics/class-email-reports.php:289
+#: includes/modules/analytics/views/email-reports/sections/losing-keywords.php:19
+msgid "Top Losing Keywords"
+msgstr "Top Verlierende Schlüsselwörter"
+
+#: includes/modules/analytics/class-email-reports.php:307
+msgid ""
+"When enabled, the Winning Keywords and Losing Keywords sections will only "
+"show Tracked Keywords."
+msgstr ""
+"Wenn diese Option aktiviert ist, werden in den Abschnitten Erfolgreiche "
+"Schlüsselwörter und Verlorene Schlüsselwörter nur verfolgte Schlüsselwörter "
+"angezeigt."
+
+#: includes/modules/analytics/class-email-reports.php:318
+msgid "Report Footer Text"
+msgstr "Text in der Fußzeile des Berichts"
+
+#: includes/modules/analytics/class-email-reports.php:319
+msgid "Text or basic HTML to insert in the footer area."
+msgstr "Text oder einfaches HTML zum Einfügen in den Fußzeilenbereich."
+
+#: includes/modules/analytics/class-email-reports.php:330
+msgid "Additional CSS code"
+msgstr "Zusätzlicher CSS-Code"
+
+#: includes/modules/analytics/class-email-reports.php:331
+msgid ""
+"Additional CSS code to customize the appearance of the reports. Insert the "
+"CSS code directly, without the wrapping style tag. Please note that the CSS "
+"support is limited in email clients and the appearance may vary greatly."
+msgstr ""
+"Zusätzlicher CSS-Code zum Anpassen des Erscheinungsbilds der Berichte. Fügen "
+"Sie den CSS-Code direkt ein, ohne den umschließenden Style-Tag. Bitte "
+"beachten Sie, dass die CSS-Unterstützung in E-Mail-Clients eingeschränkt ist "
+"und das Erscheinungsbild stark variieren kann."
+
+#: includes/modules/analytics/class-email-reports.php:349
+#, php-format
+msgid "This email was sent to you as a registered member of %s."
+msgstr "Diese E-Mail wurde an Sie als registriertes Mitglied von %s gesendet."
+
+#: includes/modules/analytics/class-email-reports.php:352
+#, php-format
+msgid "To update your email preferences, %s. ###ADDRESS###"
+msgstr "Um Ihre E-Mail-Einstellungen zu aktualisieren, %s. ###ADDRESS###"
+
+#: includes/modules/analytics/class-email-reports.php:352
+msgid "click here"
+msgstr "hier klicken"
+
+#: includes/modules/analytics/class-email-reports.php:453
+msgid "Preview"
+msgstr "Vorschau"
+
+#: includes/modules/analytics/class-email-reports.php:483
+#, php-format
+msgid "Rank Math [SEO Report] - %s"
+msgstr "Rang Math [SEO-Bericht] - %s"
 
 #: includes/modules/analytics/class-rest.php:233
 #: includes/modules/analytics/class-rest.php:278
@@ -1389,6 +1311,71 @@ msgstr "Leider keine Datensatz-ID gefunden."
 msgid "Sorry, no post id found."
 msgstr "Es wurde leider keine Beitrags-ID gefunden."
 
+#: includes/modules/analytics/views/email-reports/header-after.php:15
+msgid "SEO Report of Your Website"
+msgstr "SEO-Bericht über Ihre Website"
+
+#: includes/modules/analytics/views/email-reports/header-after.php:23
+msgid "FULL REPORT"
+msgstr "VOLLER BERICHT"
+
+#: includes/modules/analytics/views/email-reports/header-after.php:24
+msgid "External Link Icon"
+msgstr "Externes Link-Symbol"
+
+#: includes/modules/analytics/views/email-reports/report.php:36
+msgid "VIEW DETAILED ANALYTICS"
+msgstr "DETAILLIERTE ANALYSEN ANZEIGEN"
+
+#: includes/modules/analytics/views/email-reports/sections/losing-keywords.php:30
+#: includes/modules/analytics/views/email-reports/sections/winning-keywords.php:30
+#: includes/modules/schema/shortcode/dataset.php:49
+#: includes/views/compare-keywords.php:24
+msgid "Keywords"
+msgstr "Keywords"
+
+#: includes/modules/analytics/views/email-reports/sections/losing-keywords.php:33
+#: includes/modules/analytics/views/email-reports/sections/losing-posts.php:35
+#: includes/modules/analytics/views/email-reports/sections/winning-keywords.php:33
+#: includes/modules/analytics/views/email-reports/sections/winning-posts.php:35
+msgid "Impressions"
+msgstr "Impressionen"
+
+#: includes/modules/analytics/views/email-reports/sections/losing-keywords.php:36
+#: includes/modules/analytics/views/email-reports/sections/losing-posts.php:39
+#: includes/modules/analytics/views/email-reports/sections/winning-keywords.php:36
+#: includes/modules/analytics/views/email-reports/sections/winning-posts.php:39
+msgid "Position"
+msgstr "Position"
+
+#: includes/modules/analytics/views/email-reports/sections/losing-posts.php:27
+#: includes/modules/analytics/views/email-reports/sections/winning-posts.php:27
+msgid "Post"
+msgstr "Beitrag"
+
+#: includes/modules/analytics/views/email-reports/sections/losing-posts.php:31
+#: includes/modules/analytics/views/email-reports/sections/summary.php:20
+#: includes/modules/analytics/views/email-reports/sections/winning-posts.php:31
+msgid "Search Traffic"
+msgstr "Traffic durchsuchen"
+
+#: includes/modules/analytics/views/email-reports/sections/summary.php:35
+#: includes/modules/analytics/views/email-reports/sections/summary.php:66
+msgid "Total Impressions"
+msgstr "Gesamtimpressionen"
+
+#: includes/modules/analytics/views/email-reports/sections/summary.php:51
+msgid "Total Clicks"
+msgstr "Klicks insgesamt"
+
+#: includes/modules/analytics/views/email-reports/sections/summary.php:83
+msgid "Total Keywords"
+msgstr "Schlüsselwörter insgesamt"
+
+#: includes/modules/analytics/views/email-reports/sections/summary.php:97
+msgid "Average Position"
+msgstr "Durchschnittliche Position"
+
 #: includes/modules/bbPress/class-bbpress.php:74
 msgid "Mark Unsolved."
 msgstr "Als ungelöst markieren."
@@ -1397,23 +1384,23 @@ msgstr "Als ungelöst markieren."
 msgid "Mark Solved."
 msgstr "Als gelöst markieren."
 
-#: includes/modules/image-seo/class-image-seo-pro.php:80
+#: includes/modules/image-seo/class-image-seo-pro.php:78
 msgid "Image Alt"
 msgstr "Bild (Alt-Text)"
 
-#: includes/modules/image-seo/class-image-seo-pro.php:81
+#: includes/modules/image-seo/class-image-seo-pro.php:79
 msgid "Alt text set for the current image."
 msgstr "Alt-Text, der für das aktuelle Bild gesetzt wurde."
 
-#: includes/modules/image-seo/class-image-seo-pro.php:91
+#: includes/modules/image-seo/class-image-seo-pro.php:89
 msgid "Image Title"
 msgstr "Bildtitel"
 
-#: includes/modules/image-seo/class-image-seo-pro.php:92
+#: includes/modules/image-seo/class-image-seo-pro.php:90
 msgid "Title text set for the current image."
 msgstr "Eingestellter Titeltext für das aktuelle Bild."
 
-#: includes/modules/image-seo/class-image-seo-pro.php:342
+#: includes/modules/image-seo/class-image-seo-pro.php:340
 #, php-format
 msgid "Avatar of %s"
 msgstr "Profilbild von %s"
@@ -1595,68 +1582,6 @@ msgstr "Titel"
 msgid "Caption"
 msgstr "Beschriftung"
 
-#: includes/modules/local-seo/assets/src/rank-math-pointers.js:43
-msgid "Finish"
-msgstr "Beenden"
-
-#: includes/modules/local-seo/assets/src/rank-math-pointers.js:43
-msgid "Next"
-msgstr "Weiter"
-
-#: includes/modules/local-seo/assets/src/rank-math-pointers.js:44
-msgid "Dismiss"
-msgstr "Ausblenden"
-
-#: includes/modules/local-seo/assets/src/rank-math-pointers.js:83
-msgid "Local Business Name"
-msgstr "Lokaler Geschäftsname"
-
-#: includes/modules/local-seo/assets/src/rank-math-pointers.js:83
-msgid ""
-"Give your business's new location a name here. This field is required and "
-"will be visible to users."
-msgstr ""
-"Geben Sie dem neuen Standort Ihres Unternehmens hier einen Namen. Dieses "
-"Feld ist erforderlich und wird für Benutzer sichtbar sein."
-
-#: includes/modules/local-seo/assets/src/rank-math-pointers.js:90
-msgid "Local Business Schema"
-msgstr "Schema für lokale Unternehmen"
-
-#: includes/modules/local-seo/assets/src/rank-math-pointers.js:90
-msgid ""
-"Add your local business's details here with \"Local Business\" Schema Markup "
-"in order to be eligible for local SERP features."
-msgstr ""
-"Fügen Sie hier die Details Ihres lokalen Unternehmens mit einem Schema "
-"Markup „Lokales Geschäft“ ein, um für lokale SERP-Funktionen in Frage zu "
-"kommen."
-
-#: includes/modules/local-seo/assets/src/rank-math-pointers.js:101
-msgid "Show Business Information"
-msgstr "Geschäftsinformationen anzeigen"
-
-#: includes/modules/local-seo/assets/src/rank-math-pointers.js:101
-#, javascript-format
-msgid ""
-"Make sure to add the Local Business Block or %s to display your business "
-"data."
-msgstr ""
-"Stellen Sie sicher, dass Sie den lokalen Geschäftsblock oder %s hinzufügen, "
-"um Ihre Geschäftsdaten anzuzeigen."
-
-#: includes/modules/local-seo/assets/src/rank-math-pointers.js:112
-msgid "Publish your location!"
-msgstr "Veröffentlichen Sie Ihren Firmensitz!"
-
-#: includes/modules/local-seo/assets/src/rank-math-pointers.js:112
-msgid ""
-"When you're done editing, don't forget to hit \"publish\" to create this "
-"location."
-msgstr ""
-"Wenn Sie mit der Bearbeitung fertig sind, vergessen Sie nicht, auf "
-"„Veröffentlichen“ zu klicken, um diesen Eintrag zu erstellen."
-
 #: includes/modules/local-seo/class-admin.php:59
 msgid "Local Sitemap"
 msgstr "Lokale Sitemap"
@@ -1770,6 +1695,16 @@ msgstr "Neue %s-Kategorie"
 msgid "Search categories"
 msgstr "Kategorien durchsuchen"
 
+#: includes/modules/local-seo/class-local-seo.php:194
+#: includes/modules/redirections/class-redirections-pro.php:397
+msgid "Parent Category"
+msgstr "Übergeordnete Kategorie"
+
+#: includes/modules/local-seo/class-local-seo.php:195
+#: includes/modules/redirections/class-redirections-pro.php:398
+msgid "Parent Category:"
+msgstr "Übergeordnete Kategorie:"
+
 #: includes/modules/local-seo/class-location-shortcode.php:96
 #, php-format
 msgid "This page can't load Google Maps correctly. Please add %s."
@@ -1831,6 +1766,12 @@ msgstr "Preishinweis"
 #: includes/modules/local-seo/shortcodes/class-address.php:120
 msgid "Address:"
 msgstr "Adresse:"
+
+#: includes/modules/local-seo/shortcodes/class-map.php:86
+#: includes/modules/local-seo/shortcodes/class-store-locator.php:66
+#: includes/modules/redirections/class-redirections-pro.php:738
+msgid "Select Category"
+msgstr "Kategorie auswählen"
 
 #: includes/modules/local-seo/shortcodes/class-opening-hours.php:31
 msgid "Open 24/7"
@@ -2890,10 +2831,6 @@ msgstr "Name"
 msgid "Your name or company name"
 msgstr "Ihr Name oder Firmenname"
 
-#: includes/modules/local-seo/views/titles-options.php:298
-msgid "Logo"
-msgstr "Logo"
-
 #: includes/modules/local-seo/views/titles-options.php:299
 msgid ""
 "<strong>Min Size: 160Χ90px, Max Size: 1920X1080px</strong>.<br /> A squared "
@@ -3254,11 +3191,11 @@ msgstr ""
 msgid "Contact Page"
 msgstr "Kontaktseite"
 
-#: includes/modules/news-sitemap/class-news-metabox.php:78
+#: includes/modules/news-sitemap/class-news-metabox.php:105
 msgid "This tab contains news sitemap options."
 msgstr "Diese Registerkarte enthält News-Sitemap-Optionen."
 
-#: includes/modules/news-sitemap/class-news-sitemap.php:110
+#: includes/modules/news-sitemap/class-news-sitemap.php:131
 msgid ""
 "News Sitemaps allow you to control which content you submit to Google News. "
 "More information: <a href=\"https://rankmath.com/kb/news-sitemap/?"
@@ -3271,7 +3208,7 @@ msgstr ""
 "Sitemaps Übersicht >/a>"
 
 #. translators: News Sitemap Url
-#: includes/modules/news-sitemap/class-news-sitemap.php:113
+#: includes/modules/news-sitemap/class-news-sitemap.php:134
 #, php-format
 msgid "Your News Sitemap index can be found here: : %s"
 msgstr "Den Index Ihrer Nachrichten-Sitemap finden Sie hier: : %s"
@@ -3286,72 +3223,14 @@ msgid ""
 msgstr ""
 "Mit „noindex“ können Sie verhindern, dass Artikel in Google News erscheinen."
 
-#: includes/modules/news-sitemap/metabox.php:32
-#: includes/modules/news-sitemap/settings-news.php:29
-msgid "Blog"
-msgstr "Blog"
-
-#: includes/modules/news-sitemap/metabox.php:33
-#: includes/modules/news-sitemap/settings-news.php:30
-msgid "Press Release"
-msgstr "Pressemitteilung"
-
-#: includes/modules/news-sitemap/metabox.php:34
-#: includes/modules/news-sitemap/settings-news.php:31
-msgid "Satire"
-msgstr "Satire"
-
-#: includes/modules/news-sitemap/metabox.php:35
-#: includes/modules/news-sitemap/settings-news.php:32
-msgid "Op-Ed"
-msgstr "Op-Ed"
-
-#: includes/modules/news-sitemap/metabox.php:36
-#: includes/modules/news-sitemap/settings-news.php:33
-msgid "Opinion"
-msgstr "Stellungnahme"
-
-#: includes/modules/news-sitemap/metabox.php:37
-#: includes/modules/news-sitemap/settings-news.php:34
-msgid "User Generated"
-msgstr "Benutzer generiert"
-
-#: includes/modules/news-sitemap/metabox.php:39
-msgid "Genres"
-msgstr "Genres"
-
-#: includes/modules/news-sitemap/metabox.php:40
-#: includes/modules/news-sitemap/settings-news.php:37
-msgid "Label(s) characterizing the content of the article."
-msgstr "Beschriftung(en), die den Inhalt des Artikels charakterisieren."
-
-#: includes/modules/news-sitemap/metabox.php:49
-msgid "Stock Tickers"
-msgstr "Börsenticker"
-
-#: includes/modules/news-sitemap/metabox.php:50
-msgid ""
-"A comma-separated list of up to 5 stock tickers of the companies, mutual "
-"funds, or other financial entities that are the main subject of the article. "
-"Relevant primarily for business articles."
-msgstr ""
-"Eine durch Kommata getrennte Liste mit bis zu 5 Börsentickern der "
-"Unternehmen, Investmentfonds oder anderen Finanzunternehmen, die das "
-"Hauptthema des Artikels sind. In erster Linie für Wirtschaftsartikel "
-"relevant."
-
-#: includes/modules/news-sitemap/settings-news.php:36
-msgid "Default Genres"
-msgstr "Standard-Genres"
-
-#. translators: Taxonomy Name
-#: includes/modules/news-sitemap/settings-news.php:86
+#. translators: Post Type
+#: includes/modules/news-sitemap/settings-news.php:77
 #, php-format
-msgid "Exclude %s"
-msgstr "%s ausschließen"
+msgid "Exclude %s Terms "
+msgstr "%s Begriffe ausschließen"
 
 #. translators: 1. Taxonomy Name 2. Post Type
-#: includes/modules/news-sitemap/settings-news.php:91
+#: includes/modules/news-sitemap/settings-news.php:93
 #, php-format
 msgid "%1$s to exclude for %2$s."
 msgstr "%1$s auszuschließen für %2$s."
@@ -3394,13 +3273,267 @@ msgstr "Diese XML-Sitemap enthält <strong>%s</strong> URLs."
 msgid "<a href=\"%s\">&#8592; Sitemap Index</a>"
 msgstr "<a href=\"%s\">&#8592; Sitemap Index</a>"
 
-#: includes/modules/news-sitemap/sitemap-xsl.php:158
+#: includes/modules/news-sitemap/sitemap-xsl.php:157
 msgid "Images"
 msgstr "Bilder"
 
-#: includes/modules/news-sitemap/sitemap-xsl.php:159
+#: includes/modules/news-sitemap/sitemap-xsl.php:158
 msgid "Publication Date"
 msgstr "Veröffentlichungsdatum"
+
+#: includes/modules/redirections/class-redirections-pro.php:75
+#: includes/modules/redirections/class-redirections-pro.php:81
+msgid "Sync to .htaccess"
+msgstr "Mit .htaccess synchronisieren"
+
+#: includes/modules/redirections/class-redirections-pro.php:77
+msgid "Copy all active redirections to the .htaccess file."
+msgstr "Kopieren Sie alle aktiven Umleitungen in die .htaccess-Datei."
+
+#: includes/modules/redirections/class-redirections-pro.php:101
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:206
+msgid "Sorry, you are not allowed to export redirections on this site."
+msgstr ""
+"Es ist Ihnen leider nicht gestattet, Weiterleitungen auf dieser Website zu "
+"exportieren."
+
+#: includes/modules/redirections/class-redirections-pro.php:106
+msgid ""
+"The redirections could not be synced because the .htaccess file does not "
+"exist or it is not writable."
+msgstr ""
+"Die Umleitungen konnten nicht synchronisiert werden, weil die .htaccess-"
+"Datei nicht existiert oder nicht beschreibbar ist."
+
+#: includes/modules/redirections/class-redirections-pro.php:111
+msgid "No valid redirection found."
+msgstr "Es wurde keine gültige Umleitung gefunden."
+
+#: includes/modules/redirections/class-redirections-pro.php:119
+msgid "Redirections successfully synced to the .htaccess file."
+msgstr "Umleitungen wurden erfolgreich mit der .htaccess-Datei synchronisiert."
+
+#: includes/modules/redirections/class-redirections-pro.php:305
+#: includes/modules/redirections/class-redirections-pro.php:494
+msgid "Manage Categories"
+msgstr "Kategorien verwalten"
+
+#: includes/modules/redirections/class-redirections-pro.php:393
+msgctxt "taxonomy general name"
+msgid "Redirection Categories"
+msgstr "Umleitungskategorien"
+
+#: includes/modules/redirections/class-redirections-pro.php:394
+msgctxt "taxonomy singular name"
+msgid "Redirection Category"
+msgstr "Umleitungskategorie"
+
+#: includes/modules/redirections/class-redirections-pro.php:395
+msgid "Search Redirection Categories"
+msgstr "Umleitungskategorien durchsuchen"
+
+#: includes/modules/redirections/class-redirections-pro.php:396
+msgid "All Redirection Categories"
+msgstr "Alle Umleitungskategorien"
+
+#: includes/modules/redirections/class-redirections-pro.php:399
+msgid "Edit Category"
+msgstr "Bearbeite Kategorie"
+
+#: includes/modules/redirections/class-redirections-pro.php:400
+msgid "Update Category"
+msgstr "Kategorie aktualisieren"
+
+#: includes/modules/redirections/class-redirections-pro.php:401
+msgid "Add New Category"
+msgstr "Neue Kategorie hinzufügen"
+
+#: includes/modules/redirections/class-redirections-pro.php:402
+msgid "New Category Name"
+msgstr "Name der neuen Kategorie"
+
+#: includes/modules/redirections/class-redirections-pro.php:403
+msgid "Redirection Categories"
+msgstr "Umleitungskategorien"
+
+#: includes/modules/redirections/class-redirections-pro.php:436
+msgid "Add to Category"
+msgstr "Zur Kategorie hinzufügen"
+
+#: includes/modules/redirections/class-redirections-pro.php:463
+msgid "No valid ID provided."
+msgstr "Keine gültige ID angegeben."
+
+#: includes/modules/redirections/class-redirections-pro.php:472
+#, php-format
+msgid "%d redirections have been assigned to the category."
+msgstr "%d Umleitungen wurden der Kategorie zugeordnet."
+
+#: includes/modules/redirections/class-redirections-pro.php:492
+msgid "Add New"
+msgstr "Erstellen"
+
+#: includes/modules/redirections/class-redirections-pro.php:493
+msgid "New Category"
+msgstr "Neue Kategorie"
+
+#: includes/modules/redirections/class-redirections-pro.php:517
+msgid "Redirection Category"
+msgstr "Umleitungskategorie"
+
+#: includes/modules/redirections/class-redirections-pro.php:518
+msgid "Organize your redirections in categories."
+msgstr "Organisieren Sie Ihre Weiterleitungen in Kategorien."
+
+#: includes/modules/redirections/class-redirections-pro.php:592
+#: includes/modules/video-sitemap/sitemap-xsl.php:156
+msgid "Category"
+msgstr "Kategorie"
+
+#: includes/modules/redirections/class-redirections-pro.php:622
+msgid "Uncategorized"
+msgstr "Nicht kategorisiert"
+
+#: includes/modules/redirections/class-redirections-pro.php:750
+msgid "Filter"
+msgstr "Filtern"
+
+#: includes/modules/redirections/class-redirections-pro.php:867
+msgid "&larr; Go Back to the Redirections"
+msgstr "&larr; Zurück zu den Umleitungen"
+
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:59
+#, php-format
+msgid ""
+"Use the following columns in the CSV file (the order does not matter): %s"
+msgstr ""
+"Verwenden Sie die folgenden Spalten in der CSV-Datei (die Reihenfolge spielt "
+"keine Rolle): %s"
+
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:62
+#, php-format
+msgid ""
+"If the numeric ID is specified in the %s column, then the redirection will "
+"be edited. If it is not set or empty, then a new redirection will be created."
+msgstr ""
+"Wenn die numerische ID in der Spalte %s angegeben ist, wird die Umleitung "
+"bearbeitet. Wenn sie nicht gesetzt oder leer ist, wird eine neue Umleitung "
+"erstellt."
+
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:65
+#, php-format
+msgid ""
+"You can specify multiple source URLs by using JSON format in the %1$s "
+"column. The value must be an array of objects with %2$s properties. The %3$s "
+"column will be ignored in this case."
+msgstr ""
+"Sie können mehrere Quell-URLs angeben, indem Sie das JSON-Format in der "
+"Spalte %1$s verwenden. Der Wert muss ein Array von Objekten mit %2$s-"
+"Eigenschaften sein. Die Spalte %3$s wird in diesem Fall ignoriert."
+
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:68
+#, php-format
+msgid ""
+"Use %1$s (case-sensitive) as the value for the %2$s column to delete a "
+"redirection."
+msgstr ""
+"Verwenden Sie %1$s (Groß-/Kleinschreibung beachten) als Wert für die Spalte "
+"%2$s, um eine Umleitung zu löschen."
+
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:74
+msgid "CSV Import"
+msgstr "CSV Import"
+
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:89
+#: includes/views/csv-import-export-panel.php:67
+#: includes/views/csv-import-redirections-panel.php:58
+msgid "Import"
+msgstr "Importieren"
+
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:111
+#: includes/views/csv-import-export-panel.php:18
+#: includes/views/csv-import-export-panel.php:41
+#: includes/views/csv-import-redirections-panel.php:38
+msgid "CSV File"
+msgstr "CSV-Datei"
+
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:114
+#: includes/views/csv-import-export-panel.php:44
+#: includes/views/csv-import-redirections-panel.php:41
+msgid "Please select a CSV file to import."
+msgstr "Bitte wählen Sie eine CSV-Datei zum Importieren aus."
+
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:117
+#, php-format
+msgid ""
+"Import a CSV file to create or update redirections. The file must include at "
+"least the following columns: %s"
+msgstr ""
+"Importieren Sie eine CSV-Datei, um Umleitungen zu erstellen oder zu "
+"aktualisieren. Die Datei muss mindestens die folgenden Spalten enthalten: %s"
+
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:118
+msgid "More details"
+msgstr "Weitere Details"
+
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:131
+#: includes/views/csv-import-export-panel.php:64
+#: includes/views/csv-import-redirections-panel.php:55
+msgid "Cancel Import"
+msgstr "Import abbrechen"
+
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:133
+#: includes/views/csv-import-export-panel.php:28
+msgid "Import CSV"
+msgstr "Import CSV"
+
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:148
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:153
+#: includes/views/csv-import-export-panel.php:32
+msgid "Export CSV"
+msgstr "Export CSV"
+
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:149
+#: includes/views/csv-import-redirections-panel.php:64
+msgid "Include deactivated redirections"
+msgstr "Deaktivierte Umleitungen einbeziehen"
+
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:167
+msgid "Import & Export"
+msgstr "Import & Export"
+
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:232
+msgid "Sorry, you are not allowed to import redirections on this site."
+msgstr ""
+"Leider ist es Ihnen nicht gestattet, Umleitungen auf dieser Website zu "
+"importieren."
+
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:501
+msgid "Created"
+msgstr "Erstellt"
+
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:502
+msgid "Updated"
+msgstr "Aktualisiert"
+
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:503
+msgid "Deleted"
+msgstr "Gelöscht"
+
+#: includes/modules/redirections/csv-import-redirections/class-csv-import-export-redirections.php:524
+msgid "Are you sure you want to import redirections from this CSV file?"
+msgstr ""
+"Sind Sie sicher, dass Sie Umleitungen aus dieser CSV-Datei importieren "
+"möchten?"
+
+#: includes/modules/redirections/csv-import-redirections/class-import-row.php:179
+#, php-format
+msgid "Could not update redirection #%d (not found)"
+msgstr "Konnte Umleitung #%d nicht aktualisieren (nicht gefunden)"
+
+#: includes/modules/redirections/csv-import-redirections/class-import-row.php:222
+msgid "Could not import redirection."
+msgstr "Die Umleitung konnte nicht importiert werden."
 
 #: includes/modules/schema/class-admin.php:61
 msgid "DataSet"
@@ -3450,7 +3583,7 @@ msgstr "Verwendung im Schema-Markup"
 msgid "Link Title"
 msgstr "Link-Titel"
 
-#: includes/modules/schema/class-admin.php:387
+#: includes/modules/schema/class-admin.php:407
 msgid "All Taxonomies"
 msgstr "Alle Taxonomien"
 
@@ -3517,8 +3650,8 @@ msgstr "Schemata durchsuchen"
 msgid "Rank Math Schema Templates"
 msgstr "Rank Math Schema-Vorlagen"
 
-#: includes/modules/schema/class-post-type.php:84
-#: includes/modules/schema/class-post-type.php:85
+#: includes/modules/schema/class-post-type.php:96
+#: includes/modules/schema/class-post-type.php:97
 msgid "Schema Templates"
 msgstr "Schema-Vorlagen"
 
@@ -3643,11 +3776,6 @@ msgstr "Referenz-Website "
 #: includes/modules/schema/shortcode/dataset.php:38
 msgid "Identifier"
 msgstr "Kennung"
-
-#: includes/modules/schema/shortcode/dataset.php:49
-#: includes/views/compare-keywords.php:24
-msgid "Keywords"
-msgstr "Keywords"
 
 #: includes/modules/schema/shortcode/dataset.php:57
 #: includes/modules/schema/shortcode/dataset.php:88
@@ -4219,6 +4347,103 @@ msgstr "Rank Math"
 msgid "https://s.rankmath.com/pro"
 msgstr "https://s.rankmath.com/pro"
 
+#~ msgid "Include Data"
+#~ msgstr "Daten einbeziehen"
+
+#~ msgid "Finish"
+#~ msgstr "Beenden"
+
+#~ msgid "Next"
+#~ msgstr "Weiter"
+
+#~ msgid "Dismiss"
+#~ msgstr "Ausblenden"
+
+#~ msgid "Local Business Name"
+#~ msgstr "Lokaler Geschäftsname"
+
+#~ msgid ""
+#~ "Give your business's new location a name here. This field is required and "
+#~ "will be visible to users."
+#~ msgstr ""
+#~ "Geben Sie dem neuen Standort Ihres Unternehmens hier einen Namen. Dieses "
+#~ "Feld ist erforderlich und wird für Benutzer sichtbar sein."
+
+#~ msgid "Local Business Schema"
+#~ msgstr "Schema für lokale Unternehmen"
+
+#~ msgid ""
+#~ "Add your local business's details here with \"Local Business\" Schema "
+#~ "Markup in order to be eligible for local SERP features."
+#~ msgstr ""
+#~ "Fügen Sie hier die Details Ihres lokalen Unternehmens mit einem Schema "
+#~ "Markup „Lokales Geschäft“ ein, um für lokale SERP-Funktionen in Frage zu "
+#~ "kommen."
+
+#~ msgid "Show Business Information"
+#~ msgstr "Geschäftsinformationen anzeigen"
+
+#, javascript-format
+#~ msgid ""
+#~ "Make sure to add the Local Business Block or %s to display your business "
+#~ "data."
+#~ msgstr ""
+#~ "Stellen Sie sicher, dass Sie den lokalen Geschäftsblock oder %s "
+#~ "hinzufügen, um Ihre Geschäftsdaten anzuzeigen."
+
+#~ msgid "Publish your location!"
+#~ msgstr "Veröffentlichen Sie Ihren Firmensitz!"
+
+#~ msgid ""
+#~ "When you're done editing, don't forget to hit \"publish\" to create this "
+#~ "location."
+#~ msgstr ""
+#~ "Wenn Sie mit der Bearbeitung fertig sind, vergessen Sie nicht, auf "
+#~ "„Veröffentlichen“ zu klicken, um diesen Eintrag zu erstellen."
+
+#~ msgid "Blog"
+#~ msgstr "Blog"
+
+#~ msgid "Press Release"
+#~ msgstr "Pressemitteilung"
+
+#~ msgid "Satire"
+#~ msgstr "Satire"
+
+#~ msgid "Op-Ed"
+#~ msgstr "Op-Ed"
+
+#~ msgid "Opinion"
+#~ msgstr "Stellungnahme"
+
+#~ msgid "User Generated"
+#~ msgstr "Benutzer generiert"
+
+#~ msgid "Genres"
+#~ msgstr "Genres"
+
+#~ msgid "Label(s) characterizing the content of the article."
+#~ msgstr "Beschriftung(en), die den Inhalt des Artikels charakterisieren."
+
+#~ msgid "Stock Tickers"
+#~ msgstr "Börsenticker"
+
+#~ msgid ""
+#~ "A comma-separated list of up to 5 stock tickers of the companies, mutual "
+#~ "funds, or other financial entities that are the main subject of the "
+#~ "article. Relevant primarily for business articles."
+#~ msgstr ""
+#~ "Eine durch Kommata getrennte Liste mit bis zu 5 Börsentickern der "
+#~ "Unternehmen, Investmentfonds oder anderen Finanzunternehmen, die das "
+#~ "Hauptthema des Artikels sind. In erster Linie für Wirtschaftsartikel "
+#~ "relevant."
+
+#~ msgid "Default Genres"
+#~ msgstr "Standard-Genres"
+
+#~ msgid "SEO Filters"
+#~ msgstr "SEO-Filter"
+
 #~ msgid "Locations Post Type label"
 #~ msgstr "Beschriftung Beitragstyp Standorte"
 
@@ -4268,9 +4493,6 @@ msgstr "https://s.rankmath.com/pro"
 
 #~ msgid "Square"
 #~ msgstr "Quadratisch"
-
-#~ msgid "SEO Score Position"
-#~ msgstr "Position der SEO-Wertung"
 
 #~ msgid ""
 #~ "Display the badges automatically, or insert the %1$s shortcode in your "
@@ -4431,9 +4653,6 @@ msgstr "https://s.rankmath.com/pro"
 
 #~ msgid "Titles"
 #~ msgstr "Titel"
-
-#~ msgid "Focus Keywords"
-#~ msgstr "Fokus-Keywords"
 
 #~ msgid "Primary Taxonomy"
 #~ msgstr "Primäre Taxonomie"

@@ -314,99 +314,6 @@ msgstr ""
 msgid "&mdash; Not Selected &mdash;"
 msgstr ""
 
-msgid "Sync to .htaccess"
-msgstr ""
-
-msgid "Copy all active redirections to the .htaccess file."
-msgstr ""
-
-msgid "Invalid nonce."
-msgstr ""
-
-msgid "Sorry, you are not allowed to export redirections on this site."
-msgstr ""
-
-msgid "The redirections could not be synced because the .htaccess file does not exist or it is not writable."
-msgstr ""
-
-msgid "No valid redirection found."
-msgstr ""
-
-msgid "Redirections successfully synced to the .htaccess file."
-msgstr ""
-
-msgid "Manage Categories"
-msgstr ""
-
-msgctxt "taxonomy general name"
-msgid "Redirection Categories"
-msgstr ""
-
-msgctxt "taxonomy singular name"
-msgid "Redirection Category"
-msgstr ""
-
-msgid "Search Redirection Categories"
-msgstr ""
-
-msgid "All Redirection Categories"
-msgstr ""
-
-msgid "Parent Category"
-msgstr ""
-
-msgid "Parent Category:"
-msgstr ""
-
-msgid "Edit Category"
-msgstr ""
-
-msgid "Update Category"
-msgstr ""
-
-msgid "Add New Category"
-msgstr ""
-
-msgid "New Category Name"
-msgstr ""
-
-msgid "Redirection Categories"
-msgstr ""
-
-msgid "Add to Category"
-msgstr ""
-
-msgid "No valid ID provided."
-msgstr ""
-
-#. translators: placeholder is the number of updated redirections.
-msgid "%d redirections have been assigned to the category."
-msgstr ""
-
-msgid "Add New"
-msgstr ""
-
-msgid "New Category"
-msgstr ""
-
-msgid "Redirection Category"
-msgstr ""
-
-msgid "Organize your redirections in categories."
-msgstr ""
-
-msgid "Category"
-msgstr ""
-
-msgid "Uncategorized"
-msgstr ""
-
-msgid "Select Category"
-msgstr ""
-
-msgid "Filter"
-msgstr ""
-
 msgid "Upload"
 msgstr ""
 
@@ -686,6 +593,9 @@ msgstr ""
 msgid "Please select at least one object type to export."
 msgstr ""
 
+msgid "Invalid nonce."
+msgstr ""
+
 msgid "Sorry, you are not allowed to export the content of this site."
 msgstr ""
 
@@ -772,57 +682,6 @@ msgid "Columns number mismatch."
 msgstr ""
 
 msgid "Unknown object type."
-msgstr ""
-
-#. translators: placeholder is a comma-separated list of columns.
-msgid "Use the following columns in the CSV file (the order does not matter): %s"
-msgstr ""
-
-#. translators: placeholder is the column name.
-msgid "If the numeric ID is specified in the %s column, then the redirection will be edited. If it is not set or empty, then a new redirection will be created."
-msgstr ""
-
-#. translators: placeholders are the column names.
-msgid "You can specify multiple source URLs by using JSON format in the %1$s column. The value must be an array of objects with %2$s properties. The %3$s column will be ignored in this case."
-msgstr ""
-
-#. translators: 1 is the command name, 2 is the column name.
-msgid "Use %1$s (case-sensitive) as the value for the %2$s column to delete a redirection."
-msgstr ""
-
-msgid "CSV Import"
-msgstr ""
-
-#. translators: placeholder is a comma-separated list of columns.
-msgid "Import a CSV file to create or update redirections. The file must include at least the following columns: %s"
-msgstr ""
-
-msgid "More details"
-msgstr ""
-
-msgid "Import & Export"
-msgstr ""
-
-msgid "Sorry, you are not allowed to import redirections on this site."
-msgstr ""
-
-msgid "Created"
-msgstr ""
-
-msgid "Updated"
-msgstr ""
-
-msgid "Deleted"
-msgstr ""
-
-msgid "Are you sure you want to import redirections from this CSV file?"
-msgstr ""
-
-#. translators: placeholder is numeric redirection id.
-msgid "Could not update redirection #%d (not found)"
-msgstr ""
-
-msgid "Could not import redirection."
 msgstr ""
 
 msgid "Sitemap"
@@ -944,16 +803,16 @@ msgstr ""
 msgid "This option allows you to monitor the SEO performance of all of your sites in one centralized dashboard on RankMath.com, so you can check up on sites at a glance. <a href=\"%1$s\" target=\"_blank\">Learn more</a>."
 msgstr ""
 
-msgid "AdSense"
-msgstr ""
-
-msgid "Analytics"
-msgstr ""
-
 msgid "Logo"
 msgstr ""
 
 msgid "Every 15 Days"
+msgstr ""
+
+msgid "Include Only Tracked Keywords"
+msgstr ""
+
+msgid "When enabled, the Winning Keywords section will only show Tracked Keywords."
 msgstr ""
 
 msgid "Every 7 Days"
@@ -1001,7 +860,7 @@ msgstr ""
 msgid "Text or basic HTML to insert below the title."
 msgstr ""
 
-msgid "Include Data"
+msgid "Include Sections"
 msgstr ""
 
 msgid "Select which tables to show in the report."
@@ -1023,6 +882,9 @@ msgid "Top Winning Keywords"
 msgstr ""
 
 msgid "Top Losing Keywords"
+msgstr ""
+
+msgid "When enabled, the Winning Keywords and Losing Keywords sections will only show Tracked Keywords."
 msgstr ""
 
 msgid "Report Footer Text"
@@ -1238,6 +1100,12 @@ msgstr ""
 msgid "Search categories"
 msgstr ""
 
+msgid "Parent Category"
+msgstr ""
+
+msgid "Parent Category:"
+msgstr ""
+
 #. translators: %s expands to General Settings Link.
 msgid "This page can't load Google Maps correctly. Please add %s."
 msgstr ""
@@ -1262,39 +1130,6 @@ msgid "Googlebot-News index"
 msgstr ""
 
 msgid "Using noindex allows you to prevent articles from appearing in Google News."
-msgstr ""
-
-msgid "Blog"
-msgstr ""
-
-msgid "Press Release"
-msgstr ""
-
-msgid "Satire"
-msgstr ""
-
-msgid "Op-Ed"
-msgstr ""
-
-msgid "Opinion"
-msgstr ""
-
-msgid "User Generated"
-msgstr ""
-
-msgid "Genres"
-msgstr ""
-
-msgid "Label(s) characterizing the content of the article."
-msgstr ""
-
-msgid "Stock Tickers"
-msgstr ""
-
-msgid "A comma-separated list of up to 5 stock tickers of the companies, mutual funds, or other financial entities that are the main subject of the article. Relevant primarily for business articles."
-msgstr ""
-
-msgid "Default Genres"
 msgstr ""
 
 #. translators: Post Type
@@ -1330,6 +1165,93 @@ msgid "Images"
 msgstr ""
 
 msgid "Publication Date"
+msgstr ""
+
+msgid "Sync to .htaccess"
+msgstr ""
+
+msgid "Copy all active redirections to the .htaccess file."
+msgstr ""
+
+msgid "Sorry, you are not allowed to export redirections on this site."
+msgstr ""
+
+msgid "The redirections could not be synced because the .htaccess file does not exist or it is not writable."
+msgstr ""
+
+msgid "No valid redirection found."
+msgstr ""
+
+msgid "Redirections successfully synced to the .htaccess file."
+msgstr ""
+
+msgid "Manage Categories"
+msgstr ""
+
+msgctxt "taxonomy general name"
+msgid "Redirection Categories"
+msgstr ""
+
+msgctxt "taxonomy singular name"
+msgid "Redirection Category"
+msgstr ""
+
+msgid "Search Redirection Categories"
+msgstr ""
+
+msgid "All Redirection Categories"
+msgstr ""
+
+msgid "Edit Category"
+msgstr ""
+
+msgid "Update Category"
+msgstr ""
+
+msgid "Add New Category"
+msgstr ""
+
+msgid "New Category Name"
+msgstr ""
+
+msgid "Redirection Categories"
+msgstr ""
+
+msgid "Add to Category"
+msgstr ""
+
+msgid "No valid ID provided."
+msgstr ""
+
+#. translators: placeholder is the number of updated redirections.
+msgid "%d redirections have been assigned to the category."
+msgstr ""
+
+msgid "Add New"
+msgstr ""
+
+msgid "New Category"
+msgstr ""
+
+msgid "Redirection Category"
+msgstr ""
+
+msgid "Organize your redirections in categories."
+msgstr ""
+
+msgid "Category"
+msgstr ""
+
+msgid "Uncategorized"
+msgstr ""
+
+msgid "Select Category"
+msgstr ""
+
+msgid "Filter"
+msgstr ""
+
+msgid "&larr; Go Back to the Redirections"
 msgstr ""
 
 msgid "DataSet"
@@ -2616,6 +2538,57 @@ msgid "Select a page on your site where you want to show the LocalBusiness meta 
 msgstr ""
 
 msgid "Contact Page"
+msgstr ""
+
+#. translators: placeholder is a comma-separated list of columns.
+msgid "Use the following columns in the CSV file (the order does not matter): %s"
+msgstr ""
+
+#. translators: placeholder is the column name.
+msgid "If the numeric ID is specified in the %s column, then the redirection will be edited. If it is not set or empty, then a new redirection will be created."
+msgstr ""
+
+#. translators: placeholders are the column names.
+msgid "You can specify multiple source URLs by using JSON format in the %1$s column. The value must be an array of objects with %2$s properties. The %3$s column will be ignored in this case."
+msgstr ""
+
+#. translators: 1 is the command name, 2 is the column name.
+msgid "Use %1$s (case-sensitive) as the value for the %2$s column to delete a redirection."
+msgstr ""
+
+msgid "CSV Import"
+msgstr ""
+
+#. translators: placeholder is a comma-separated list of columns.
+msgid "Import a CSV file to create or update redirections. The file must include at least the following columns: %s"
+msgstr ""
+
+msgid "More details"
+msgstr ""
+
+msgid "Import & Export"
+msgstr ""
+
+msgid "Sorry, you are not allowed to import redirections on this site."
+msgstr ""
+
+msgid "Created"
+msgstr ""
+
+msgid "Updated"
+msgstr ""
+
+msgid "Deleted"
+msgstr ""
+
+msgid "Are you sure you want to import redirections from this CSV file?"
+msgstr ""
+
+#. translators: placeholder is numeric redirection id.
+msgid "Could not update redirection #%d (not found)"
+msgstr ""
+
+msgid "Could not import redirection."
 msgstr ""
 
 msgid "Author Name"

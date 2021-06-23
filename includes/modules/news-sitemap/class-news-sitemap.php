@@ -36,12 +36,11 @@ class News_Sitemap {
 	 * The Constructor.
 	 */
 	public function __construct() {
-
 		if ( is_admin() ) {
 			$this->filter( 'rank_math/settings/sitemap', 'add_settings', 11 );
-			new News_Metabox();
 		}
 
+		new News_Metabox();
 		$this->action( 'rank_math/head', 'robots', 10 );
 		$this->filter( 'rank_math/sitemap/providers', 'add_provider' );
 		$this->filter( 'rank_math/sitemap/news_urlset', 'xml_urlset' );
@@ -204,12 +203,6 @@ class News_Sitemap {
 
 		$output .= empty( $date ) ? '' : $renderer->newline( '<news:publication_date>' . htmlspecialchars( $date ) . '</news:publication_date>', 3 );
 		$output .= $renderer->add_cdata( $url['title'], 'news:title', 3 );
-
-		foreach ( [ 'keywords', 'genres', 'stock_tickers' ] as $tag ) {
-			if ( ! empty( $url[ $tag ] ) ) {
-				$output .= $renderer->add_cdata( htmlspecialchars( $url[ $tag ] ), "news:{$tag}", 3 );
-			}
-		}
 
 		$output .= $renderer->newline( '</news:news>', 2 );
 		$output .= $renderer->sitemap_images( $url );

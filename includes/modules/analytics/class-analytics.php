@@ -18,6 +18,7 @@ use MyThemeShop\Helpers\Param;
 // Analytics.
 use RankMathPro\Google\Adsense;
 use RankMath\Google\Permissions;
+use RankMath\Google\Authentication;
 use RankMath\Admin\Admin_Helper;
 use RankMathPro\Analytics\Workflow\Jobs;
 use RankMathPro\Analytics\Workflow\Workflow;
@@ -40,13 +41,13 @@ class Analytics {
 		$this->action( 'rank_math/analytics/options/console', 'add_country_dropdown3' );
 		$this->action( 'rank_math/analytics/options/analytics', 'add_country_dropdown2' );
 		$this->action( 'update_option_rank_math_analytics_last_updated', 'send_summary' );
+		$this->action( 'rank_math/admin/settings/analytics', 'add_new_settings' );
 		$this->filter( 'rank_math/analytics/schedule_gap', 'schedule_gap' );
 		$this->filter( 'rank_math/analytics/fetch_gap', 'fetch_gap' );
 		$this->filter( 'rank_math/analytics/max_days_allowed', 'data_retention_period' );
 		$this->filter( 'rank_math/analytics/options/cache_control/description', 'change_description' );
 		$this->filter( 'rank_math/analytics/check_all_services', 'check_all_services' );
 		$this->filter( 'rank_math/analytics/user_preference', 'change_user_preference' );
-		$this->filter( 'rank_math/admin/settings/analytics', 'add_new_settings' );
 		$this->action( 'template_redirect', 'local_js_endpoint' );
 		$this->filter( 'rank_math/analytics/gtag_config', 'gtag_config' );
 		$this->filter( 'rank_math/status/rank_math_info', 'google_permission_info' );
@@ -290,6 +291,10 @@ class Analytics {
 	 * @param object $cmb CMB2 instance.
 	 */
 	public function add_new_settings( $cmb ) {
+		if ( ! Authentication::is_authorized() ) {
+			return;
+		}
+
 		$type = 'toggle';
 		if ( ! ProAdminHelper::is_business_plan() ) {
 			$type = 'hidden';

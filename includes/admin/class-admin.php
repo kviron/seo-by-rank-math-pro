@@ -14,6 +14,7 @@ use RankMathPro\Updates;
 use RankMathPro\Status\System_Status;
 use RankMath\Helper;
 use RankMath\Traits\Hooker;
+use MyThemeShop\Helpers\Param;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -33,6 +34,7 @@ class Admin {
 		$this->action( 'init', 'init_components' );
 		add_filter( 'rank_math/analytics/classic/pro_notice', '__return_empty_string' );
 		$this->filter( 'rank_math/settings/sitemap', 'special_seprator' );
+		$this->action( 'admin_enqueue_scripts', 'enqueue' );
 
 		new Updates();
 		new System_Status();
@@ -49,11 +51,9 @@ class Admin {
 			'quick_edit'              => 'RankMathPro\\Admin\\Quick_Edit',
 			'trends_tool'             => 'RankMathPro\\Admin\\Trends_Tool',
 			'setup_wizard'            => 'RankMathPro\\Admin\\Setup_Wizard',
-			'redirection'             => 'RankMathPro\\Admin\\Redirection',
 			'links'                   => 'RankMathPro\\Admin\\Links',
 			'misc'                    => 'RankMathPro\\Admin\\Misc',
 			'csv_import'              => 'RankMathPro\\Admin\\CSV_Import_Export\\CSV_Import_Export',
-			'csv_import_redirections' => 'RankMathPro\\Admin\\CSV_Import_Export_Redirections\\CSV_Import_Export_Redirections',
 		];
 
 		if ( Helper::is_amp_active() ) {
@@ -91,6 +91,25 @@ class Admin {
 		if ( Helper::is_wizard() ) {
 			new Setup_Wizard();
 		}
+	}
+
+
+	/**
+	 * Enqueue assets.
+	 *
+	 * @return void
+	 */
+	public function enqueue() {
+		if ( Param::get( 'page' ) !== 'rank-math-options-general' ) {
+			return;
+		}
+
+		wp_enqueue_style(
+			'rank-math-pro-general-options',
+			RANK_MATH_PRO_URL . 'assets/admin/css/general-options.css',
+			null,
+			rank_math_pro()->version
+		);
 	}
 
 }
