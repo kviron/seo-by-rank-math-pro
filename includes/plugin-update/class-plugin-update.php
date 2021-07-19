@@ -572,6 +572,7 @@ class Plugin_Update {
 		}
 
 		set_site_transient( 'rank_math_pro_updates', $result, 3600 );
+		update_site_option( 'rank_math_pro_google_updates', $result['g_updates'] );
 		return $result;
 	}
 

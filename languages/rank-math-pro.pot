@@ -803,6 +803,22 @@ msgstr ""
 msgid "This option allows you to monitor the SEO performance of all of your sites in one centralized dashboard on RankMath.com, so you can check up on sites at a glance. <a href=\"%1$s\" target=\"_blank\">Learn more</a>."
 msgstr ""
 
+msgid "Google Core Updates in the Graphs"
+msgstr ""
+
+#. translators: Link to kb article
+msgid "This option allows you to show %s in the Analytics graphs."
+msgstr ""
+
+msgid "Google Core Updates"
+msgstr ""
+
+msgid "AdSense"
+msgstr ""
+
+msgid "Analytics"
+msgstr ""
+
 msgid "Logo"
 msgstr ""
 
@@ -1347,6 +1363,12 @@ msgid "Schema to add."
 msgstr ""
 
 msgid "Sorry, you are not allowed to save template."
+msgstr ""
+
+msgid "Object unique id"
+msgstr ""
+
+msgid "Video URL."
 msgstr ""
 
 msgid "Estimated Cost:"

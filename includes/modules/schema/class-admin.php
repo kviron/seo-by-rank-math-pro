@@ -72,6 +72,10 @@ class Admin {
 	 * Rank Math adds new options in the link popup when editing a post.
 	 */
 	public function overwrite_wplink() {
+		if ( ! Admin_Helper::is_post_edit() || Admin_Helper::is_posts_page() ) {
+			return;
+		}
+
 		wp_deregister_script( 'rank-math-formats' );
 		wp_register_script(
 			'rank-math-formats',
@@ -113,17 +117,23 @@ class Admin {
 			return;
 		}
 
+		$dep = [
+			'wp-plugins',
+			'wp-components',
+			'wp-hooks',
+			'wp-api-fetch',
+			'lodash',
+		];
+
+		if ( Helper::is_divi_frontend_editor() ) {
+			array_unshift( $dep, 'rm-react', 'rm-react-dom' );
+		}
+
 		wp_enqueue_style( 'rank-math-schema-pro', RANK_MATH_PRO_URL . 'includes/modules/schema/assets/css/schema.css', null, rank_math_pro()->version );
 		wp_enqueue_script(
 			'rank-math-pro-schema-filters',
 			RANK_MATH_PRO_URL . 'includes/modules/schema/assets/js/schemaFilters.js',
-			[
-				'wp-plugins',
-				'wp-components',
-				'wp-hooks',
-				'wp-api-fetch',
-				'lodash',
-			],
+			$dep,
 			rank_math_pro()->version,
 			true
 		);
