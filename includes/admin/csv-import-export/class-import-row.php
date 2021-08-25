@@ -727,6 +727,10 @@ class Import_Row {
 		}
 
 		$url = 'term' === $this->object_type ? get_term_link( (int) $this->id ) : get_permalink( $this->id );
+		if ( empty( $url ) || is_wp_error( $url ) ) {
+			return false;
+		}
+
 		$url = wp_parse_url( $url, PHP_URL_PATH );
 
 		$this->object_uri = trim( $url, '/' );

@@ -39,6 +39,7 @@ class Frontend {
 		$this->filter( 'rank_math/snippet/rich_snippet_itemlist_entity', 'filter_item_list_schema' );
 		$this->filter( 'rank_math/schema/valid_types', 'valid_types' );
 		$this->filter( 'rank_math/snippet/rich_snippet_product_entity', 'add_manufacturer_property' );
+		$this->filter( 'rank_math/snippet/rich_snippet_videoobject_entity', 'convert_familyfriendly_property' );
 
 		new Display_Conditions();
 		new Snippet_Pro_Shortcode();
@@ -481,6 +482,23 @@ class Frontend {
 		$type = 'company' === $type ? 'organization' : 'person';
 
 		$schema['manufacturer'] = [ '@id' => home_url( "/#{$type}" ) ];
+		return $schema;
+	}
+
+	/**
+	 * Convert isFamilyFriendly property used in Video schema to boolean.
+	 *
+	 * @param array $schema Video schema data.
+	 * @return array
+	 *
+	 * @since 2.13.0
+	 */
+	public function convert_familyfriendly_property( $schema ) {
+		if ( empty( $schema['isFamilyFriendly'] ) ) {
+			return $schema;
+		}
+
+		$schema['isFamilyFriendly'] = 'True';
 		return $schema;
 	}
 

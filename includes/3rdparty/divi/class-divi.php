@@ -207,6 +207,7 @@ class Divi {
 		if ( ! $this->can_add_tab() ) {
 			return;
 		}
+
 		$this->add_global_json_data();
 		wp_dequeue_script( 'rank-math-pro-metabox' );
 		wp_enqueue_style(
@@ -264,11 +265,8 @@ class Divi {
 		) {
 			return false;
 		}
-		return in_array(
-			get_post_type(),
-			(array) Helper::get_settings( 'sitemap.news_sitemap_post_type' ),
-			true
-		);
+
+		return true;
 	}
 
 	/**

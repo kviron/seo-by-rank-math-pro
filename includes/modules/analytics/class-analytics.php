@@ -25,6 +25,7 @@ use RankMath\Admin\Admin_Helper;
 use RankMathPro\Analytics\Workflow\Jobs;
 use RankMathPro\Analytics\Workflow\Workflow;
 use RankMathPro\Admin\Admin_Helper as ProAdminHelper;
+use RankMathPro\Analytics\DB;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -57,6 +58,7 @@ class Analytics {
 		$this->filter( 'rank_math/analytics/pre_filter_data', 'filter_winning_losing_posts', 10, 3 );
 		$this->filter( 'rank_math/analytics/pre_filter_data', 'filter_winning_keywords', 10, 3 );
 		$this->action( 'cmb2_save_options-page_fields_rank-math-options-general_options', 'sync_global_settings', 25, 2 );
+		$this->filter( 'rank_math/metabox/post/values', 'add_metadata', 10, 2 );
 
 		if ( Helper::has_cap( 'analytics' ) ) {
 			$this->action( 'rank_math/admin_bar/items', 'admin_bar_items', 11 );
@@ -70,6 +72,19 @@ class Analytics {
 		new Summary();
 		new Ajax();
 		new Email_Reports();
+	}
+
+	/**
+	 * Add localized data to use in the Post Editor.
+	 *
+	 * @param array $values Aray of localized data.
+	 *
+	 * @return array
+	 */
+	public function add_metadata( $values ) {
+		$values['isAnalyticsConnected'] = \RankMath\Google\Analytics::is_analytics_connected();
+
+		return $values;
 	}
 
 	/**

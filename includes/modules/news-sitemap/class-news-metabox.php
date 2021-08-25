@@ -37,7 +37,6 @@ class News_Metabox {
 		$this->action( 'save_post', 'save_post' );
 		$hook = 'elementor' === Param::get( 'action' ) ? 'elementor/editor/before_enqueue_scripts' : ( Param::get( 'et_fb' ) ? 'wp_footer' : 'rank_math/admin/enqueue_scripts' );
 		$this->action( $hook, 'enqueue_news_sitemap', 11 );
-		$this->action( 'rank_math/metabox/tabs', 'add_tab' );
 		$this->filter( 'rank_math/metabox/post/values', 'add_metadata', 10, 2 );
 	}
 
@@ -48,15 +47,9 @@ class News_Metabox {
 		if ( ! $this->can_add_tab() ) {
 			return;
 		}
-
-		$is_gutenberg = Helper::is_block_editor() && \rank_math_is_gutenberg();
 		$is_elementor = Helper::is_elementor_editor();
 		$is_divi      = Helper::is_divi_frontend_editor();
-		if ( ! $is_gutenberg && ! $is_elementor && ! $is_divi ) {
-			return;
-		}
-
-		$dep = $is_elementor
+		$dep          = $is_elementor
 			? [ 'rank-math-pro-elementor' ]
 			: (
 				$is_divi
@@ -91,29 +84,6 @@ class News_Metabox {
 		];
 
 		return $values;
-	}
-
-	/**
-	 * Add metabox tab.
-	 *
-	 * @param array $tabs Aray of tabs.
-	 *
-	 * @return array
-	 */
-	public function add_tab( $tabs ) {
-		if ( ! $this->can_add_tab() ) {
-			return $tabs;
-		}
-
-		$tabs['news-tab'] = [
-			'icon'       => 'rm-icon rm-icon-post',
-			'title'      => esc_html__( 'News Sitemap', 'rank-math-pro' ),
-			'desc'       => esc_html__( 'This tab contains news sitemap options.', 'rank-math-pro' ),
-			'file'       => dirname( __FILE__ ) . '/metabox.php',
-			'capability' => 'sitemap',
-		];
-
-		return $tabs;
 	}
 
 	/**

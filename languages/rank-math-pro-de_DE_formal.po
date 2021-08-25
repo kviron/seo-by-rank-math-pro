@@ -2,8 +2,8 @@
 # This file is distributed under the same license as the rank-math-pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: RankMath Pro v2.10.0\n"
-"POT-Creation-Date: 2021-06-16 16:38+0200\n"
+"Project-Id-Version: RankMath Pro v2.12.0\n"
+"POT-Creation-Date: 2021-07-15 20:44+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Thorsten Wollenhöfer <thorsten.wollenhoefer@gmail.com>\n"
 "Language-Team: Thorsten Wollenhöfer <thorsten.wollenhoefer@gmail.com>\n"
@@ -299,7 +299,7 @@ msgid "Music"
 msgstr "Musik"
 
 #: includes/admin/class-post-filters.php:78
-#: includes/modules/schema/class-admin.php:63
+#: includes/modules/schema/class-admin.php:61
 msgid "Movie"
 msgstr "Film"
 
@@ -500,27 +500,27 @@ msgstr ""
 "Wählen Sie dies, wenn Sie eine benutzerdefinierte Rank-Math-"
 "Einstellungsdatei haben, die Sie verwenden möchten."
 
-#: includes/admin/class-setup-wizard.php:125
+#: includes/admin/class-setup-wizard.php:129
 msgid "Import successful."
 msgstr "Import erfolgreich."
 
-#: includes/admin/class-setup-wizard.php:129
+#: includes/admin/class-setup-wizard.php:133
 msgid "No settings found to be imported."
 msgstr "Keine Einstellungen zum Importieren gefunden."
 
-#: includes/admin/class-setup-wizard.php:155
+#: includes/admin/class-setup-wizard.php:159
 msgid "No file selected."
 msgstr "Keine Datei ausgewählt."
 
-#: includes/admin/class-setup-wizard.php:164
+#: includes/admin/class-setup-wizard.php:168
 msgid "Settings file could not be imported:"
 msgstr "Die Einstellungsdatei konnte nicht importiert werden:"
 
-#: includes/admin/class-setup-wizard.php:169
+#: includes/admin/class-setup-wizard.php:173
 msgid "Settings could not be imported:"
 msgstr "Einstellungen konnten nicht importiert werden:"
 
-#: includes/admin/class-setup-wizard.php:174
+#: includes/admin/class-setup-wizard.php:178
 msgid "Settings could not be imported: Upload failed."
 msgstr ""
 "Die Einstellungen konnten nicht importiert werden: Upload fehlgeschlagen."
@@ -775,7 +775,7 @@ msgstr ""
 "in die Sitemap aufzunehmen."
 
 #: includes/admin/wizard/class-sitemap.php:118 includes/class-modules.php:50
-#: includes/modules/news-sitemap/class-news-metabox.php:104
+#: includes/modules/news-sitemap/class-news-metabox.php:110
 #: includes/modules/news-sitemap/class-news-sitemap.php:129
 msgid "News Sitemap"
 msgstr "News-Sitemap"
@@ -1063,20 +1063,20 @@ msgstr "In den ACF-Feldern hinzugefügte Bilder einbeziehen."
 msgid "Custom"
 msgstr "Benutzerdefiniert"
 
-#: includes/modules/analytics/class-analytics.php:145
+#: includes/modules/analytics/class-analytics.php:146
 msgid "Post Analytics"
 msgstr "Beitragsanalysen"
 
-#: includes/modules/analytics/class-analytics.php:147
+#: includes/modules/analytics/class-analytics.php:148
 msgid "Analytics Report"
 msgstr "Analysenbericht"
 
-#: includes/modules/analytics/class-analytics.php:200
-#: includes/modules/analytics/class-analytics.php:219
+#: includes/modules/analytics/class-analytics.php:201
+#: includes/modules/analytics/class-analytics.php:220
 msgid "Country"
 msgstr "Land"
 
-#: includes/modules/analytics/class-analytics.php:285
+#: includes/modules/analytics/class-analytics.php:286
 msgid ""
 "Enter the number of days to keep Analytics data in your database. The "
 "maximum allowed days are 180. Though, 2x data will be stored in the DB for "
@@ -1087,12 +1087,12 @@ msgstr ""
 "180. Es werden jedoch 2x Daten in der DB gespeichert, um die Differenz "
 "korrekt berechnen zu können."
 
-#: includes/modules/analytics/class-analytics.php:310
+#: includes/modules/analytics/class-analytics.php:307
 msgid "Monitor SEO Performance"
 msgstr "SEO-Leistung überwachen"
 
 #. translators: Link to kb article
-#: includes/modules/analytics/class-analytics.php:313
+#: includes/modules/analytics/class-analytics.php:310
 #, php-format
 msgid ""
 "This option allows you to monitor the SEO performance of all of your sites "
@@ -1104,11 +1104,25 @@ msgstr ""
 "Websites auf Anhieb überprüfen können. <a href=\"%1$s\" target=\"_blank"
 "\">Mehr erfahren</a>."
 
-#: includes/modules/analytics/class-analytics.php:456
+#: includes/modules/analytics/class-analytics.php:322
+msgid "Google Core Updates in the Graphs"
+msgstr "Google Core-Updates in den Grafiken"
+
+#. translators: Link to kb article
+#: includes/modules/analytics/class-analytics.php:325
+#, php-format
+msgid "This option allows you to show %s in the Analytics graphs."
+msgstr "Mit dieser Option können Sie %s in den Analytics-Diagrammen anzeigen."
+
+#: includes/modules/analytics/class-analytics.php:326
+msgid "Google Core Updates"
+msgstr "Google Core-Updates"
+
+#: includes/modules/analytics/class-analytics.php:480
 msgid "AdSense"
 msgstr "AdSense"
 
-#: includes/modules/analytics/class-analytics.php:457
+#: includes/modules/analytics/class-analytics.php:481
 msgid "Analytics"
 msgstr "Analysen"
 
@@ -3191,7 +3205,7 @@ msgstr ""
 msgid "Contact Page"
 msgstr "Kontaktseite"
 
-#: includes/modules/news-sitemap/class-news-metabox.php:105
+#: includes/modules/news-sitemap/class-news-metabox.php:111
 msgid "This tab contains news sitemap options."
 msgstr "Diese Registerkarte enthält News-Sitemap-Optionen."
 
@@ -3535,55 +3549,55 @@ msgstr "Konnte Umleitung #%d nicht aktualisieren (nicht gefunden)"
 msgid "Could not import redirection."
 msgstr "Die Umleitung konnte nicht importiert werden."
 
-#: includes/modules/schema/class-admin.php:61
+#: includes/modules/schema/class-admin.php:59
 msgid "DataSet"
 msgstr "DataSet"
 
-#: includes/modules/schema/class-admin.php:62
+#: includes/modules/schema/class-admin.php:60
 msgid "Fact Check"
 msgstr "Faktenüberprüfung"
 
-#: includes/modules/schema/class-admin.php:69
+#: includes/modules/schema/class-admin.php:67
 msgid "None (Click here to set one)"
 msgstr "Keine (Klicken Sie hier, um eine einzustellen)"
 
-#: includes/modules/schema/class-admin.php:93
+#: includes/modules/schema/class-admin.php:95
 msgid "Insert/edit link"
 msgstr "Link einfügen/bearbeiten"
 
-#: includes/modules/schema/class-admin.php:94
+#: includes/modules/schema/class-admin.php:96
 msgid "Update"
 msgstr "Update"
 
-#: includes/modules/schema/class-admin.php:95
+#: includes/modules/schema/class-admin.php:97
 msgid "Add Link"
 msgstr "Link hinzufügen"
 
-#: includes/modules/schema/class-admin.php:96
+#: includes/modules/schema/class-admin.php:98
 msgid "(no title)"
 msgstr "(kein Titel)"
 
-#: includes/modules/schema/class-admin.php:97
+#: includes/modules/schema/class-admin.php:99
 msgid "No matches found."
 msgstr "Keine Treffer gefunden."
 
-#: includes/modules/schema/class-admin.php:98
+#: includes/modules/schema/class-admin.php:100
 msgid "Link selected."
 msgstr "Link ausgewählt."
 
-#: includes/modules/schema/class-admin.php:99
+#: includes/modules/schema/class-admin.php:101
 msgid "Link inserted."
 msgstr "Link eingefügt."
 
-#: includes/modules/schema/class-admin.php:104
+#: includes/modules/schema/class-admin.php:106
 msgid "Use in Schema Markup"
 msgstr "Verwendung im Schema-Markup"
 
-#: includes/modules/schema/class-admin.php:105
+#: includes/modules/schema/class-admin.php:107
 msgid "Link Title"
 msgstr "Link-Titel"
 
-#: includes/modules/schema/class-admin.php:407
+#: includes/modules/schema/class-admin.php:419
 msgid "All Taxonomies"
 msgstr "Alle Taxonomien"
 
@@ -3659,9 +3673,17 @@ msgstr "Schema-Vorlagen"
 msgid "Schema to add."
 msgstr "Schema, das hinzugefügt werden soll."
 
-#: includes/modules/schema/class-rest.php:113
+#: includes/modules/schema/class-rest.php:142
 msgid "Sorry, you are not allowed to save template."
 msgstr "Leider ist es Ihnen nicht erlaubt, die Vorlage zu speichern."
+
+#: includes/modules/schema/class-rest.php:157
+msgid "Object unique id"
+msgstr "Eindeutige Objekt-ID"
+
+#: includes/modules/schema/class-rest.php:162
+msgid "Video URL."
+msgstr "Video-URL."
 
 #: includes/modules/schema/class-schema.php:125
 msgid "Estimated Cost:"
@@ -4138,14 +4160,14 @@ msgstr ""
 "benötigt, um seine SEO zu verbessern und mehr Besucher auf seine Website zu "
 "gewinnen."
 
-#: includes/plugin-update/class-plugin-update.php:680
+#: includes/plugin-update/class-plugin-update.php:681
 msgid "Please update the free version before updating Rank Math SEO PRO."
 msgstr ""
 "Bitte aktualisieren Sie die kostenlose Version, bevor Sie Rank Math SEO PRO "
 "aktualisieren."
 
 #. translators: 1: Plugin name, 2: Pricing Link's opening HTML anchor tag, 3: Pricing Link's closing HTML anchor tag.
-#: includes/plugin-update/class-plugin-update.php:683
+#: includes/plugin-update/class-plugin-update.php:684
 #, php-format
 msgid ""
 "It seems that you don't have an active subscription for %1$s. Please see "
@@ -4155,17 +4177,17 @@ msgstr ""
 "%2$sDetails und Preise%3$s."
 
 #. translators: 1: Link's opening HTML anchor tag, 2: Link's closing HTML anchor tag.
-#: includes/plugin-update/class-plugin-update.php:690
+#: includes/plugin-update/class-plugin-update.php:691
 #, php-format
 msgid "Please %1$s connect Rank Math SEO PRO %2$s for automatic updates."
 msgstr ""
 "Bitte verbinden Sie %1$s Rank Math SEO PRO %2$s für automatische Updates."
 
-#: includes/plugin-update/class-plugin-update.php:835
+#: includes/plugin-update/class-plugin-update.php:836
 msgid "Rank Math PRO"
 msgstr "Rank Math PRO"
 
-#: includes/plugin-update/class-plugin-update.php:838
+#: includes/plugin-update/class-plugin-update.php:839
 msgid "https://rankmath.com/changelog/"
 msgstr "https://rankmath.com/changelog/"
 

@@ -47,11 +47,12 @@ class Local_Seo {
 	/**
 	 * Update post info for analytics.
 	 *
-	 * @param int   $post_id Post id.
-	 * @param array $schemas Schema data.
+	 * @param int    $object_id    Object ID.
+	 * @param array  $schemas      Schema data.
+	 * @param string $object_type  Object type.
 	 */
-	public function update_post_schema_info( $post_id, $schemas ) {
-		if ( 'rank_math_locations' !== get_post_type( $post_id ) ) {
+	public function update_post_schema_info( $object_id, $schemas, $object_type = 'post' ) {
+		if ( 'post' !== $object_type || 'rank_math_locations' !== get_post_type( $object_id ) ) {
 			return;
 		}
 
@@ -60,8 +61,8 @@ class Local_Seo {
 			return;
 		}
 
-		update_post_meta( $post_id, 'rank_math_local_business_latitide', $schema['geo']['latitude'] );
-		update_post_meta( $post_id, 'rank_math_local_business_longitude', $schema['geo']['longitude'] );
+		update_post_meta( $object_id, 'rank_math_local_business_latitide', $schema['geo']['latitude'] );
+		update_post_meta( $object_id, 'rank_math_local_business_longitude', $schema['geo']['longitude'] );
 	}
 
 	/**
@@ -214,7 +215,7 @@ class Local_Seo {
 	 * @param int $post_id Post ID to possibly invalidate for.
 	 */
 	public function invalidate_cache( $post_id ) {
-		if ( $this->post_type !== get_post_type( $post_id ) ) {
+		if ( get_post_type( $post_id ) !== $this->post_type ) {
 			return false;
 		}
 

@@ -51,6 +51,12 @@ msgstr ""
 msgid "Please activate Schema & Sitemap module to use this module."
 msgstr ""
 
+msgid "Persistent random word chosen from a list"
+msgstr ""
+
+msgid "Non-persistent random word chosen from a list. A new random word will be chosen on each page load."
+msgstr ""
+
 msgid "Off"
 msgstr ""
 
@@ -413,33 +419,6 @@ msgid "Rank Math PRO"
 msgstr ""
 
 msgid "https://rankmath.com/changelog/"
-msgstr ""
-
-msgid "Close panel"
-msgstr ""
-
-msgid "Keywords"
-msgstr ""
-
-msgid "Enter Keyword"
-msgstr ""
-
-msgid "Add"
-msgstr ""
-
-msgid "Compare Keywords"
-msgstr ""
-
-msgid "Close and use selected keywords"
-msgstr ""
-
-msgid "Cancel"
-msgstr ""
-
-msgid "Data source: Google Trends"
-msgstr ""
-
-msgid "Trends"
 msgstr ""
 
 msgid "CSV File"
@@ -1132,20 +1111,11 @@ msgstr ""
 msgid "Sorry, no locations were found."
 msgstr ""
 
-msgid "This tab contains news sitemap options."
-msgstr ""
-
 msgid "News Sitemaps allow you to control which content you submit to Google News. More information: <a href=\"https://rankmath.com/kb/news-sitemap/?utm_source=Plugin&utm_campaign=WP\" target=\"_blank\">News Sitemaps overview</a>"
 msgstr ""
 
 #. translators: News Sitemap Url
 msgid "Your News Sitemap index can be found here: : %s"
-msgstr ""
-
-msgid "Googlebot-News index"
-msgstr ""
-
-msgid "Using noindex allows you to prevent articles from appearing in Google News."
 msgstr ""
 
 #. translators: Post Type
@@ -2637,6 +2607,9 @@ msgstr ""
 msgid "Identifier"
 msgstr ""
 
+msgid "Keywords"
+msgstr ""
+
 msgid "License"
 msgstr ""
 
@@ -2731,9 +2704,6 @@ msgid "Price Valid Until"
 msgstr ""
 
 msgid "Product In-Stock"
-msgstr ""
-
-msgid "We handle the Schema on Archive page automatically. Please add schema from this tab only if you are sure what you are doing."
 msgstr ""
 
 msgid "VIEW DETAILED ANALYTICS"

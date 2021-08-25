@@ -73,13 +73,14 @@ class Parser {
 			}
 		}
 
-		$videos[] = $this->get_links_from_shortcode( $content );
-		$videos   = array_filter(
+		$videos = array_merge( $videos, $this->get_links_from_shortcode( $content ) );
+		$videos = array_filter(
 			$videos,
 			function( $video ) {
 				return ! empty( $video['src'] ) ? $video['src'] : false;
 			}
 		);
+
 		if ( empty( $videos ) ) {
 			return;
 		}
@@ -249,7 +250,7 @@ class Parser {
 		);
 
 		if ( empty( $matches ) || empty( $matches[1] ) ) {
-			return false;
+			return [];
 		}
 
 		$data = [];

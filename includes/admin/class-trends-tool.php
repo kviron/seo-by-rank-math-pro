@@ -31,7 +31,6 @@ class Trends_Tool {
 	public function __construct() {
 		$this->action( 'rank_math/admin/enqueue_scripts', 'editor_scripts', 20 );
 		$this->action( 'elementor/editor/before_enqueue_scripts', 'elementor_scripts' );
-		$this->action( 'rank_math/metabox/settings/general', 'add_see_trends' );
 	}
 
 	/**
@@ -46,23 +45,16 @@ class Trends_Tool {
 		Helper::add_json( 'trendsIcon', $this->get_icon_svg() );
 
 		if ( Admin_Helper::is_post_edit() || 'term.php' === $pagenow || Admin_Helper::is_user_edit() ) {
-			$screen = get_current_screen();
-			if ( $screen->is_block_editor() ) {
-				wp_enqueue_script(
-					'rank-math-pro-gutenberg',
-					RANK_MATH_PRO_URL . 'assets/admin/js/gutenberg.js',
-					[
-						'rank-math-gutenberg',
-						'jquery-ui-autocomplete',
-					],
-					RANK_MATH_PRO_VERSION,
-					true
-				);
-				wp_enqueue_style( 'rank-math-pro-gutenberg', RANK_MATH_PRO_URL . 'assets/admin/css/gutenberg.css', [], RANK_MATH_PRO_VERSION );
-			} else {
-				wp_enqueue_style( 'rank-math-pro-metabox', RANK_MATH_PRO_URL . 'assets/admin/css/metabox.css', [ 'rank-math-post-metabox', 'wp-components' ], RANK_MATH_PRO_VERSION );
-				wp_enqueue_script( 'rank-math-pro-metabox', RANK_MATH_PRO_URL . 'assets/admin/js/metabox.js', [ 'rank-math-metabox' ], RANK_MATH_PRO_VERSION, true );
-			}
+			wp_enqueue_script(
+				'rank-math-pro-gutenberg',
+				RANK_MATH_PRO_URL . 'assets/admin/js/gutenberg.js',
+				[
+					'jquery-ui-autocomplete',
+				],
+				RANK_MATH_PRO_VERSION,
+				true
+			);
+			wp_enqueue_style( 'rank-math-pro-gutenberg', RANK_MATH_PRO_URL . 'assets/admin/css/gutenberg.css', [], RANK_MATH_PRO_VERSION );
 		}
 	}
 
@@ -85,28 +77,6 @@ class Trends_Tool {
 			true
 		);
 		wp_enqueue_style( 'rank-math-pro-elementor', RANK_MATH_PRO_URL . 'assets/admin/css/elementor.css', [], RANK_MATH_PRO_VERSION );
-	}
-
-	/**
-	 * Add Trends Tool link to the meta box.
-	 *
-	 * @param object $cmb CMB object.
-	 *
-	 * @return void
-	 */
-	public function add_see_trends( $cmb ) {
-		$field = $cmb->get_field( 'rank_math_focus_keyword' );
-		if ( false !== $field ) {
-			$field->args['before'] = '<div id="rank-math-trend-tool"></div>';
-		}
-
-		$cmb->add_field(
-			[
-				'id'   => 'rank_math_compare_keywords',
-				'type' => 'raw',
-				'file' => RANK_MATH_PRO_PATH . 'includes/views/compare-keywords.php',
-			]
-		);
 	}
 
 	/**
