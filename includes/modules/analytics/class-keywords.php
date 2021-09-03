@@ -14,6 +14,8 @@ use WP_REST_Request;
 use RankMath\Traits\Hooker;
 use RankMath\Analytics\Stats;
 use RankMath\Helper;
+use MyThemeShop\Helpers\Param;
+
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -50,20 +52,25 @@ class Keywords {
 		$this->action( 'save_post', 'add_post_focus_keyword' );
 		$this->action( 'init', 'get_post_type_list', 99 );
 	}
+
 	/**
 	 * Get accessible post type lists for auto add focus keywords.
 	 */
 	public function get_post_type_list() {
+		if ( 'rank-math-analytics' !== Param::get( 'page' ) ) {
+			return;
+		}
+
 		$post_types = array_map(
 			function( $post_type ) {
 				return 'attachment' === $post_type ? false : Helper::get_post_type_label( $post_type );
 			},
 			Helper::get_accessible_post_types()
 		);
-
 		Helper::add_json( 'postTypes', array_filter( $post_types ) );
 		Helper::add_json( 'autoAddFK', Helper::get_settings( 'general.auto_add_focus_keywords', [] ) );
 	}
+
 	/**
 	 * Get keyword position graph data.
 	 *

@@ -183,7 +183,10 @@ class Parser {
 	 */
 	private function get_video_metadata( $url ) {
 		$url = preg_replace( '/\?.*/', '', $url ); // Remove query string from URL.
-		if ( $url && in_array( $url, $this->urls, true ) ) {
+		if (
+			$url &&
+			( is_array( $this->urls ) && in_array( $url, $this->urls, true ) )
+		) {
 			return false;
 		}
 

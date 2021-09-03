@@ -27,7 +27,7 @@ class Adsense {
 	 */
 	public static function get_adsense_accounts() {
 		$accounts = [];
-		$response = Api::get()->http_get( 'https://www.googleapis.com/adsense/v1.4/accounts' );
+		$response = Api::get()->http_get( 'https://adsense.googleapis.com/v2/accounts' );
 		if ( ! Api::get()->is_success() || isset( $response->error ) ) {
 			return $accounts;
 		}
@@ -66,7 +66,7 @@ class Adsense {
 				'dimension' => 'DATE',
 				'metric'    => 'EARNINGS',
 			],
-			'https://www.googleapis.com/adsense/v1.4/reports'
+			'https://adsense.googleapis.com/v2/reports'
 		);
 		$response = Api::get()->http_get( $request );
 

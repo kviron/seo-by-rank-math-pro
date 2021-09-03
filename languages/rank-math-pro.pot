@@ -320,6 +320,15 @@ msgstr ""
 msgid "&mdash; Not Selected &mdash;"
 msgstr ""
 
+msgid "Sorry, you are not allowed to edit posts."
+msgstr ""
+
+msgid "Sorry, you are not allowed to edit pages."
+msgstr ""
+
+msgid "Sorry, you are not allowed to do this."
+msgstr ""
+
 msgid "Upload"
 msgstr ""
 
@@ -392,6 +401,9 @@ msgid "Automatic updates are not available."
 msgstr ""
 
 msgid "This update will install a beta version of Rank Math SEO PRO."
+msgstr ""
+
+msgid "Cannot Update"
 msgstr ""
 
 msgid "Rank Math SEO PRO For WordPress"
@@ -1064,6 +1076,34 @@ msgid "Search %s"
 msgstr ""
 
 #. translators: Post Type Singular Name
+msgid "No %s found."
+msgstr ""
+
+#. translators: Post Type Singular Name
+msgid "No %s found in Trash."
+msgstr ""
+
+#. translators: Post Type Singular Name
+msgid "%s published."
+msgstr ""
+
+#. translators: Post Type Singular Name
+msgid "%s published privately."
+msgstr ""
+
+#. translators: Post Type Singular Name
+msgid "%s reverted to draft."
+msgstr ""
+
+#. translators: Post Type Singular Name
+msgid "%s scheduled."
+msgstr ""
+
+#. translators: Post Type Singular Name
+msgid "%s updated."
+msgstr ""
+
+#. translators: Post Type Singular Name
 #. translators: Post Type Singular Name
 msgid "%s categories"
 msgstr ""
@@ -1099,6 +1139,12 @@ msgid "Parent Category"
 msgstr ""
 
 msgid "Parent Category:"
+msgstr ""
+
+msgid "Address"
+msgstr ""
+
+msgid "Phone"
 msgstr ""
 
 #. translators: %s expands to General Settings Link.
@@ -1494,9 +1540,6 @@ msgstr ""
 
 #. translators: Global Identifier name.
 msgid "%s value to use in Product schema."
-msgstr ""
-
-msgid "Phone"
 msgstr ""
 
 msgid "Secondary phone"
@@ -2333,9 +2376,6 @@ msgstr ""
 msgid "Search engines may prominently display your contact phone number for mobile users."
 msgstr ""
 
-msgid "Address"
-msgstr ""
-
 msgid "Address Format"
 msgstr ""
 
@@ -2706,6 +2746,25 @@ msgstr ""
 msgid "Product In-Stock"
 msgstr ""
 
+msgid "SEO Report of Your Website"
+msgstr ""
+
+msgid "FULL REPORT"
+msgstr ""
+
+msgid "External Link Icon"
+msgstr ""
+
+msgid "Uh-oh"
+msgstr ""
+
+msgid "It seems that there are no stats to show right now."
+msgstr ""
+
+#. translators: placeholders are anchor opening and closing tags.
+msgid "If you can see the site data in your Search Console and Analytics accounts, but not here, then %1$s try reconnecting your account %2$s and make sure that the correct properties are selected in the %1$s Analytics Settings%2$s."
+msgstr ""
+
 msgid "VIEW DETAILED ANALYTICS"
 msgstr ""
 
@@ -2713,6 +2772,9 @@ msgid "Impressions"
 msgstr ""
 
 msgid "Position"
+msgstr ""
+
+msgid "No data to show."
 msgstr ""
 
 msgid "Post"

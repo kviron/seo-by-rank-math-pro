@@ -408,6 +408,10 @@ class Frontend {
 					continue;
 				}
 
+				if ( 'Dataset' === $type && 'isPartOf' === $property && ! empty( $schema[ $property ]['@type'] ) ) {
+					continue;
+				}
+
 				unset( $schemas[ $id ][ $property ] );
 			}
 
