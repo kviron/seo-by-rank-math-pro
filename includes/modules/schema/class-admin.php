@@ -117,27 +117,15 @@ class Admin {
 			return;
 		}
 
-		$dep = [
-			'wp-plugins',
-			'wp-components',
-			'wp-hooks',
-			'wp-api-fetch',
-			'lodash',
-		];
-
-		if ( Helper::is_divi_frontend_editor() ) {
-			array_unshift( $dep, 'rm-react', 'rm-react-dom' );
-		}
-
 		wp_enqueue_style( 'rank-math-schema-pro', RANK_MATH_PRO_URL . 'includes/modules/schema/assets/css/schema.css', null, rank_math_pro()->version );
 		wp_enqueue_script(
 			'rank-math-pro-schema-filters',
 			RANK_MATH_PRO_URL . 'includes/modules/schema/assets/js/schemaFilters.js',
-			$dep,
+			Helper::is_divi_frontend_editor() ? [ 'rank-math-divi' ] : [ 'rank-math-elementor' ],
 			rank_math_pro()->version,
 			true
 		);
-		wp_enqueue_script( 'rank-math-schema-pro', RANK_MATH_PRO_URL . 'includes/modules/schema/assets/js/schema.js', [], rank_math_pro()->version, true );
+		wp_enqueue_script( 'rank-math-schema-pro', RANK_MATH_PRO_URL . 'includes/modules/schema/assets/js/schema.js', [ 'rank-math-schema' ], rank_math_pro()->version, true );
 	}
 
 	/**

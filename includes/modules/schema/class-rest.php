@@ -113,12 +113,10 @@ class Rest extends WP_REST_Controller {
 				'post_status' => 'publish',
 				'post_type'   => 'rank_math_schema',
 				'post_title'  => $schema['metadata']['title'],
-				'meta_input'  => [
-					$meta_key => $schema,
-				],
 			]
 		);
 
+		update_post_meta( $template_id, $meta_key, $schema );
 		return [
 			'id'   => $template_id,
 			'link' => get_edit_post_link( $template_id ),

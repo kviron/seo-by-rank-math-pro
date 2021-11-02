@@ -93,6 +93,10 @@ class Quick_Edit {
 			return;
 		}
 
+		if ( 'post' === $object_type && ! $this->can_bulk_edit() ) {
+			return;
+		}
+
 		$robots = array_filter( (array) get_metadata( $object_type, $object_id, 'rank_math_robots', true ) );
 		if ( empty( $robots ) ) {
 			$robots = Helper::get_robots_defaults();
@@ -169,6 +173,10 @@ class Quick_Edit {
 	 * @return void
 	 */
 	public function quick_edit( $column, $bulk_edit = false ) {
+		if ( ! $this->can_bulk_edit() ) {
+			return;
+		}
+
 		$robots = [
 			'index'        => __( 'Index', 'rank-math-pro' ),
 			'noindex'      => __( 'No Index', 'rank-math-pro' ),
@@ -378,15 +386,15 @@ class Quick_Edit {
 		}
 
 		if ( ! current_user_can( $ptype->cap->edit_posts ) ) {
-			if ( 'page' === $ptype->name ) {
-				wp_die( esc_html__( 'Sorry, you are not allowed to edit pages.', 'rank-math-pro' ) );
-			} else {
-				wp_die( esc_html__( 'Sorry, you are not allowed to edit posts.', 'rank-math-pro' ) );
-			}
+			return;
 		}
 
 		if ( ! Helper::has_cap( 'onpage_general' ) ) {
-			wp_die( esc_html__( 'Sorry, you are not allowed to do this.', 'rank-math-pro' ) );
+			return;
+		}
+
+		if ( ! $this->can_bulk_edit( $ptype ) ) {
+			return;
 		}
 
 		$save_fields = [
@@ -442,6 +450,10 @@ class Quick_Edit {
 		}
 
 		$post_type = get_post_type( $post_id );
+		if ( ! $this->can_bulk_edit( $post_type ) ) {
+			return;
+		}
+
 		$taxonomy  = ProAdminHelper::get_primary_taxonomy( $post_id );
 
 		$save_fields = [
@@ -545,5 +557,30 @@ class Quick_Edit {
 			}
 			update_term_meta( $term_id, $field_name, $field_value );
 		}
+	}
+
+	/**
+	 * Check if bulk editing is enabled for the current post type.
+	 *
+	 * @param  string $ptype Post type name.
+	 *
+	 * @return boolean
+	 */
+	public function can_bulk_edit( $ptype = null ) {
+		global $post_type;
+		if ( ! $ptype ) {
+			$ptype = $post_type;
+		}
+
+		if ( is_a( $ptype, 'WP_Post_Type' ) ) {
+			$ptype = $ptype->name;
+		}
+
+		$allow_editing = Helper::get_settings( 'titles.pt_' . $ptype . '_bulk_editing', true );
+		if ( ! $allow_editing || 'readonly' === $allow_editing ) {
+			return false;
+		}
+
+		return true;
 	}
 }

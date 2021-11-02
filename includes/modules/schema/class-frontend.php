@@ -107,7 +107,7 @@ class Frontend {
 		foreach ( $matches[0] as $link ) {
 			$attrs = HTML::extract_attributes( $link );
 
-			if ( empty( $attrs['data-schema-attribute'] ) ) {
+			if ( ! isset( $attrs['data-schema-attribute'] ) ) {
 				continue;
 			}
 

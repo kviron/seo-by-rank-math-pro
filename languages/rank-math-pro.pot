@@ -33,6 +33,9 @@ msgstr ""
 msgid "Pinterest Debugger"
 msgstr ""
 
+msgid "Activate now"
+msgstr ""
+
 msgid "News Sitemap"
 msgstr ""
 
@@ -318,15 +321,6 @@ msgid "Primary %s"
 msgstr ""
 
 msgid "&mdash; Not Selected &mdash;"
-msgstr ""
-
-msgid "Sorry, you are not allowed to edit posts."
-msgstr ""
-
-msgid "Sorry, you are not allowed to edit pages."
-msgstr ""
-
-msgid "Sorry, you are not allowed to do this."
 msgstr ""
 
 msgid "Upload"
@@ -766,6 +760,9 @@ msgstr ""
 msgid "Nonce error. Please try again."
 msgstr ""
 
+msgid "Hits"
+msgstr ""
+
 msgid "Include Images from the ACF Fields."
 msgstr ""
 
@@ -937,6 +934,18 @@ msgid "Mark Unsolved."
 msgstr ""
 
 msgid "Mark Solved."
+msgstr ""
+
+msgid "Image Alt"
+msgstr ""
+
+msgid "Alt text set for the current image."
+msgstr ""
+
+msgid "Image Title"
+msgstr ""
+
+msgid "Title text set for the current image."
 msgstr ""
 
 #. translators: placeholder is the username or email.

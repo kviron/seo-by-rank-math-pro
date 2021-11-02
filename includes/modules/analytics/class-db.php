@@ -475,7 +475,7 @@ class DB {
 		global $wpdb;
 
 		foreach ( $rows as $row ) {
-			$earnings = floatval( $row[1] );
+			$earnings = floatval( $row['cells'][1]['value'] );
 			if ( empty( $earnings ) ) {
 				continue;
 			}

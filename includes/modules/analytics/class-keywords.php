@@ -94,6 +94,12 @@ class Keywords {
 		$data['winningKeywords'] = $this->get_winning_keywords();
 		$data['losingKeywords']  = $this->get_losing_keywords();
 
+		if ( empty( $data['winningKeywords'] ) ) {
+			$data['winningKeywords']['response'] = 'No Data';
+		}
+		if ( empty( $data['losingKeywords'] ) ) {
+			$data['losingKeywords']['response'] = 'No Data';
+		}
 		return $data;
 	}
 
@@ -310,7 +316,9 @@ class Keywords {
 		if ( 'query' !== $orderby && 'default' !== $orderby ) {
 			$data = $this->track_keywords_array_sort( $data, $order, $orderby );
 		}
-
+		if ( empty( $data ) ) {
+			$data['response'] = 'No Data';
+		}
 		return $data;
 	}
 
@@ -360,8 +368,8 @@ class Keywords {
 				}
 			);
 		}
-
 		return $arr;
+
 	}
 	/**
 	 * Get keyword rows from keyword manager table.
