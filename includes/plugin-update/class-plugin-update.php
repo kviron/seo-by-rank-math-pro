@@ -469,7 +469,7 @@ class Plugin_Update {
 		}
 
 		$transient = get_site_transient( 'update_plugins' );
-		$response = isset( $transient->response['seo-by-rank-math-pro/rank-math-pro.php'] ) ? $transient->response['seo-by-rank-math-pro/rank-math-pro.php'] : new stdClass();
+		$response = isset( $transient->response['seo-by-rank-math-pro/rank-math-pro.php'] ) ? $transient->response['seo-by-rank-math-pro/rank-math-pro.php'] : new \stdClass();
 		if ( empty( $response->package ) && isset( $response->unavailability_reason ) ) {
 				$message = $this->get_update_message( $response->unavailability_reason );
 			?>

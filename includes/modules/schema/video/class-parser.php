@@ -49,6 +49,7 @@ class Parser {
 	 */
 	public function save() {
 		if (
+			! ( $this->post instanceof \WP_Post ) ||
 			wp_is_post_revision( $this->post->ID ) ||
 			! Helper::get_settings( "titles.pt_{$this->post->post_type}_autodetect_video", 'on' )
 		) {

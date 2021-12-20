@@ -265,15 +265,15 @@ class Quick_Edit {
 											<?php
 											wp_dropdown_categories(
 												[
-													'name'              => 'rank_math_primary_term',
-													'id'                => 'rank_math_primary_term',
-													'class'             => '',
-													'selected'          => '0',
-													'orderby'           => 'name',
-													'taxonomy'          => $taxonomy['name'],
-													'hide_empty'        => false,
-													'show_option_all'   => false,
-													'show_option_none'  => __( '&mdash; Not Selected &mdash;', 'rank-math-pro' ),
+													'name' => 'rank_math_primary_term',
+													'id'   => 'rank_math_primary_term',
+													'class' => '',
+													'selected' => '0',
+													'orderby' => 'name',
+													'taxonomy' => $taxonomy['name'],
+													'hide_empty' => false,
+													'show_option_all' => false,
+													'show_option_none' => __( '&mdash; Not Selected &mdash;', 'rank-math-pro' ),
 													'option_none_value' => '0',
 												]
 											);
@@ -421,10 +421,6 @@ class Quick_Edit {
 				if ( 'robots' === $field ) {
 					$field_value = (array) $field_value;
 				} elseif ( 'primary_term' === $field ) {
-					if ( empty( $post_data['post_category'] ) ) {
-						continue;
-					}
-
 					$taxonomy   = ProAdminHelper::get_primary_taxonomy( $post_id );
 					$field_name = 'rank_math_primary_' . $taxonomy['name'];
 				}
@@ -454,7 +450,7 @@ class Quick_Edit {
 			return;
 		}
 
-		$taxonomy  = ProAdminHelper::get_primary_taxonomy( $post_id );
+		$taxonomy = ProAdminHelper::get_primary_taxonomy( $post_id );
 
 		$save_fields = [
 			'title',

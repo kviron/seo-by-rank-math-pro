@@ -536,7 +536,7 @@ class Posts {
 		} else {
 			// Get posts order by impressions.
 			$data = DB::objects()
-				->select( [ 'page', 'title' ] )
+				->select( [ 'page', 'title', 'object_id' ] )
 				->where( 'is_indexable', 1 );
 			if ( 'title' === $orderby ) {
 				$data->orderBy( $orderby, $order )

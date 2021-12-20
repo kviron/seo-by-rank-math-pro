@@ -103,7 +103,12 @@ class Image_Seo_Pro {
 	 * @return array
 	 */
 	public function maybe_exclude_image_vars( $args ) {
-		if ( empty( $args['classes'] ) || strpos( $args['classes'], 'rank-math-supports-variables' ) === false ) {
+		if ( empty( $args['classes'] ) ) {
+			return $args;
+		}
+
+		$classes = is_array( $args['classes'] ) ? $args['classes'] : explode( ' ', $args['classes'] );
+		if ( ! in_array( 'rank-math-supports-variables', $classes, true ) ) {
 			return $args;
 		}
 
