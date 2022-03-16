@@ -1,6 +1,6 @@
-#SEO Rank Math Pro
+# SEO Rank Math Pro
 
-##Install Plugin
+## Install Plugin
 To install the plugin, download this repository via the zip archive and install it in the wordpress console as a regular plugin
 
 If you want to use a composer, then use:
