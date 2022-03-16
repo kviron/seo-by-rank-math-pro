@@ -8,7 +8,7 @@ If you want to use a composer, then use:
 composer require kviron/seo-by-rank-math-pro
 ```
 
-or add composer to the file.json string
+or add in composer.json file 
 
 ```
 "kviron/seo-by-rank-math-pro": "3.0.8"
