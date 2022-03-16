@@ -14,7 +14,7 @@ use RankMath\Helper;
 use RankMath\Traits\Hooker;
 use RankMath\Analytics\Stats;
 use MyThemeShop\Helpers\Param;
-use MyThemeShop\Helpers\Arr;
+use MyThemeShop\Helpers\DB as DB_Helper;
 
 
 // Analytics.
@@ -59,6 +59,7 @@ class Analytics {
 		$this->filter( 'rank_math/analytics/pre_filter_data', 'filter_winning_keywords', 10, 3 );
 		$this->action( 'cmb2_save_options-page_fields_rank-math-options-general_options', 'sync_global_settings', 25, 2 );
 		$this->filter( 'rank_math/metabox/post/values', 'add_metadata', 10, 2 );
+		$this->filter( 'rank_math/analytics/date_exists_tables', 'date_exists_tables', 10 );
 
 		if ( Helper::has_cap( 'analytics' ) ) {
 			$this->action( 'rank_math/admin_bar/items', 'admin_bar_items', 11 );
@@ -72,6 +73,7 @@ class Analytics {
 		new Summary();
 		new Ajax();
 		new Email_Reports();
+		new Url_Inspection();
 	}
 
 	/**
@@ -98,6 +100,7 @@ class Analytics {
 		Helper::add_json( 'isLinkModuleActive', Helper::is_module_active( 'link-counter' ) );
 		Helper::add_json( 'isSchemaModuleActive', Helper::is_module_active( 'rich-snippet' ) );
 		Helper::add_json( 'isAnalyticsConnected', \RankMath\Google\Analytics::is_analytics_connected() );
+		Helper::add_json( 'dateFormat', get_option( 'date_format' ) );
 
 		$preference['topKeywords']['ctr']    = false;
 		$preference['topKeywords']['ctr']    = false;
@@ -194,6 +197,7 @@ class Analytics {
 				'wp-date',
 				'wp-html-entities',
 				'wp-api-fetch',
+				'rank-math-analytics',
 			],
 			rank_math_pro()->version,
 			true
@@ -621,5 +625,18 @@ class Analytics {
 		$data = array_slice( $data, $args['offset'], $args['perpage'], true );
 
 		return $data;
+	}
+
+	/**
+	 * Extend the date_exists() function to include the additional tables.
+	 *
+	 * @param  string $tables Tables.
+	 * @return string
+	 */
+	public function date_exists_tables( $tables ) {
+		$tables['analytics'] = DB_Helper::check_table_exists( 'rank_math_analytics_ga' ) ? 'rank_math_analytics_ga' : '';
+		$tables['adsense']   = DB_Helper::check_table_exists( 'rank_math_analytics_adsense' ) ? 'rank_math_analytics_adsense' : '';
+
+		return $tables;
 	}
 }

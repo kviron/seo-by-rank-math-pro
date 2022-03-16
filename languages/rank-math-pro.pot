@@ -1,4 +1,4 @@
-# Copyright (C) 2021 rank-math-pro
+# Copyright (C) 2022 rank-math-pro
 # This file is distributed under the same license as the rank-math-pro package.
 msgid ""
 msgstr ""
@@ -54,6 +54,9 @@ msgstr ""
 msgid "Please activate Schema & Sitemap module to use this module."
 msgstr ""
 
+msgid "Random Word"
+msgstr ""
+
 msgid "Persistent random word chosen from a list"
 msgstr ""
 
@@ -61,6 +64,12 @@ msgid "Non-persistent random word chosen from a list. A new random word will be 
 msgstr ""
 
 msgid "Off"
+msgstr ""
+
+msgid "Default Thumbnail Watermark"
+msgstr ""
+
+msgid "Select the default watermark that will be applied if no specific watermark is selected."
 msgstr ""
 
 msgid "Custom Image Watermarks"
@@ -79,12 +88,6 @@ msgid "Add Image"
 msgstr ""
 
 msgid "Name*"
-msgstr ""
-
-msgid "Default Thumbnail Watermark"
-msgstr ""
-
-msgid "Select the default watermark that will be applied if no specific watermark is selected."
 msgstr ""
 
 msgid "A Custom Watermark item could not be saved because the name field is empty."
@@ -928,6 +931,27 @@ msgid "Sorry, no record id found."
 msgstr ""
 
 msgid "Sorry, no post id found."
+msgstr ""
+
+msgid "Submitted and indexed"
+msgstr ""
+
+msgid "URL is unknown to Google"
+msgstr ""
+
+msgid "Crawled - currently not indexed"
+msgstr ""
+
+msgid "Discovered - currently not indexed"
+msgstr ""
+
+msgid "Indexed, not submitted in sitemap"
+msgstr ""
+
+msgid "Submitted URL marked ‘noindex’"
+msgstr ""
+
+msgid "Duplicate, submitted URL not selected as canonical"
 msgstr ""
 
 msgid "Mark Unsolved."
@@ -2648,6 +2672,9 @@ msgid "Appearance Author"
 msgstr ""
 
 msgid "Appearance Published Date"
+msgstr ""
+
+msgid "Alternate Name"
 msgstr ""
 
 msgid "Reference Web page "

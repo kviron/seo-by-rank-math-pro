@@ -12,9 +12,10 @@ namespace RankMathPro\Admin;
 
 use RankMath\Helper;
 use RankMath\Traits\Hooker;
-use MyThemeShop\Helpers\Param;
 use RankMath\Admin\Admin_Helper;
 use RankMathPro\Admin\Admin_Helper as ProAdminHelper;
+use MyThemeShop\Helpers\Param;
+use MyThemeShop\Helpers\Arr;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -127,8 +128,8 @@ class Quick_Edit {
 		}
 
 		$canonical       = get_metadata( $object_type, $object_id, 'rank_math_canonical_url', true );
-		$focus_keywords  = get_metadata( $object_type, $object_id, 'rank_math_focus_keyword', true );
-		$primary_keyword = array_map( 'trim', explode( ',', $focus_keywords ) )[0];
+		$focus_keywords  = Arr::from_string( get_metadata( $object_type, $object_id, 'rank_math_focus_keyword', true ) );
+		$primary_keyword = ! empty( $focus_keywords ) ? $focus_keywords[0] : '';
 
 		$canonical_placeholder = '';
 		if ( 'post' === $object_type ) {
@@ -475,9 +476,9 @@ class Quick_Edit {
 				$field_value = esc_url_raw( $field_value );
 			} elseif ( 'focus_keyword' === $field ) {
 				$current_value = get_post_meta( $post_id, $field_name, true );
-				$current       = array_map( 'trim', explode( ',', $current_value ) );
-				$keywords      = array_map( 'trim', explode( ',', $field_value ) );
-				$current[0]    = $keywords[0];
+				$current       = Arr::from_string( $current_value );
+				$keywords      = Arr::from_string( $field_value );
+				$current[0]    = ! empty( $keywords ) ? $keywords[0] : '';
 				if ( '' === $current[0] ) {
 					array_shift( $current );
 				}
@@ -543,9 +544,9 @@ class Quick_Edit {
 				$field_value = esc_url_raw( $field_value );
 			} elseif ( 'focus_keyword' === $field ) {
 				$current    = get_term_meta( $term_id, $field_name, true );
-				$current    = array_map( 'trim', explode( ',', $current ) );
-				$keywords   = array_map( 'trim', explode( ',', $field_value ) );
-				$current[0] = $keywords[0];
+				$current    = Arr::from_string( $current );
+				$keywords   = Arr::from_string( $field_value );
+				$current[0] = ! empty( $keywords ) ? $keywords[0] : '';
 				if ( '' === $current[0] ) {
 					array_shift( $current );
 				}

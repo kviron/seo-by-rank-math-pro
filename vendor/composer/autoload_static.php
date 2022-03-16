@@ -37,6 +37,7 @@ class ComposerStaticInit0d9f807883abadeb2577675a9c386005
         'RankMathPro\\Analytics\\Posts' => __DIR__ . '/../..' . '/includes/modules/analytics/class-posts.php',
         'RankMathPro\\Analytics\\Rest' => __DIR__ . '/../..' . '/includes/modules/analytics/class-rest.php',
         'RankMathPro\\Analytics\\Summary' => __DIR__ . '/../..' . '/includes/modules/analytics/class-summary.php',
+        'RankMathPro\\Analytics\\Url_Inspection' => __DIR__ . '/../..' . '/includes/modules/analytics/class-url-inspection.php',
         'RankMathPro\\Analytics\\Workflow\\Adsense' => __DIR__ . '/../..' . '/includes/modules/analytics/workflows/class-adsense.php',
         'RankMathPro\\Analytics\\Workflow\\Analytics' => __DIR__ . '/../..' . '/includes/modules/analytics/workflows/class-analytics.php',
         'RankMathPro\\Analytics\\Workflow\\Jobs' => __DIR__ . '/../..' . '/includes/modules/analytics/workflows/class-jobs.php',

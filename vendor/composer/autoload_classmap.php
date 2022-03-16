@@ -36,6 +36,7 @@ return array(
     'RankMathPro\\Analytics\\Posts' => $baseDir . '/includes/modules/analytics/class-posts.php',
     'RankMathPro\\Analytics\\Rest' => $baseDir . '/includes/modules/analytics/class-rest.php',
     'RankMathPro\\Analytics\\Summary' => $baseDir . '/includes/modules/analytics/class-summary.php',
+    'RankMathPro\\Analytics\\Url_Inspection' => $baseDir . '/includes/modules/analytics/class-url-inspection.php',
     'RankMathPro\\Analytics\\Workflow\\Adsense' => $baseDir . '/includes/modules/analytics/workflows/class-adsense.php',
     'RankMathPro\\Analytics\\Workflow\\Analytics' => $baseDir . '/includes/modules/analytics/workflows/class-analytics.php',
     'RankMathPro\\Analytics\\Workflow\\Jobs' => $baseDir . '/includes/modules/analytics/workflows/class-jobs.php',

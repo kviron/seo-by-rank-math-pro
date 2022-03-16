@@ -21,6 +21,7 @@ use RankMath\Admin\Admin_Helper;
 use RankMathPro\Google\PageSpeed;
 use RankMath\SEO_Analysis\SEO_Analyzer;
 use RankMathPro\Analytics\DB;
+use MyThemeShop\Helpers\DB as DB_Helper;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -146,6 +147,16 @@ class Rest extends WP_REST_Controller {
 			[
 				'methods'             => WP_REST_Server::READABLE,
 				'callback'            => [ Posts::get(), 'get_posts_rows' ],
+				'permission_callback' => [ $this, 'has_permission' ],
+			]
+		);
+
+		register_rest_route(
+			$this->namespace,
+			'/inspectionStats',
+			[
+				'methods'             => WP_REST_Server::READABLE,
+				'callback'            => [ $this, 'get_inspection_stats' ],
 				'permission_callback' => [ $this, 'has_permission' ],
 			]
 		);
@@ -458,5 +469,27 @@ class Rest extends WP_REST_Controller {
 		$record = DB::objects()->where( 'id', $id )->one();
 
 		return \time() > ( \strtotime( $record->pagespeed_refreshed ) + ( DAY_IN_SECONDS * 7 ) );
+	}
+
+	/**
+	 * Get inspection stats.
+	 *
+	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
+	 */
+	public function get_inspection_stats() {
+		// Early Bail!!
+		if ( ! DB_Helper::check_table_exists( 'rank_math_analytics_inspections' ) ) {
+			return [
+				'presence' => [],
+				'status'   => [],
+			];
+		}
+
+		return rest_ensure_response(
+			[
+				'presence' => Url_Inspection::get_presence_stats(),
+				'status'   => Url_Inspection::get_status_stats(),
+			]
+		);
 	}
 }
