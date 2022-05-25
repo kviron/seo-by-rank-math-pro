@@ -349,7 +349,7 @@ class Image_Seo_Pro {
 		$attrs['alt'] = sprintf( __( 'Avatar of %s', 'rank-math-pro' ), $new_alt );
 		$attrs['alt'] = apply_filters( 'rank_math_pro/images/avatar_alt', $attrs['alt'], $id_or_email );
 
-		$new = '<img' . HTML::attributes_to_string( $attrs ) . '>';
+		$new = '<img' . HTML::attributes_to_string( $attrs ) . '/>';
 
 		// Change image title and alt casing.
 		$this->alt_change_case   = Helper::get_settings( 'general.img_alt_change_case' );

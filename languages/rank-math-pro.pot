@@ -8,6 +8,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: Rank Math\n"
 "Last-Translator: Rank Math\n"
+"POT-Creation-Date: 2022-05-19 07:51+0000\n"
+"Project-Id-Version: undefined\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -810,6 +812,12 @@ msgstr ""
 msgid "Analytics"
 msgstr ""
 
+msgid "Search Traffic:"
+msgstr ""
+
+msgid "Search Impression:"
+msgstr ""
+
 msgid "Logo"
 msgstr ""
 
@@ -931,27 +939,6 @@ msgid "Sorry, no record id found."
 msgstr ""
 
 msgid "Sorry, no post id found."
-msgstr ""
-
-msgid "Submitted and indexed"
-msgstr ""
-
-msgid "URL is unknown to Google"
-msgstr ""
-
-msgid "Crawled - currently not indexed"
-msgstr ""
-
-msgid "Discovered - currently not indexed"
-msgstr ""
-
-msgid "Indexed, not submitted in sitemap"
-msgstr ""
-
-msgid "Submitted URL marked ‘noindex’"
-msgstr ""
-
-msgid "Duplicate, submitted URL not selected as canonical"
 msgstr ""
 
 msgid "Mark Unsolved."
@@ -1077,6 +1064,12 @@ msgstr ""
 
 #. translators: KML File Url
 msgid "Your Locations KML file can be found here: %s"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Local Business"
 msgstr ""
 
 #. translators: Post Type Plural Name

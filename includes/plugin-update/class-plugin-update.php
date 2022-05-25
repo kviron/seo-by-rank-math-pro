@@ -145,7 +145,7 @@ class Plugin_Update {
 			return;
 		}
 
-		if ( Helper::is_site_connected() ) {
+		if ( Helper::is_site_connected() || rank_math()->registration->invalid ) {
 			return;
 		}
 		?>

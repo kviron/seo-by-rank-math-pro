@@ -409,7 +409,7 @@ class Quick_Edit {
 		foreach ( $post_ids as $post_id ) {
 			foreach ( $save_fields as $field ) {
 				$field_name  = 'rank_math_' . $field;
-				$field_value = $post_data[ $field_name ];
+				$field_value = isset( $post_data[ $field_name ] ) ? $post_data[ $field_name ] : '';
 				if ( is_string( $field_value ) ) {
 					$field_value = trim( $field_value );
 				}

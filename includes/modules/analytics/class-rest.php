@@ -130,6 +130,15 @@ class Rest extends WP_REST_Controller {
 				'permission_callback' => [ $this, 'has_permission' ],
 			]
 		);
+		register_rest_route(
+			$this->namespace,
+			'/deleteTrackedKeywords',
+			[
+				'methods'             => WP_REST_Server::CREATABLE,
+				'callback'            => [ $this, 'delete_all_tracked_keywords' ],
+				'permission_callback' => [ $this, 'has_permission' ],
+			]
+		);
 
 		register_rest_route(
 			$this->namespace,
@@ -274,7 +283,7 @@ class Rest extends WP_REST_Controller {
 
 		$keywords_data = [];
 		foreach ( $focus_keywords as $focus_keyword ) {
-			$keywords = explode( ',', $focus_keyword );
+			$keywords = explode( ',', mb_strtolower( $focus_keyword ) );
 			if ( $secondary_keyword ) {
 				$keywords_data = array_merge( $keywords, $keywords_data );
 			} else {
@@ -297,6 +306,7 @@ class Rest extends WP_REST_Controller {
 	 */
 	public function add_track_keyword( WP_REST_Request $request ) {
 		$keywords = $request->get_param( 'keyword' );
+		$keywords = mb_strtolower( filter_var( $keywords, FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_FLAG_NO_ENCODE_QUOTES ) );
 		if ( empty( $keywords ) ) {
 			return new WP_Error(
 				'param_value_empty',
@@ -368,6 +378,28 @@ class Rest extends WP_REST_Controller {
 	}
 
 	/**
+	 * Delete all the manually tracked keywords.
+	 */
+	public function delete_all_tracked_keywords() {
+
+		// Delete all keywords.
+		Keywords::get()->delete_all_tracked_keywords();
+
+		$registered = Admin_Helper::get_registration_data();
+		if ( empty( $registered['username'] ) || empty( $registered['api_key'] ) ) {
+			return false;
+		}
+
+		// Send total keywords count as 0 to RankMath.
+		$response = \RankMathPro\Admin\Api::get()->keywords_info( $registered['username'], $registered['api_key'], 0 );
+		if ( $response ) {
+			update_option( 'rank_math_keyword_quota', $response );
+		}
+
+		return true;
+	}
+
+	/**
 	 * Check if keyword can be added.
 	 *
 	 * @param  string $keywords Comma separated keywords.
@@ -408,8 +440,6 @@ class Rest extends WP_REST_Controller {
 			);
 		}
 
-		$force = \boolval( $request->get_param( 'force' ) );
-
 		if ( Helper::is_localhost() ) {
 			return [
 				'page_score'          => 0,
@@ -422,11 +452,14 @@ class Rest extends WP_REST_Controller {
 		}
 
 		$url = get_permalink( $post_id );
-		$pre = apply_filters( 'rank_math/analytics/pre_pagespeed', false, $post_id, $force );
+		$pre = apply_filters( 'rank_math/analytics/pre_pagespeed', false, $post_id, $request );
 		if ( false !== $pre ) {
 			return $pre;
 		}
-		if ( $force || $this->should_update_pagespeed( $id ) ) {
+
+		$force        = \boolval( $request->get_param( 'force' ) );
+		$is_admin_bar = \boolval( $request->get_param( 'isAdminBar' ) );
+		if ( $force || ( ! $is_admin_bar && $this->should_update_pagespeed( $id ) ) ) {
 			// Page Score.
 			$analyzer = new SEO_Analyzer();
 			$score    = $analyzer->get_page_score( $url );

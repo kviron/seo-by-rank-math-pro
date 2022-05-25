@@ -9,7 +9,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Rank Math SEO PRO
- * Version:           3.0.8
+ * Version:           3.0.12
  * Plugin URI:        https://rankmath.com/wordpress/plugin/seo-suite/
  * Description:       Super-charge your website’s SEO with the Rank Math PRO options like Site Analytics, SEO Performance, Custom Schema Templates, News/Video Sitemaps, etc.
  * Author:            Rank Math
@@ -23,8 +23,6 @@
 use RankMath\Helper;
 use MyThemeShop\Helpers\Param;
 use MyThemeShop\Helpers\Conditional;
-
-defined( 'ABSPATH' ) || exit;
 
 add_filter( 'rank_math/admin/sensitive_data_encryption', '__return_false' );
 
@@ -66,6 +64,8 @@ add_action( 'init', function() {
      }, 10, 3 );
 } );
 
+defined( 'ABSPATH' ) || exit;
+
 /**
  * RankMath class.
  *
@@ -78,14 +78,14 @@ final class RankMathPro {
 	 *
 	 * @var string
 	 */
-	public $version = '3.0.8';
+	public $version = '3.0.12';
 
 	/**
 	 * Minimum version of Rank Math SEO.
 	 *
 	 * @var string
 	 */
-	public $rank_math_min_version = '1.0.84';
+	public $rank_math_min_version = '1.0.89';
 
 	/**
 	 * Holds various class instances
@@ -235,7 +235,6 @@ final class RankMathPro {
 	 */
 	public function auto_deactivate() {
 		deactivate_plugins( plugin_basename( __FILE__ ) );
-		// phpcs:disable
 		if ( isset( $_GET['activate'] ) ) {
 			unset( $_GET['activate'] );
 		}
@@ -451,7 +450,7 @@ final class RankMathPro {
 	 * @return boolean Whether we are in the process of updating the plugin or not.
 	 */
 	public function is_free_version_being_updated() {
-		$action = isset( $_POST['action'] ) && $_POST['action'] != -1 ? $_POST['action'] : '';
+		$action  = isset( $_POST['action'] ) && $_POST['action'] != -1 ? $_POST['action'] : '';
 		$plugins = isset( $_POST['plugin'] ) ? (array) $_POST['plugin'] : [];
 		if ( empty( $plugins ) ) {
 			$plugins = isset( $_POST['plugins'] ) ? (array) $_POST['plugins'] : [];

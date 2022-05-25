@@ -156,7 +156,7 @@ class ACF {
 					continue;
 				}
 
-				$content .= $value[ $layout['name'] ];
+				$content .= is_array( $value ) && ! empty( $value[ $layout['name'] ] ) ? $value[ $layout['name'] ] : '';
 			}
 		}
 	}
